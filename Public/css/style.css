@@ -1,0 +1,220 @@
+@CHARSET "UTF-8";
+
+.gray{     color:#999; }
+
+body { padding-top: 60px;
+        padding-bottom: 40px; }
+/**--------template----------**/
+/** nav **/
+#msgs_count{
+	display:block;
+}
+#msgbox_head{
+	position: absolute;
+	z-index:100;
+}
+#msgbox_head_img{
+	width:20px;
+	height:15px;
+}
+#msgbox{
+	position: absolute;
+	padding: 8px;
+	background-color: white;
+	border:1px solid #ddd;
+	width:150px;
+	height:auto;
+	border-radius: 5px;
+	z-index:99;
+}
+
+.blog-sidebar{
+	/**margin:0 0 0 0;*/
+	padding:0 0 50px 20px;
+}
+.blog-sidebar li{
+	text-indent:1em;
+}
+/**	sidebar	**
+.sidebar{
+	
+	background: #EEE; padding: 20px; 
+	border-top:1px solid #ccc;
+	border-bottom:1px solid #ccc; 
+	margin:0 -5pt 0 0;
+	z-index: 4;
+}**/
+/*** back2top ***/
+/*默认样式，主要是position:fixed实现屏幕绝对定位*/
+#gotoTop{
+	display:none;
+	position:fixed;
+	top:75%;
+	left:45%;
+	cursor:pointer;
+	margin-top:-50px;
+	margin-left:520px;
+	padding:9px 4px;
+	height:50px;
+	width:50px;
+	text-align:center;
+	/**border:1px solid #e0e0e0;**/
+	background:#FFF;}
+/*用CSS表达式(expression)来实现ie6下position:fixed效果*/
+#gotoTop{
+	_position:absolute;
+	_top:expression(documentElement.scrollTop + documentElement.clientHeight * 3/4 + "px")
+}
+/*鼠标进入的反馈效果*/
+#gotoTop.hover{
+	background:#FFF;
+	color:#fff;
+	text-decoration:none;
+}
+
+/*上圆角框通用设置样式，如果要运用多个不同颜色，以下6句不用重新变化--------------------------------*/
+.b1,.b2,.b3,.b4,.b5,.b6,.b7,.b8{height:1px; font-size:1px; overflow:hidden; display:block;}
+.b1,.b8{margin:0 5px;}
+.b2,.b7{margin:0 3px;border-right:2px solid; border-left:2px solid;}
+.b3,.b6{margin:0 2px;border-right:1px solid; border-left:1px solid;}
+.b4,.b5{margin:0 1px;border-right:1px solid; border-left:1px solid; height:2px;}
+.content {border-right:1px solid;border-left:1px solid;overflow:hidden;}
+/*颜色方案一,蓝色边框----------------------------------------*/
+/*下面第一、二句决定边框颜色，第三句决定背景颜色*/
+/*边框色*/
+.color1 .b2,.color1 .b3,.color1 .b4,.color1 .b5,.color1 .b6,.color1 .b7,.color1 .content{border-color:#FFF;}
+.color1 .b1,.color1 .b8{background:#FFF;}
+/*背景色*/
+.color1 .b2,.color1 .b3,.color1 .b4,.color1 .b5,.color1 .b6,.color1 .b7,.color1 .content{background:#EEE;}
+
+/** footer **/
+.footer_box {
+	margin:0 0 0 0;
+	padding: 3% 0 3% 0;
+	border-top:1px solid #ccc;
+}
+
+/**------------INDEX-----------**/
+/** logo  **/
+.logo{
+	padding:0 0 1% 0;
+	margin:0 0 5% 0;
+}
+.logo_text { font-family: Arial, Helvetica, "黑体";
+	margin:4% 1% 1% 4%; font-size:40pt; font-weight:normal; line-height:100%;
+	text-indent:1em;
+}
+.logo_text a {  }
+.logo_text a:hover {  text-decoration:none; }
+.site_description { 
+	font-size:13px; display:block;
+	border-top:1px solid #bbb; font-weight:normal;
+	margin:0 4%; padding:5px 0 0 0; color:#888;
+	text-align: right;
+	/*text-indent:25em;*/
+}
+
+/*
+#logo_image { position:absolute; margin:0; padding:0; line-height:100%; }
+*/
+
+
+
+/* post of each one */
+.post {
+	border-bottom:1px double #ccc;
+	margin: 0 0 0 -3%;
+}
+.post h1,.post h2, .post h3, .post h4, .post h5, .post h6 { line-height:160%; margin:0 0 20px 0; }
+
+
+/* post title */
+.post .title { 
+	font-size:24px; font-weight:normal; background:url(../img/title300.png) no-repeat left 45px; display:block; line-height:140%; 
+}
+.post .title a,.post .title span {
+	display:block; margin:0 0 0 0; 
+	padding:20pt 4% 0 4%; text-decoration:none; color:#666;
+}
+.post .title a:hover { text-decoration:underline; }
+/* post content */
+
+.post_readmore { padding:3pt 0 2pt 0; }
+
+/* post comment */
+#commanchor {
+    position: relative;
+    top: -44px; /* 偏移值 */
+    display: block;
+    height: 0;
+    overflow: hidden;
+}
+
+.comment{
+	border:1px solid #ccc;
+	padding:2%;
+	margin:2% 0;
+}
+.comemnt_meta{	
+}
+.comment_title{
+	float:left;
+	width:70%;
+	/*display:inline;*/
+}
+.comment_replay{
+	float:left;
+	text-align:right;
+	width:29%;
+	padding:10px 10px 0 0;
+	margin:0 0;
+	/*display:inline;
+	/*position: relative;
+	right:100px;
+	/*clear: both;*/
+}
+.comment_content{
+	margin:60px 0 0 0;
+}
+.replay_comment{
+	padding: 2%;
+	border:1px solid #ccc;
+	margin: 2% 0;
+}
+
+
+/* ---------- clearfix hack ---------- */
+.clearfix:after { content: "."; display:block; clear:both; height:0; font-size:0.1em; line-height:0; visibility:hidden; overflow:hidden; }
+.clearfix { display: inline-block; }
+/* exlude MacIE5 \*/
+* html .clearfix { height:1% }
+.clearfix {display:block;}
+/* end MacIE5 */
+
+.error_box{
+	padding:10px 0 10px 50px;
+}
+.error_msg{
+	color:red;
+	padding:0 0 0 20px;
+}
+
+
+/**-----------Term admin--------------**/
+/*.inline,.hide-if-no-js{visibility:hidden}
+
+.row-actions span.delete a,.row-actions span.spam a,.row-actions span.trash a,.submitbox .submitdelete{color:#a00}
+
+.row-actions{
+	visibility:hidden
+}
+.term_operate{  visibility:hidden; }
+
+.placeholder{ visibility:hidden;}
+*/
+
+
+
+
+
+

@@ -22,8 +22,10 @@ defined('THINK_PATH') or exit();
 return  array(
     /* 应用设定 */
     'APP_USE_NAMESPACE'     =>  true,    // 应用类库是否使用命名空间
-    'APP_SUB_DOMAIN_DEPLOY' =>  false,   // 是否开启子域名部署
-    'APP_SUB_DOMAIN_RULES'  =>  array(), // 子域名部署规则
+    'APP_SUB_DOMAIN_DEPLOY' =>  true,   // 是否开启子域名部署
+    'APP_SUB_DOMAIN_RULES'  =>  array(
+        'www.sport.com'  => 'Home',
+    ), // 子域名部署规则
     'APP_DOMAIN_SUFFIX'     =>  '', // 域名后缀 如果是com.cn net.cn 之类的后缀必须设置    
     'ACTION_SUFFIX'         =>  '', // 操作方法后缀
     'MULTI_MODULE'          =>  true, // 是否允许多模块 如果为false 则必须设置 DEFAULT_MODULE
@@ -118,8 +120,8 @@ return  array(
     'TMPL_CACHFILE_SUFFIX'  =>  '.php',      // 默认模板缓存后缀
     'TMPL_DENY_FUNC_LIST'   =>  'echo,exit',    // 模板引擎禁用函数
     'TMPL_DENY_PHP'         =>  false, // 默认模板引擎是否禁用PHP原生代码
-    'TMPL_L_DELIM'          =>  '{',            // 模板引擎普通标签开始标记
-    'TMPL_R_DELIM'          =>  '}',            // 模板引擎普通标签结束标记
+    'TMPL_L_DELIM'          =>  '{{',            // 模板引擎普通标签开始标记
+    'TMPL_R_DELIM'          =>  '}}',            // 模板引擎普通标签结束标记
     'TMPL_VAR_IDENTIFY'     =>  'array',     // 模板变量识别。留空自动判断,参数为'obj'则表示对象
     'TMPL_STRIP_SPACE'      =>  true,       // 是否去除模板文件里面的html空格与换行
     'TMPL_CACHE_ON'         =>  true,        // 是否开启模板编译缓存,设为false则每次都会重新编译
@@ -143,7 +145,7 @@ return  array(
     'URL_PATHINFO_DEPR'     =>  '/',	// PATHINFO模式下，各参数之间的分割符号
     'URL_PATHINFO_FETCH'    =>  'ORIG_PATH_INFO,REDIRECT_PATH_INFO,REDIRECT_URL', // 用于兼容判断PATH_INFO 参数的SERVER替代变量列表
     'URL_REQUEST_URI'       =>  'REQUEST_URI', // 获取当前页面地址的系统变量 默认为REQUEST_URI
-    'URL_HTML_SUFFIX'       =>  'html',  // URL伪静态后缀设置
+    'URL_HTML_SUFFIX'       =>  '',  // URL伪静态后缀设置
     'URL_DENY_SUFFIX'       =>  'ico|png|gif|jpg', // URL禁止访问的后缀设置
     'URL_PARAMS_BIND'       =>  true, // URL变量绑定到Action方法参数
     'URL_PARAMS_BIND_TYPE'  =>  0, // URL变量绑定的类型 0 按变量名绑定 1 按变量顺序绑定
