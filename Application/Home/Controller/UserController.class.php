@@ -22,12 +22,20 @@ class UserController extends Controller {
       $data['username'] = I('param.reg_username');
       $data['password'] = I('param.reg_password');
       $data['email'] = I('param.reg_email');
-      $redis = new \Org\Util\TpRedis;
-      $data['uid'] = $redis->get('uid');
+      
       $err = '';
         //register valicate
       if (!$user->create($data)){ 
         $err = $user->getError();
+      }else{
+        $redis = new \Org\Util\TpRedis;
+        $data['uid'] = $redis->incr('uid');
+        $redis->close();
+        $data['create_time'] = date('Y-m-d H:i:s',time());
+        $data['user_status'] = 0;
+        $data['permission'] = 'N';
+        $data['credit'] = 0;
+        $user->add($data);
       }
       
       if(strlen($err)>0){
@@ -38,15 +46,59 @@ class UserController extends Controller {
         $this->display('regist');
       }else{
         $this->assign('next_url',U('Activity/index'));
-        $this->display('regist_success');
-        //$this->redirect('');
+        $this->assign('msg','注册成功');
+        $this->display('public/success');
       }
-      
     }
     return;
   }
 
-  public function doregist(){
+  public function login(){
+    //echo "method:".I('param.method','page');    
+    if( I('param.method','page')==='page' ){
+      //$value = session('name');
+      $this->assign('title','登录');
+      $this->display();
+    }else{
+      $user = D('User');
+      $data['password'] = I('param.login_password');
+      $data['email'] = I('param.login_email');
+      $chk_res = $user->login_check( $data['email'],$data['password']);
+      if( strlen( $chk_res ) >0 ){//验证失败
+        $err = $chk_res;
+      }else{
+        //$res = $user->where("password='%s' AND email='%s'", array($data['password'] ,$data['email'] ))->getField('uid,username',1);
+        $res = $user->field('uid,username,permission')->where("password='%s' AND email='%s' AND status>6", array($data['password'] ,$data['email']))->limit(1)->select();
+        if(is_null($res) ){
+          $err='密码错误！';
+        }else{
+          $json = json_encode($res[0]);
+          echo $json;
+          //print_r($res);
+          //set session cookie
+          //$sess_user = new stdClass;
+          //$sess_user->uid = $res
+          return;
+          session('user','ss');
+        }
+      }
+      
+      if(strlen($err)>0){
+        $this->assign('login_email_save', $data['email'] );
+        $this->assign('login_pass_save', $data['password']);
+        $this->assign('title','登录');
+        $this->assign('err',$err);
+        $this->display();
+      }else{
+        //$this->assign('next_url',U('Activity/index'));
+        // $this->display('public/success');
+        $this->redirect('Activity/index');
+      }
+      
+    }//end of do login
+    return;
+  }
+
     	//echo U('Public/bower_components/jquery/dist/jquery.min.js');
    
     	// $user->username = 'sdff';
@@ -75,5 +127,5 @@ class UserController extends Controller {
   		//$redis = new \Org\Util\TPRedis;
   //   	//print_r($res);
     	//$this->show('register');
-  }
+
 }

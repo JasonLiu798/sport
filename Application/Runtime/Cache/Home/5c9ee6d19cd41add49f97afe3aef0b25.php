@@ -157,28 +157,38 @@ console.log('user:'+{{Session::get('user')}});
 			</div><!-- collapse -->
 		</div><!-- container -->
 	</div><!-- navbar --> 
-
 <link rel="stylesheet" href="<?php echo U('Public/css/user.css');?>">
-<div class="container" id="reg_div" >
-	<form action='<?php echo U('user/regist');?>' method='post' id="register_form" class="form-signin" role="form">
-    <input type="hidden" name="method" value="do"/>
-		<div class="form_head">
-			<div class ="form_title" id="form_title"><h3>注册</h3></div>
-			<div class ="change_link" id="change_link"><h3><a href="<?php echo U('user/login');?>" id="login_form_show">登录</a></h3></div>
-		</div>
-        <input type="email"    name="reg_email" id="reg_email" class="form-control" value="<?php echo(isset($reg_email_save)?$reg_email_save:''); ?>" placeholder="邮箱" required autofocus>
-        <input type="username" name="reg_username" id="reg_username" class="form-control" value="<?php echo(isset($reg_username_save)?$reg_username_save:''); ?>" placeholder="用户名" required>
-        <input type="password" name="reg_password" id="reg_password" class="form-control" placeholder="密码" required>
+
+<div class="container" id="login_div">
+    <form action='<?php echo U('user/login');?>' method='post' id="login_form" class="form-signin" role="form">
+        <input type="hidden" name="method" value="do"/>
+        <div class="form_head">
+            <div class ="form_title"><h3>登录</h3></div>
+            <div class ="change_link"><h3><a href="<?php echo U('user/regist');?>" id="reg_form_show">注册</a></h3></div>
+        </div>
+        <input type="email"     name="login_email" id="login_email" class="form-control" value="<?php echo isset($login_email_save)?$login_email_save:''; ?>" placeholder="邮箱" required autofocus> 
+        <input type="password"  name="login_password" id="login_password" class="form-control" value="<?php echo isset($login_pass_save)?$login_pass_save:''; ?>" placeholder="密码" required>
+
+        <div class="form_bottom">
+            <div class="bottom_left">
+              <label>
+                <input type="checkbox" name="remember" value="remember" 
+                <?php if($checked==='Y'): ?>checked="checked"<?php endif; ?> 
+                />&nbsp;记住我
+              </label>
+            </div>
+            <div class="bottom_right"><a href="#">忘记密码？</a></div>
+        </div>
+
+        <?php if(isset($err)): ?><div class="alert alert-danger" role="alert">
+                <ul>
+                    <li><?php echo ($err); ?></li>
+               </ul>
+           </div><?php endif; ?>
         
-      <?php if(isset($err)): ?><div class="alert alert-danger" role="alert">
-        <ul>
-   		   		<li><?php echo ($err); ?></li>
-   		   </ul>
-    	   </div><?php endif; ?>
-    	
-    	<button class="btn btn-lg btn-primary btn-block" type="submit">注册</button>
-	</form>
-</div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">登录</button>
+    </form>
+</div> <!-- /container -->
 
 
 

@@ -157,29 +157,14 @@ console.log('user:'+{{Session::get('user')}});
 			</div><!-- collapse -->
 		</div><!-- container -->
 	</div><!-- navbar --> 
-
-<link rel="stylesheet" href="<?php echo U('Public/css/user.css');?>">
-<div class="container" id="reg_div" >
-	<form action='<?php echo U('user/regist');?>' method='post' id="register_form" class="form-signin" role="form">
-    <input type="hidden" name="method" value="do"/>
-		<div class="form_head">
-			<div class ="form_title" id="form_title"><h3>注册</h3></div>
-			<div class ="change_link" id="change_link"><h3><a href="<?php echo U('user/login');?>" id="login_form_show">登录</a></h3></div>
-		</div>
-        <input type="email"    name="reg_email" id="reg_email" class="form-control" value="<?php echo(isset($reg_email_save)?$reg_email_save:''); ?>" placeholder="邮箱" required autofocus>
-        <input type="username" name="reg_username" id="reg_username" class="form-control" value="<?php echo(isset($reg_username_save)?$reg_username_save:''); ?>" placeholder="用户名" required>
-        <input type="password" name="reg_password" id="reg_password" class="form-control" placeholder="密码" required>
-        
-      <?php if(isset($err)): ?><div class="alert alert-danger" role="alert">
-        <ul>
-   		   		<li><?php echo ($err); ?></li>
-   		   </ul>
-    	   </div><?php endif; ?>
-    	
-    	<button class="btn btn-lg btn-primary btn-block" type="submit">注册</button>
-	</form>
+<div class="container">
+    <div class="row">
+        <div class="col-offset-1">
+            <h3>成功！</h3>
+            <?php echo ($msg); ?>
+        </div>
+    </div>
 </div>
-
 
 
 <div class="container col-md-12">

@@ -5,8 +5,8 @@ use Think\Model;
 
 
 class ActivityModel extends Model {
-    protected $tableName = 'sportactivity';
-    protected $pk     = 'said';
+    protected $tableName = 'activity';
+    protected $pk     = 'aid';
 
 
 }

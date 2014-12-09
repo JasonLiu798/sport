@@ -3,28 +3,25 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	@section('title')
 	<title>{{$title}}</title>
-	@show
-	{{ HTML::script('js/lib/jquery-1.11.1.js') }}
-	{{ HTML::script('js/lib/jquery-plugin.js') }}
-	{{ HTML::script('bootstrap/js/bootstrap.js') }}
-	{{ HTML::script('js/lib/tool.js') }}
-	{{ HTML::style('bootstrap/css/bootstrap.css') }}
-    {{ HTML::style('css/style.css') }}
+	<script src="{{:U('Public/bower_components/jquery/dist/jquery.min.js')}}"></script>
+	<script src="{{:U('Public/bower_components/bootstrap/dist/js/bootstrap.min.js')}}"></script>
+	<link rel="stylesheet" href="{{:U('Public/bower_components/bootstrap/dist/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{:U('Public/css/style.css')}}">
     
     <script src="http://localhost:3000/socket.io/socket.io.js"></script>
-	@if (! empty ( $next_url ))
+	<if condition="isset($next_url)">
 		<META HTTP-EQUIV="REFRESH" CONTENT="100;URL={{$next_url}}?>" />
-	@endif
+	</if>
 
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 	<!--[if lt IE 9]>
-		{{ HTML::script('bootstrap/js/html5shiv.min.js') }}
-		{{ HTML::script('bootstrap/js/respond.min.js') }}
+		<script src="{{:U('bootstrap/js/html5shiv.min.js')}}"></script>
+		<script src="{{:U('bootstrap/js/respond.min.js')}}"></script>
 	<![endif]-->
 <script type="text/javascript">
+/*
 	$(document).ready(function(){
 		@if( !is_null(Session::get('user')) )
 			var msgs_x = 0;//$('#msgs_item').offset().top;
@@ -91,7 +88,7 @@ console.log('user:'+{{Session::get('user')}});
         else 
             e.cancelBubble = true;
     }
-    
+    */
 // 	$(window).resize(function(){
 // 		$('#msgbox').css("left",msgs_count_y+msgs_count_width/2-msgbox_width/2);
 // 		$('#msgbox').css("top",msgs_count_x+msgs_count_height);
@@ -106,21 +103,21 @@ console.log('user:'+{{Session::get('user')}});
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle collapsed"
 					data-toggle="collapse" data-target=".navbar-collapse">
-					<span class="sr-only">Async Blog</span> <span class="icon-bar"></span>
+					<span class="sr-only">Sport.com</span> <span class="icon-bar"></span>
 					<span class="icon-bar"></span> <span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="{{url()}}/index">Async Blog</a>
+				<a class="navbar-brand" href="{{:U('index')}}">Sport.com</a>
 			</div>
 			<!-- end of navbar-header -->
 
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
-					<li class="active"><a href="{{url()}}/index">主页</a></li>
+					<li><a href="{{:U()}}">主页</a></li>
 					<li><a href="#">关于</a></li>
 					
-					@if( !empty( $username ) )
+					<if condition="!empty( $username )">
 						<li><a href="#" id="msgs_item">消息<span class="badge" id="msgs_count_badge"></span></a></li>
-						<div id="msgbox_head"><img id="msgbox_head_img" src="{{url()}}/img/tri.png" /></div>
+						<div id="msgbox_head"><img id="msgbox_head_img" src="{{:U('img/tri.png')}}"/></div>
 						<div id="msgbox">
 						新评论x条
 							<!--<ul class="list-group">
@@ -128,7 +125,7 @@ console.log('user:'+{{Session::get('user')}});
 							   <li class="list-group-item">Dapibus ac facilisis in</li> 
 							</ul>-->
 						</div>
-					@endif
+					</if>
 					
 					
 					<li><form class="navbar-form">
@@ -139,30 +136,30 @@ console.log('user:'+{{Session::get('user')}});
 				
 				<ul class="nav navbar-nav navbar-right">
 						
-					@if( empty( $username ) ) 
+					<if condition="empty( $username )">
 					<li><input type="button" class="btn btn-default navbar-btn"
-						onclick="javascript:window.location.href='{{url()}}/user/register';"
+						onclick="javascript:window.location.href='{{:U('user/regist')}}';"
 						value="注册" /></li>
 					<li>&nbsp;&nbsp;&nbsp;</li>
-					@endif
+					</if>
 						
-					@if( !empty( $username ) )
+					<if condition="!empty( $username )">
 						<li class="dropdown">
-					@else
+					<else />
 						<li>
-					@endif
+					</if>
 					
-					@if( empty( $username ) ) 
-						<input type="button" class="btn btn-default navbar-btn" onclick="javascript:window.location.href='{{url()}}/user/login/page';" value="登录" />
-					@else
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ $username }}<b class="caret"></b></a>
+					<if condition="empty( $username )">
+						<input type="button" class="btn btn-default navbar-btn" onclick="javascript:window.location.href='{{:U('user/login')}}';" value="登录" />
+					<else />
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">{{$username}}<b class="caret"></b></a>
 						<ul class="dropdown-menu">
-							<li><a href="{{url()}}">文章管理</a></li>
+							<li><a href="{{:U()}}">文章管理</a></li>
 							<li><a href="#">设置</a></li>
 							<li class="divider"></li>
-							<li><a href="{{url()}}/user/logout">退出</a></li>
+							<li><a href="{{:U('user/logout')}}">退出</a></li>
 						</ul>
-					@endif
+					</if>
 						</li>
 					
 					<!-- <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li> -->

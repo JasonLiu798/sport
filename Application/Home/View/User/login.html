@@ -1,0 +1,40 @@
+<include file="./Application/Home/View/public/header.html" /> 
+<link rel="stylesheet" href="{{:U('Public/css/user.css')}}">
+
+<div class="container" id="login_div">
+    <form action='{{:U('user/login')}}' method='post' id="login_form" class="form-signin" role="form">
+        <input type="hidden" name="method" value="do"/>
+        <div class="form_head">
+            <div class ="form_title"><h3>登录</h3></div>
+            <div class ="change_link"><h3><a href="{{:U('user/regist')}}" id="reg_form_show">注册</a></h3></div>
+        </div>
+        <input type="email"     name="login_email" id="login_email" class="form-control" value="<php> echo isset($login_email_save)?$login_email_save:'';</php>" placeholder="邮箱" required autofocus> 
+        <input type="password"  name="login_password" id="login_password" class="form-control" value="<php> echo isset($login_pass_save)?$login_pass_save:'';</php>" placeholder="密码" required>
+
+        <div class="form_bottom">
+            <div class="bottom_left">
+              <label>
+                <input type="checkbox" name="remember" value="remember" 
+                <if condition="$checked==='Y'" >
+                    checked="checked" 
+                </if> 
+                />&nbsp;记住我
+              </label>
+            </div>
+            <div class="bottom_right"><a href="#">忘记密码？</a></div>
+        </div>
+
+        <if condition="isset($err)">
+            <div class="alert alert-danger" role="alert">
+                <ul>
+                    <li>{{$err}}</li>
+               </ul>
+           </div>
+        </if>
+        
+        <button class="btn btn-lg btn-primary btn-block" type="submit">登录</button>
+    </form>
+</div> <!-- /container -->
+
+<include file="./Application/Home/View/public/footer.html" /> 
+
