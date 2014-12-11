@@ -1,9 +1,11 @@
 @CHARSET "UTF-8";
+
 body {
-  padding-top: 40px;
-  padding-bottom: 40px;
+/*  padding-top: 40px;
+  padding-bottom: 40px;*/
   background-color: #eee;
 }
+
 /**标题**/
 .form_head{
 	padding: 5px;

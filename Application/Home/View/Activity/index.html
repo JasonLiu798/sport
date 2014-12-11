@@ -1,0 +1,78 @@
+<include file="./Application/Home/View/public/header.html" />
+<link rel="stylesheet" href="{{:U('Public/css/activity_index.css')}}">
+
+<div class="container">
+<div class="row">
+<div class="col-md-10 col-md-offset-1">
+
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <h2>BJ的{{$location}}热门活动</h2>
+        </div>
+    </div>
+    <div class="row">
+        <foreach name="apop" item="popact" >
+            <div class="col-md-3">
+                <div class="pop_activity_item">
+                    <div class="pop_activity_item_cover">
+                        <img class="activity_cover" src="{{:U('Public/image')}}{{$popact.aimin_url}}"/>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="pop_activity_title">
+                        <h4><a href="{{:U('activity/'.$popact.aid)}}">{{$popact.activity_name}}</a></h4>
+                    </div>
+                </div>
+            </div>
+        </foreach>
+    </div><!--end of pop-->
+
+    <div class="row alist_choose_type">
+        <div class="col-md-10 col-md-offset-1">
+            <ul class="nav nav-pills" role="tablist">
+                <foreach name="types" item="type" >
+                    <li role="presentation" <if condition="isset($type['choose']) AND $type['choose'] eq 1">class="active"</if> >
+                        <a href="{{:U('activity/type')}}/{{$type.cvalue}}">{{$type.ccontent}}</a>
+                    </li>
+                </foreach>
+            </ul>
+        </div>
+    </div>
+    <div class="row alists">
+        <if condition="!is_null($alist)">
+            <foreach name="alist" item="iact" >
+                <div class="col-md-6">
+                    <div class="activity_item">
+                        
+                        <div class="activity_item_cover">
+                            <img class="activity_item_cover_img" src="{{:U('Public/image')}}{{$iact.aimin_url}}"/>
+                        </div>
+                        <div class="activity_item_brief">
+                            <ul class="activity_item_brief_ul">
+                                <li class="activity_item_brief_li"><h3><a href="{{:U('activity/detail')}}/{{$iact.aid}}">{{$iact.activity_name}}</a></h3></li>
+                                <if condition="$iact.duration == 1">
+                                    <!--小于1天-->
+                                    <li class="activity_item_brief_li">{{:date("m月d日 h:i", strtotime($iact.start_time))}}</li>
+                                <else />
+                                    <!--大于1天-->
+                                    <li class="activity_item_brief_li">{{:date("m月d日", strtotime($iact.start_time))}}至{{:date("m月d日",strtotime($iact.end_time))}}</li>
+                                </if>
+                                <li class="activity_item_brief_li">{{$iact.alocation}}</li>
+                                <if condition="$iact.follow_cnt gt 0">
+                                    <li class="activity_item_brief_li">{{$iact.follow_cnt}}人关注</li>
+                                <else/>
+                                    <li class="activity_item_brief_li">暂无关注</li>
+                                </if>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </foreach>
+        <else/>
+            暂无活动
+        </if>
+    </div><!--end of list-->
+
+</div><!--end of col -->
+</div><!--end of row-->
+</div><!--end of container-->
+<include file="./Application/Home/View/public/footer.html" /> 

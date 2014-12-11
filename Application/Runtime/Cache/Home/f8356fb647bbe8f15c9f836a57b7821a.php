@@ -156,30 +156,121 @@ console.log('user:'+{{Session::get('user')}});
 				</ul>
 			</div><!-- collapse -->
 		</div><!-- container -->
-	</div><!-- navbar --> 
+	</div><!-- navbar -->
+<link rel="stylesheet" href="<?php echo U('Public/css/activity_detail.css');?>">
 
-<link rel="stylesheet" href="<?php echo U('Public/css/user.css');?>">
-<div class="container" id="reg_div" >
-	<form action='<?php echo U('user/regist');?>' method='post' id="register_form" class="form-signin" role="form">
-    <input type="hidden" name="method" value="do"/>
-		<div class="form_head">
-			<div class ="form_title" id="form_title"><h3>注册</h3></div>
-			<div class ="change_link" id="change_link"><h3><a href="<?php echo U('user/login');?>" id="login_form_show">登录</a></h3></div>
-		</div>
-        <input type="email"    name="reg_email" id="reg_email" class="form-control" value="<?php echo(isset($reg_email_save)?$reg_email_save:''); ?>" placeholder="邮箱" required autofocus>
-        <input type="username" name="reg_username" id="reg_username" class="form-control" value="<?php echo(isset($reg_username_save)?$reg_username_save:''); ?>" placeholder="用户名" required>
-        <input type="password" name="reg_password" id="reg_password" class="form-control" placeholder="密码" required>
-        
-      <?php if(isset($err)): ?><div class="alert alert-danger" role="alert">
-        <ul>
-   		   		<li><?php echo ($err); ?></li>
-   		   </ul>
-    	   </div><?php endif; ?>
-    	
-    	<button class="btn btn-lg btn-primary btn-block" type="submit">注册</button>
-	</form>
-</div>
+<!--<script src="http://api.map.baidu.com/api?v=1.5&ak=QnwWrBBxBewxsbWQIoua2DCe"></script>-->
+<script type="text/javascript">  
+function initialize() {  
+    var map = new BMap.Map('map');
+    var top_right_navigation = new BMap.NavigationControl({anchor: BMAP_ANCHOR_TOP_RIGHT, type: BMAP_NAVIGATION_CONTROL_SMALL}); //右上角，仅包含平移和缩放按钮
+    var lon = <?php echo ($activity_detail['lon']); ?>;
+    var lat = <?php echo ($activity_detail['lat']); ?>;
+    var point = new BMap.Point(lon, lat);
+    map.centerAndZoom(point, 15);
+    var marker = new BMap.Marker(point);  // 创建标注
+    map.addOverlay(marker); 
+    map.addControl(top_right_navigation);
+    //marker.setAnimation(BMAP_ANIMATION_BOUNCE);
+    var sContent = "<h4 style='margin:0 0 5px 0;padding:0.2em 0'><?php echo ($activity_detail['alocation']); ?></h4>";
+    var infoWindow = new BMap.InfoWindow(sContent);  // 创建信息窗口对象
+    marker.addEventListener("click", function(){          
+       this.openInfoWindow(infoWindow);
+       //图片加载完毕重绘infowindow
+       // document.getElementById('imgDemo').onload = function (){
+       //     infoWindow.redraw();   //防止在网速较慢，图片未加载时，生成的信息框高度比图片的总高度小，导致图片部分被隐藏
+       // }
+    });
+}
+   
+function loadScript() {  
+    var script = document.createElement("script");  
+    script.src = "http://api.map.baidu.com/api?v=1.5&ak=QnwWrBBxBewxsbWQIoua2DCe&callback=initialize";
+    //此为v1.5版本的引用方式  
+    // http://api.map.baidu.com/api?v=1.5&ak=您的密钥&callback=initialize"; 
+    //此为v1.4版本及以前版本的引用方式  
+    document.body.appendChild(script);  
+}
 
+window.onload = loadScript;  
+</script>  
+
+<div class="container">
+<div class="row">
+<div class="col-md-10 col-md-offset-1">
+    <div class="col-md-8">
+        <div class="detail_up">
+            <div class="detail_cover">
+                <img class="detail_cover_img" src="<?php echo U('Public/image'); echo ($activity_detail['aimax_url']); ?>"/>
+            </div>
+            <div class="detail_point">
+
+                <ul class="detail_point_ul">
+                    <li><h3><?php echo ($activity_detail['activity_name']); ?></h3></li>
+                    <?php if($iact["duration"] == 1): ?><!--小于1天-->
+                        <li class="activity_item_brief_li">时间：<?php echo date("m月d日 h:i", strtotime($activity_detail['start_time']));?></li>
+                    <?php else: ?>
+                        <!--大于1天-->
+                        <li class="activity_item_brief_li">时间：<?php echo date("m月d日", strtotime($iact.start_time));?>至<?php echo date("m月d日",strtotime($activity_detail['end_time']));?></li><?php endif; ?>
+                    <li>地点：<?php echo ($activity_detail['cityarea2show']); ?>&nbsp;<?php echo ($activity_detail['alocation']); ?></li>
+                    <li>
+                        <?php switch($activity_detail["pricetype"]): case "F": ?>费用：免费<?php break;?>
+                            <?php case "M": ?>门票：<?php echo ($activity_detail['price']); break;?>
+                            <?php case "A": ?>费用：<?php echo ($activity_detail['price']); break; endswitch;?>
+                    </li>
+                    <li>类型：<?php echo ($activity_detail['atype']); ?>-<?php echo ($activity_detail['sport_name']); ?></li>
+                    <?php if($activity_detail['equipment_take'] != null): ?><li>需自带器械：<?php echo ($activity_detail['equipment_take']); ?></li><?php endif; ?>
+                    <?php if($activity_detail['equipment_got'] != null): ?><li>已提供器械：<?php echo ($activity_detail['equipment_got']); ?><li><?php endif; ?>
+                    <li>发起人：<a href=""><?php echo ($activity_detail['username']); ?></a></li>
+                    <li>
+                        <?php if($activity_detail['follow_cnt'] < 0): echo ($activity_detail['follow_cnt']); ?>人已关注
+                        <?php else: ?>
+                            暂无人关注<?php endif; ?>
+                        <?php if($activity_detail['take_cnt'] < 0): echo ($activity_detail['take_cnt']); ?>人想参加
+                        <?php else: ?>
+                            暂无人参加<?php endif; ?>
+                    </li>
+                    <li>
+                        <button type="button" class="btn btn-primary" id="follow_activity">关注</button>
+                        <button type="button" class="btn btn-primary" id="take_activity">参加</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="detail_bottom">
+            <h3>活动详情</h3>
+            <?php echo ($activity_detail['acontent']); ?>
+        </div>
+        <div class="activity_comment">
+            <h3>活动讨论</h3>
+            <table class="table">
+                <?php if(is_array($comments)): foreach($comments as $key=>$comment): ?><tr>
+                        <td><a href=""><?php echo ($comment['accontent']); ?></a></td>
+                        <td>来自<a href=""><?php echo ($comment['username']); ?></a></td>
+                        <td><?php if($comment['fcnt'] > 0): echo ($comment['fcnt']); ?>人回应<?php endif; ?>
+                        </td>
+                        <td>
+                            <?php if(floor((strtotime($comment['create_time'])-floor(strtotime(date('Y-m-d'))) )/86400) > 0): echo date('Y-m-d',strtotime($comment['create_time']));?>
+                            <?php else: ?>
+                                <?php echo date('H:i',$comment['create_time']); endif; ?>
+                        </td>
+                    </tr><?php endforeach; endif; ?>
+            </table>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="map_container">
+            地图
+            <div id="map" style="width:300px;height:300px"></div>
+        </div>
+        <div> 标签</div>
+    </div>
+
+
+</div><!--end of col -->
+</div><!--end of row-->
+</div><!--end of container-->
 
 
 <div class="container col-md-12">

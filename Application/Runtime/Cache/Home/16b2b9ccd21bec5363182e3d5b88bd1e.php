@@ -156,30 +156,71 @@ console.log('user:'+{{Session::get('user')}});
 				</ul>
 			</div><!-- collapse -->
 		</div><!-- container -->
-	</div><!-- navbar --> 
+	</div><!-- navbar -->
+<link rel="stylesheet" href="<?php echo U('Public/css/activity_index.css');?>">
 
-<link rel="stylesheet" href="<?php echo U('Public/css/user.css');?>">
-<div class="container" id="reg_div" >
-	<form action='<?php echo U('user/regist');?>' method='post' id="register_form" class="form-signin" role="form">
-    <input type="hidden" name="method" value="do"/>
-		<div class="form_head">
-			<div class ="form_title" id="form_title"><h3>注册</h3></div>
-			<div class ="change_link" id="change_link"><h3><a href="<?php echo U('user/login');?>" id="login_form_show">登录</a></h3></div>
-		</div>
-        <input type="email"    name="reg_email" id="reg_email" class="form-control" value="<?php echo(isset($reg_email_save)?$reg_email_save:''); ?>" placeholder="邮箱" required autofocus>
-        <input type="username" name="reg_username" id="reg_username" class="form-control" value="<?php echo(isset($reg_username_save)?$reg_username_save:''); ?>" placeholder="用户名" required>
-        <input type="password" name="reg_password" id="reg_password" class="form-control" placeholder="密码" required>
-        
-      <?php if(isset($err)): ?><div class="alert alert-danger" role="alert">
-        <ul>
-   		   		<li><?php echo ($err); ?></li>
-   		   </ul>
-    	   </div><?php endif; ?>
-    	
-    	<button class="btn btn-lg btn-primary btn-block" type="submit">注册</button>
-	</form>
-</div>
+<div class="container">
+<div class="row">
+<div class="col-md-10 col-md-offset-1">
 
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <h2>BJ的<?php echo ($location); ?>热门活动</h2>
+        </div>
+    </div>
+    <div class="row">
+        <?php if(is_array($apop)): foreach($apop as $key=>$popact): ?><div class="col-md-3">
+                <div class="pop_activity_item">
+                    <div class="pop_activity_item_cover">
+                        <img class="activity_cover" src="<?php echo U('Public/image'); echo ($popact["aimin_url"]); ?>"/>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="pop_activity_title">
+                        <h4><a href="<?php echo U('activity/'.$popact.aid);?>"><?php echo ($popact["activity_name"]); ?></a></h4>
+                    </div>
+                </div>
+            </div><?php endforeach; endif; ?>
+    </div><!--end of pop-->
+
+    <div class="row alist_choose_type">
+        <div class="col-md-10 col-md-offset-1">
+            <ul class="nav nav-pills" role="tablist">
+                <?php if(is_array($types)): foreach($types as $key=>$type): ?><li role="presentation" <?php if(isset($type['choose']) AND $type['choose'] == 1): ?>class="active"<?php endif; ?> >
+                        <a href="<?php echo U('activity/type');?>/<?php echo ($type["cvalue"]); ?>"><?php echo ($type["ccontent"]); ?></a>
+                    </li><?php endforeach; endif; ?>
+            </ul>
+        </div>
+    </div>
+    <div class="row alists">
+        <?php if(!is_null($alist)): if(is_array($alist)): foreach($alist as $key=>$iact): ?><div class="col-md-6">
+                    <div class="activity_item">
+                        
+                        <div class="activity_item_cover">
+                            <img class="activity_item_cover_img" src="<?php echo U('Public/image'); echo ($iact["aimin_url"]); ?>"/>
+                        </div>
+                        <div class="activity_item_brief">
+                            <ul class="activity_item_brief_ul">
+                                <li class="activity_item_brief_li"><h3><a href="<?php echo U('activity/detail');?>/<?php echo ($iact["aid"]); ?>"><?php echo ($iact["activity_name"]); ?></a></h3></li>
+                                <?php if($iact["duration"] == 1): ?><!--小于1天-->
+                                    <li class="activity_item_brief_li"><?php echo date("m月d日 h:i", strtotime($iact.start_time));?></li>
+                                <?php else: ?>
+                                    <!--大于1天-->
+                                    <li class="activity_item_brief_li"><?php echo date("m月d日", strtotime($iact.start_time));?>至<?php echo date("m月d日",strtotime($iact.end_time));?></li><?php endif; ?>
+                                <li class="activity_item_brief_li"><?php echo ($iact["alocation"]); ?></li>
+                                <?php if($iact["follow_cnt"] > 0): ?><li class="activity_item_brief_li"><?php echo ($iact["follow_cnt"]); ?>人关注</li>
+                                <?php else: ?>
+                                    <li class="activity_item_brief_li">暂无关注</li><?php endif; ?>
+                            </ul>
+                        </div>
+                    </div>
+                </div><?php endforeach; endif; ?>
+        <?php else: ?>
+            暂无活动<?php endif; ?>
+    </div><!--end of list-->
+
+</div><!--end of col -->
+</div><!--end of row-->
+</div><!--end of container-->
 
 
 <div class="container col-md-12">

@@ -229,7 +229,7 @@ vid|场馆||
 ### 活动评论表 activity_comment (1toM)
 字段名|用  途	|可取值  |备注
 :----|:---- |:----|:--
-cid|PK||
+acid|PK||
 aid|活动||
 uid|用户||
 content|内容||
@@ -237,6 +237,7 @@ create_time|创建时间||
 delete_time|删除时间||
 approved|赞成数||
 pid|回复人||
+actype|评论类型|S发起；F回复|
 
 ---
 ## 工具表

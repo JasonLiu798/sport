@@ -1,24 +1,22 @@
-<!DOCTYPE html>
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
 <html lang="zh-cn">
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<title>{{$title}}</title>
-	<script src="{{:U('Public/bower_components/jquery/dist/jquery.min.js')}}"></script>
-	<script src="{{:U('Public/bower_components/bootstrap/dist/js/bootstrap.min.js')}}"></script>
-	<link rel="stylesheet" href="{{:U('Public/bower_components/bootstrap/dist/css/bootstrap.min.css')}}">
-    <link rel="stylesheet" href="{{:U('Public/css/style.css')}}">
+	<title><?php echo ($title); ?></title>
+	<script src="<?php echo U('Public/bower_components/jquery/dist/jquery.min.js');?>"></script>
+	<script src="<?php echo U('Public/bower_components/bootstrap/dist/js/bootstrap.min.js');?>"></script>
+	<link rel="stylesheet" href="<?php echo U('Public/bower_components/bootstrap/dist/css/bootstrap.min.css');?>">
+    <link rel="stylesheet" href="<?php echo U('Public/css/style.css');?>">
     
     <!--<script src="http://localhost:3000/socket.io/socket.io.js"></script>-->
-	<if condition="isset($next_url)">
-		<META HTTP-EQUIV="REFRESH" CONTENT="100;URL={{$next_url}}?>" />
-	</if>
+	<?php if(isset($next_url)): ?><META HTTP-EQUIV="REFRESH" CONTENT="100;URL=<?php echo ($next_url); ?>?>" /><?php endif; ?>
 
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 	<!--[if lt IE 9]>
-		<script src="{{:U('bootstrap/js/html5shiv.min.js')}}"></script>
-		<script src="{{:U('bootstrap/js/respond.min.js')}}"></script>
+		<script src="<?php echo U('bootstrap/js/html5shiv.min.js');?>"></script>
+		<script src="<?php echo U('bootstrap/js/respond.min.js');?>"></script>
 	<![endif]-->
 <script type="text/javascript">
 /*
@@ -106,26 +104,24 @@ console.log('user:'+{{Session::get('user')}});
 					<span class="sr-only">Sport.com</span> <span class="icon-bar"></span>
 					<span class="icon-bar"></span> <span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="{{:U('index')}}">Sport.com</a>
+				<a class="navbar-brand" href="<?php echo U('index');?>">Sport.com</a>
 			</div>
 			<!-- end of navbar-header -->
 
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
-					<li><a href="{{:U()}}">主页</a></li>
+					<li><a href="<?php echo U();?>">主页</a></li>
 					<li><a href="#">关于</a></li>
 					
-					<if condition="!empty( $username )">
-						<li><a href="#" id="msgs_item">消息<span class="badge" id="msgs_count_badge"></span></a></li>
-						<div id="msgbox_head"><img id="msgbox_head_img" src="{{:U('img/tri.png')}}"/></div>
+					<?php if(!empty( $username )): ?><li><a href="#" id="msgs_item">消息<span class="badge" id="msgs_count_badge"></span></a></li>
+						<div id="msgbox_head"><img id="msgbox_head_img" src="<?php echo U('img/tri.png');?>"/></div>
 						<div id="msgbox">
 						新评论x条
 							<!--<ul class="list-group">
 							  <li class="list-group-item"></li>
 							   <li class="list-group-item">Dapibus ac facilisis in</li> 
 							</ul>-->
-						</div>
-					</if>
+						</div><?php endif; ?>
 					
 					
 					<li><form class="navbar-form">
@@ -136,34 +132,45 @@ console.log('user:'+{{Session::get('user')}});
 				
 				<ul class="nav navbar-nav navbar-right">
 						
-					<if condition="empty( $username )">
-					<li><input type="button" class="btn btn-default navbar-btn"
-						onclick="javascript:window.location.href='{{:U('user/regist')}}';"
+					<?php if(empty( $username )): ?><li><input type="button" class="btn btn-default navbar-btn"
+						onclick="javascript:window.location.href='<?php echo U('user/regist');?>';"
 						value="注册" /></li>
-					<li>&nbsp;&nbsp;&nbsp;</li>
-					</if>
+					<li>&nbsp;&nbsp;&nbsp;</li><?php endif; ?>
 						
-					<if condition="!empty( $username )">
-						<li class="dropdown">
-					<else />
-						<li>
-					</if>
+					<?php if(!empty( $username )): ?><li class="dropdown">
+					<?php else: ?>
+						<li><?php endif; ?>
 					
-					<if condition="empty( $username )">
-						<input type="button" class="btn btn-default navbar-btn" onclick="javascript:window.location.href='{{:U('user/login')}}';" value="登录" />
-					<else />
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">{{$username}}<b class="caret"></b></a>
+					<?php if(empty( $username )): ?><input type="button" class="btn btn-default navbar-btn" onclick="javascript:window.location.href='<?php echo U('user/login');?>';" value="登录" />
+					<?php else: ?>
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo ($username); ?><b class="caret"></b></a>
 						<ul class="dropdown-menu">
-							<li><a href="{{:U()}}">文章管理</a></li>
+							<li><a href="<?php echo U();?>">文章管理</a></li>
 							<li><a href="#">设置</a></li>
 							<li class="divider"></li>
-							<li><a href="{{:U('user/logout')}}">退出</a></li>
-						</ul>
-					</if>
+							<li><a href="<?php echo U('user/logout');?>">退出</a></li>
+						</ul><?php endif; ?>
 						</li>
 					
 					<!-- <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li> -->
 				</ul>
 			</div><!-- collapse -->
 		</div><!-- container -->
-	</div><!-- navbar -->
+	</div><!-- navbar --> 
+<div class="container">
+    <div class="row">
+        <div class="col-offset-1">
+            <h3>出错了！</h3>
+            <?php echo ($msg); ?>
+        </div>
+    </div>
+</div>
+
+
+<div class="container col-md-12">
+	<div class="footer_box">
+		<p class="text-center">Copyright &copy; JasonLiu | Powered by Laravel Bootstrap</p>
+	</div> 
+</div> 
+</body>
+</html>

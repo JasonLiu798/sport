@@ -1,9 +1,10 @@
 @CHARSET "UTF-8";
 
 .gray{     color:#999; }
-
+/*
 body { padding-top: 60px;
         padding-bottom: 40px; }
+        */
 /**--------template----------**/
 /** nav **/
 #msgs_count{

@@ -1,0 +1,29 @@
+@CHARSET "UTF-8";
+
+
+
+.map_container{
+
+}
+
+.detail_point_ul{
+    margin: 0px;
+    padding: 0px 10px 10px 10px;
+    list-style-type: none;
+}
+
+.detail_up{
+    overflow:hidden;
+}
+.detail_cover{
+    width:30%;
+    float:left;
+}
+.detail_cover_img{
+    width:100%;
+}
+.detail_point{
+    width:69%;
+    float:left;
+    padding:0 0 0 10px;
+}
