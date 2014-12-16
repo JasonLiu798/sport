@@ -2,7 +2,147 @@
 <link rel="stylesheet" href="{{:U('Public/css/activity_detail.css')}}">
 
 <!--<script src="http://api.map.baidu.com/api?v=1.5&ak=QnwWrBBxBewxsbWQIoua2DCe"></script>-->
-<script type="text/javascript">  
+<script type="text/javascript">
+$().ready(function(){
+    
+    $("#follow_activity").click(function(){
+        //alert('sdfsdf');
+        //console.log('follow activity');
+        $.ajax({
+            url: "http://"+window.location.host+"/activity/follow",
+            async: false,
+            data: { aid: {{$activity_detail['aid']}} },
+            success: function (data) {
+                //var tag_id = data.term_id;
+                //$('#newtags').append('<span name='+txt+' class="tag tag_new" value="'+tag_id+'">'+txt+'&nbsp;X</span>');
+                if ( typeof (data.error) != 'undefined' ) {
+                    if (data.error != '') {
+                        alert("出错了:"+ data.error);
+                    }
+                }else{
+                    console.log( 'follow res:'+ data.msg + ',follow_cnt'+ data.follow_cnt );
+                    $('#follow_take_btn_li').hide();
+                    $('#followed_li').show();
+                    $('#taked_li').hide();
+                    $('#follow_cnt').text(data.follow_cnt+'人已关注');
+                }
+                //alert("Data: " + data + "\nStatus: " + status);
+            },
+            error: function (msg) {
+                alert(msg.responseText);
+            }
+        });
+    });
+
+    $('#cancel_follow').click(function(){
+        console.log('unfollow');
+        $.ajax({
+            url: "http://"+window.location.host+"/activity/unfollow",
+            async: false,
+            data: { aid: {{$activity_detail['aid']}} },
+            success: function (data) {
+                //var tag_id = data.term_id;
+                //$('#newtags').append('<span name='+txt+' class="tag tag_new" value="'+tag_id+'">'+txt+'&nbsp;X</span>');
+                if ( typeof (data.error) != 'undefined' ) {
+                    if (data.error != '') {
+                        alert("出错了:"+ data.error);
+                    }
+                }else{
+                    console.log( 'unfollow res:'+ data.msg );
+                    $('#follow_take_btn_li').show();
+                    $('#followed_li').hide();
+                    $('#taked_li').hide();
+                }
+                //alert("Data: " + data + "\nStatus: " + status);
+            },
+            error: function (msg) {
+                alert(msg.responseText);
+            }
+        });
+    });
+
+    $("#take_activity,#take_activity_a").click(function(){
+        //alert('sdfsdf');
+        console.log('take activity');
+        $.ajax({
+            url: "http://"+window.location.host+"/activity/take",
+            async: false,
+            data: { aid: {{$activity_detail['aid']}} },
+            success: function (data) {
+                //var tag_id = data.term_id;
+                //$('#newtags').append('<span name='+txt+' class="tag tag_new" value="'+tag_id+'">'+txt+'&nbsp;X</span>');
+                if ( typeof (data.error) != 'undefined' ) {
+                    if (data.error != '') {
+                        alert("出错了:"+ data.error);
+                    }
+                }else{
+                    console.log( 'take res:'+ data.msg );
+                    $('#follow_take_btn_li').hide();
+                    $('#followed_li').hide();
+                    $('#taked_li').show();
+                }
+                //alert("Data: " + data + "\nStatus: " + status);
+            },
+            error: function (msg) {
+                alert(msg.responseText);
+            }
+        });
+    });
+    
+    $('#cancel_take').click(function(){
+        console.log('take');
+        $.ajax({
+            url: "http://"+window.location.host+"/activity/untake",
+            async: false,
+            data: { aid: {{$activity_detail['aid']}} },
+            success: function (data) {
+                //var tag_id = data.term_id;
+                //$('#newtags').append('<span name='+txt+' class="tag tag_new" value="'+tag_id+'">'+txt+'&nbsp;X</span>');
+                if ( typeof (data.error) != 'undefined' ) {
+                    if (data.error != '') {
+                        alert("出错了:"+ data.error);
+                    }
+                }else{
+                    data.take_cnt;
+                    console.log( 'unfollow res:'+ data.msg );
+                    $('#follow_take_btn_li').show();
+                    $('#followed_li').hide();
+                    $('#taked_li').hide();
+                }
+            },
+            error: function (msg) {
+                alert(msg.responseText);
+            }
+        });
+    });
+
+
+    var ua_status = '{{$us_status}}';
+    switch(ua_status){
+        case 'F':
+            console.log('UA Follow');
+            $('#taked_li').hide();
+            $('#followed_li').show();
+            $('#follow_take_btn_li').hide();
+        break;
+        case 'T':
+            console.log('UA Take');
+            $('#taked_li').show();
+            $('#followed_li').hide();
+            $('#follow_take_btn_li').hide();
+        break;
+        case 'N':
+            console.log('UA no');
+            $('#taked_li').hide();
+            $('#followed_li').hide();
+            $('#follow_take_btn_li').show();
+        break;
+    }
+});
+
+
+
+//百度地图加载
 function initialize() {  
     var map = new BMap.Map('map');
     var top_right_navigation = new BMap.NavigationControl({anchor: BMAP_ANCHOR_TOP_RIGHT, type: BMAP_NAVIGATION_CONTROL_SMALL}); //右上角，仅包含平移和缩放按钮
@@ -24,7 +164,6 @@ function initialize() {
        // }
     });
 }
-   
 function loadScript() {  
     var script = document.createElement("script");  
     script.src = "http://api.map.baidu.com/api?v=1.5&ak=QnwWrBBxBewxsbWQIoua2DCe&callback=initialize";
@@ -33,8 +172,7 @@ function loadScript() {
     //此为v1.4版本及以前版本的引用方式  
     document.body.appendChild(script);  
 }
-
-window.onload = loadScript;  
+window.onload = loadScript;
 </script>  
 
 <div class="container">
@@ -49,12 +187,12 @@ window.onload = loadScript;
 
                 <ul class="detail_point_ul">
                     <li><h3>{{$activity_detail['activity_name']}}</h3></li>
-                    <if condition="$iact.duration == 1">
+                    <if condition="$activity_detail['duration'] == 1">
                         <!--小于1天-->
                         <li class="activity_item_brief_li">时间：{{:date("m月d日 h:i", strtotime($activity_detail['start_time']))}}</li>
                     <else />
                         <!--大于1天-->
-                        <li class="activity_item_brief_li">时间：{{:date("m月d日", strtotime($iact.start_time))}}至{{:date("m月d日",strtotime($activity_detail['end_time']))}}</li>
+                        <li class="activity_item_brief_li">时间：{{:date("m月d日", strtotime($activity_detail['start_time']))}}至{{:date("m月d日",strtotime($activity_detail['end_time']))}}</li>
                     </if>
                     <li>地点：{{$activity_detail['cityarea2show']}}&nbsp;{{$activity_detail['alocation']}}</li>
                     <li>
@@ -73,21 +211,33 @@ window.onload = loadScript;
                         <li>已提供器械：{{$activity_detail['equipment_got']}}<li>
                     </if>
                     <li>发起人：<a href="">{{$activity_detail['username']}}</a></li>
-                    <li>
-                        <if condition="$activity_detail['follow_cnt'] lt 0">
-                            {{$activity_detail['follow_cnt']}}人已关注
-                        <else/>
-                            暂无人关注
-                        </if>
-                        <if condition="$activity_detail['take_cnt'] lt 0">
-                            {{$activity_detail['take_cnt']}}人想参加
-                        <else/>
-                            暂无人参加
-                        </if>
+                    <li class="follow_take_cnt_li">
+                        <span class="follow_cnt_span" id="follow_cnt">
+                            <if condition="$activity_detail['follow_cnt'] gt 0">
+                                {{$activity_detail['follow_cnt']}}人已关注
+                            <else/>
+                                暂无人关注
+                            </if>
+                        </span>
+                        <span class="take_cnt_span" id="take_cnt">
+                            <if condition="$activity_detail['take_cnt'] gt 0">
+                                {{$activity_detail['take_cnt']}}人想参加
+                            <else/>
+                                暂无人参加
+                            </if>
+                        </span>
                     </li>
-                    <li>
+
+
+                    <li id="follow_take_btn_li">
                         <button type="button" class="btn btn-primary" id="follow_activity">关注</button>
                         <button type="button" class="btn btn-primary" id="take_activity">参加</button>
+                    </li>
+                    <li id="followed_li">
+                        已关注 <a id="cancel_follow" class="cancel" href="#">取消</a> &gt; <a id="take_activity_a" href="#">我要参加</a>
+                    </li>
+                    <li id="taked_li">
+                        已参加 <a id="cancel_take" class="cancel" href="#">取消</a>
                     </li>
                 </ul>
             </div>
@@ -99,24 +249,29 @@ window.onload = loadScript;
         <div class="activity_comment">
             <h3>活动讨论</h3>
             <table class="table">
-                <foreach name="comments" item="comment" >
-                    <tr>
-                        <td><a href="">{{$comment['accontent']}}</a></td>
-                        <td>来自<a href="">{{$comment['username']}}</a></td>
-                        <td><if condition="$comment['fcnt'] gt 0">
-                                {{$comment['fcnt']}}人回应
-                            </if>
-                        </td>
-                        <td>
-                            <if condition="floor((strtotime($comment['create_time'])-floor(strtotime(date('Y-m-d'))) )/86400) gt 0">
-                                {{:date('Y-m-d',strtotime($comment['create_time']))}}
-                            <else/>
-                                {{:date('H:i',$comment['create_time'])}}
-                            </if>
-                        </td>
-                    </tr>
-                </foreach>
+                <if condition="count($comments) gt 0">
+                    <foreach name="comments" item="comment" >
+                        <tr>
+                            <td><a href="">{{$comment['accontent']}}</a></td>
+                            <td>来自<a href="">{{$comment['username']}}</a></td>
+                            <td><if condition="$comment['fcnt'] gt 0">
+                                    {{$comment['fcnt']}}人回应
+                                </if>
+                            </td>
+                            <td>
+                                <if condition="floor((strtotime($comment['create_time'])-floor(strtotime(date('Y-m-d'))) )/86400) gt 0">
+                                    {{:date('Y-m-d',strtotime($comment['create_time']))}}
+                                <else/>
+                                    {{:date('H:i',$comment['create_time'])}}
+                                </if>
+                            </td>
+                        </tr>
+                    </foreach>
+                <else/>
+                    暂无发言
+                </if>
             </table>
+            <a href="{{U('activitycomment/create')}}">新建话题</a>
         </div>
     </div>
 

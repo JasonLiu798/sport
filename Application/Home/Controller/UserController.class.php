@@ -60,26 +60,30 @@ class UserController extends Controller {
       $this->assign('title','登录');
       $this->display();
     }else{
-      $user = D('User');
+      $user_model = D('User');
       $data['password'] = I('param.login_password');
       $data['email'] = I('param.login_email');
-      $chk_res = $user->login_check( $data['email'],$data['password']);
+      $chk_res = $user_model->login_check( $data['email'],$data['password']);
       if( strlen( $chk_res ) >0 ){//验证失败
         $err = $chk_res;
       }else{
         //$res = $user->where("password='%s' AND email='%s'", array($data['password'] ,$data['email'] ))->getField('uid,username',1);
-        $res = $user->field('uid,username,permission')->where("password='%s' AND email='%s' AND status>6", array($data['password'] ,$data['email']))->limit(1)->select();
-        if(is_null($res) ){
-          $err='密码错误！';
-        }else{
-          $json = json_encode($res[0]);
-          echo $json;
+        
+        $res = $user_model->field('uid,username,permission')->where("password='%s' AND email='%s' AND user_status>5", array($data['password'] ,$data['email']))->limit(1)->select();
+        
+        
+        if($res){
+          //Login success
+          //echo $user_model->getlastsql();
           //print_r($res);
-          //set session cookie
-          //$sess_user = new stdClass;
-          //$sess_user->uid = $res
-          return;
-          session('user','ss');
+          session('uid',$res[0]['uid']); 
+          session('username',$res[0]['username']);
+          session('permission',$res[0]['permission']);
+
+        }else if(is_null($res)){
+          $err='密码错误！';
+        }else if($res==false){
+          $err = '数据库异常！';
         }
       }
       

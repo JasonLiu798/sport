@@ -134,8 +134,9 @@ console.log('user:'+{{Session::get('user')}});
 				</form></li>
 				</ul>
 				
+				<php>$username = session('username');</php>
+
 				<ul class="nav navbar-nav navbar-right">
-						
 					<if condition="empty( $username )">
 					<li><input type="button" class="btn btn-default navbar-btn"
 						onclick="javascript:window.location.href='{{:U('user/regist')}}';"
@@ -143,24 +144,23 @@ console.log('user:'+{{Session::get('user')}});
 					<li>&nbsp;&nbsp;&nbsp;</li>
 					</if>
 						
-					<if condition="!empty( $username )">
+					<if condition="!empty($username)">
 						<li class="dropdown">
 					<else />
 						<li>
 					</if>
 					
-					<if condition="empty( $username )">
-						<input type="button" class="btn btn-default navbar-btn" onclick="javascript:window.location.href='{{:U('user/login')}}';" value="登录" />
-					<else />
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">{{$username}}<b class="caret"></b></a>
-						<ul class="dropdown-menu">
-							<li><a href="{{:U()}}">文章管理</a></li>
-							<li><a href="#">设置</a></li>
-							<li class="divider"></li>
-							<li><a href="{{:U('user/logout')}}">退出</a></li>
-						</ul>
-					</if>
-						</li>
+						<if condition="empty( $username )">
+							<input type="button" class="btn btn-default navbar-btn" onclick="javascript:window.location.href='{{:U('user/login')}}';" value="登录" />
+						<else />
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">{{$username}}<b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li><a href="{{:U()}}">个人中心</a></li>
+								<li class="divider"></li>
+								<li><a href="{{:U('user/logout')}}">退出</a></li>
+							</ul>
+						</if>
+					</li>
 					
 					<!-- <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li> -->
 				</ul>
