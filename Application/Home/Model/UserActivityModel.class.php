@@ -9,7 +9,7 @@ class UserActivityModel extends Model {
     
     protected $tableName = 'user_activity';
     protected $pk     = 'uaid';
-
+    
     public function check_follow($uid,$aid){
         $res = $this->field('uaid')->where("aid=%d AND uid=%d AND type='F'",array($aid,$uid))->find();
         //echo $this->getLastSql();   

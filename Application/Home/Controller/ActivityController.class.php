@@ -3,6 +3,7 @@ namespace Home\Controller;
 
 use Think\Controller;
 use Think\Log;
+
 class ActivityController extends Controller {
 
     /**
@@ -248,6 +249,7 @@ class ActivityController extends Controller {
             $data['msg'] = '取消失败';
         }else{
             $data['msg'] = '取消成功';
+            $data['follow_cnt'] = $follow_cnt;
         }
         $this->ajaxReturn($data);
     }
@@ -257,6 +259,8 @@ class ActivityController extends Controller {
         $err = '';
         $activity_model = D('Activity');
         $uid = session('uid');
+        $take_cnt = 0;
+        $follow_cnt = 0;
         if( is_null($uid) ){
             $err = '未登录';
         }else{
@@ -264,7 +268,7 @@ class ActivityController extends Controller {
                 $err = '活动不存在';
             }else{
                 $user_activity_model = D('UserActivity');
-            //echo $uid.',A:'.$aid."\n";
+                
                 $uaid_f = $user_activity_model->check_follow($uid,$aid);
                 $uaid_t = $user_activity_model->check_take($uid,$aid);
                 if ( $uaid_f ){
@@ -281,6 +285,8 @@ class ActivityController extends Controller {
                     if($res_ua_up && $res_a_f_decr && $res_a_t_incr ){
                         $user_activity_model->commit();
                         $activity_model->commit();
+                        $follow_cnt = $res_a_f_decr[1];
+                        $take_cnt = $res_a_t_incr[1];
                     }else{
                         Log::write(__CLASS__.__METHOD__.':res_ua_up:'.$res_ua_up.',res_a_f_decr:'.$res_a_f_decr.',res_a_t_incr:'.$res_a_t_incr,'DEBUG' );
                         $user_activity_model->rollback();
@@ -306,6 +312,8 @@ class ActivityController extends Controller {
                     if( $res_add_ua && $res_add_tcnt ){
                         $user_activity_model->commit();
                         $activity_model->commit();
+                        $take_cnt = $res_add_tcnt[1];
+                        $follow_cnt = 'N';
                     } else {
                         Log::write(__CLASS__.__METHOD__.':res_add_ua:'.$res_add_ua.',res_add_fcnt:'.$res_add_tcnt,'DEBUG' );
                         $user_activity_model->rollback();
@@ -324,6 +332,8 @@ class ActivityController extends Controller {
             $data['msg'] = '关注失败';
         }else{
             $data['msg'] = '关注成功';
+            $data['follow_cnt'] = $follow_cnt;
+            $data['take_cnt'] = $take_cnt;
         }
         $this->ajaxReturn($data);
     }

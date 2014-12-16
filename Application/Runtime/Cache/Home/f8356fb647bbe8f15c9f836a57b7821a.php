@@ -130,27 +130,27 @@ console.log('user:'+{{Session::get('user')}});
 				</form></li>
 				</ul>
 				
+				<?php $username = session('username'); ?>
+
 				<ul class="nav navbar-nav navbar-right">
-						
 					<?php if(empty( $username )): ?><li><input type="button" class="btn btn-default navbar-btn"
 						onclick="javascript:window.location.href='<?php echo U('user/regist');?>';"
 						value="注册" /></li>
 					<li>&nbsp;&nbsp;&nbsp;</li><?php endif; ?>
 						
-					<?php if(!empty( $username )): ?><li class="dropdown">
+					<?php if(!empty($username)): ?><li class="dropdown">
 					<?php else: ?>
 						<li><?php endif; ?>
 					
-					<?php if(empty( $username )): ?><input type="button" class="btn btn-default navbar-btn" onclick="javascript:window.location.href='<?php echo U('user/login');?>';" value="登录" />
-					<?php else: ?>
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo ($username); ?><b class="caret"></b></a>
-						<ul class="dropdown-menu">
-							<li><a href="<?php echo U();?>">文章管理</a></li>
-							<li><a href="#">设置</a></li>
-							<li class="divider"></li>
-							<li><a href="<?php echo U('user/logout');?>">退出</a></li>
-						</ul><?php endif; ?>
-						</li>
+						<?php if(empty( $username )): ?><input type="button" class="btn btn-default navbar-btn" onclick="javascript:window.location.href='<?php echo U('user/login');?>';" value="登录" />
+						<?php else: ?>
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo ($username); ?><b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li><a href="<?php echo U();?>">个人中心</a></li>
+								<li class="divider"></li>
+								<li><a href="<?php echo U('user/logout');?>">退出</a></li>
+							</ul><?php endif; ?>
+					</li>
 					
 					<!-- <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li> -->
 				</ul>
@@ -160,7 +160,163 @@ console.log('user:'+{{Session::get('user')}});
 <link rel="stylesheet" href="<?php echo U('Public/css/activity_detail.css');?>">
 
 <!--<script src="http://api.map.baidu.com/api?v=1.5&ak=QnwWrBBxBewxsbWQIoua2DCe"></script>-->
-<script type="text/javascript">  
+<script type="text/javascript">
+$().ready(function(){
+    
+    $("#follow_activity").click(function(){
+        //alert('sdfsdf');
+        //console.log('follow activity');
+        $.ajax({
+            url: "http://"+window.location.host+"/activity/follow",
+            async: false,
+            data: { aid: <?php echo ($activity_detail['aid']); ?> },
+            success: function (data) {
+                //var tag_id = data.term_id;
+                //$('#newtags').append('<span name='+txt+' class="tag tag_new" value="'+tag_id+'">'+txt+'&nbsp;X</span>');
+                if ( typeof (data.error) != 'undefined' ) {
+                    if (data.error != '') {
+                        alert("出错了:"+ data.error);
+                    }
+                }else{
+                    console.log( 'follow res:'+ data.msg + ',follow_cnt'+ data.follow_cnt );
+                    $('#follow_take_btn_li').hide();
+                    $('#followed_li').show();
+                    $('#taked_li').hide();
+                    $('#follow_cnt').text(data.follow_cnt+'人已关注');
+                }
+                //alert("Data: " + data + "\nStatus: " + status);
+            },
+            error: function (msg) {
+                alert(msg.responseText);
+            }
+        });
+    });
+
+    $('#cancel_follow').click(function(){
+        console.log('unfollow');
+        $.ajax({
+            url: "http://"+window.location.host+"/activity/unfollow",
+            async: false,
+            data: { aid: <?php echo ($activity_detail['aid']); ?> },
+            success: function (data) {
+                //var tag_id = data.term_id;
+                //$('#newtags').append('<span name='+txt+' class="tag tag_new" value="'+tag_id+'">'+txt+'&nbsp;X</span>');
+                if ( typeof (data.error) != 'undefined' ) {
+                    if (data.error != '') {
+                        alert("出错了:"+ data.error);
+                    }
+                }else{
+                    console.log( 'unfollow res:'+ data.msg +',data.follow_cnt:'+data.follow_cnt );
+                    $('#follow_take_btn_li').show();
+                    $('#followed_li').hide();
+                    $('#taked_li').hide();
+                    if(data.follow_cnt==0){
+                        $('#follow_cnt').text('暂无人关注');
+                    }else{
+                        $('#follow_cnt').text( data.follow_cnt+'人已关注');
+                    }
+                }
+                //alert("Data: " + data + "\nStatus: " + status);
+            },
+            error: function (msg) {
+                alert(msg.responseText);
+            }
+        });
+    });
+
+    $("#take_activity,#take_activity_a").click(function(){
+        //alert('sdfsdf');
+        console.log('take activity');
+        $.ajax({
+            url: "http://"+window.location.host+"/activity/take",
+            async: false,
+            data: { aid: <?php echo ($activity_detail['aid']); ?> },
+            success: function (data) {
+                //var tag_id = data.term_id;
+                //$('#newtags').append('<span name='+txt+' class="tag tag_new" value="'+tag_id+'">'+txt+'&nbsp;X</span>');
+                if ( typeof (data.error) != 'undefined' ) {
+                    if (data.error != '') {
+                        alert("出错了:"+ data.error);
+                    }
+                }else{
+                    console.log( 'take res:'+ data.msg +',fc:'+ data.follow_cnt +',tc:'+data.take_cnt );
+                    $('#follow_take_btn_li').hide();
+                    $('#followed_li').hide();
+                    $('#taked_li').show();
+                    if(data.follow_cnt == 0){
+                        $('#follow_cnt').text('暂无人关注');
+                    }else if(data.follow_cnt > 0 && data.follow_cnt !='N'){
+                        $('#follow_cnt').text( data.follow_cnt+'人已关注');
+                    }
+                    $('#take_cnt').text( data.take_cnt+'人已关注');
+                }
+                //alert("Data: " + data + "\nStatus: " + status);
+            },
+            error: function (msg) {
+                alert(msg.responseText);
+            }
+        });
+    });
+    
+    $('#cancel_take').click(function(){
+        console.log('take');
+        $.ajax({
+            url: "http://"+window.location.host+"/activity/untake",
+            async: false,
+            data: { aid: <?php echo ($activity_detail['aid']); ?> },
+            success: function (data) {
+                //var tag_id = data.term_id;
+                //$('#newtags').append('<span name='+txt+' class="tag tag_new" value="'+tag_id+'">'+txt+'&nbsp;X</span>');
+                if ( typeof (data.error) != 'undefined' ) {
+                    if (data.error != '') {
+                        alert("出错了:"+ data.error);
+                    }
+                }else{
+                    //data.take_cnt;
+                    console.log( 'unfollow res:'+ data.msg +',tc:'+ data.take_cnt);
+                    $('#follow_take_btn_li').show();
+                    $('#followed_li').hide();
+                    $('#taked_li').hide();
+                    if(data.take_cnt==0){
+                        $('#take_cnt').text('暂无人参加');
+                    }else{
+                        $('#take_cnt').text( data.take_cnt+'人已参加');
+                    }
+                }
+            },
+            error: function (msg) {
+                alert(msg.responseText);
+            }
+        });
+    });
+
+
+    var ua_status = '<?php echo ($us_status); ?>';
+    switch(ua_status){
+        case 'F':
+            console.log('UA Follow');
+            $('#taked_li').hide();
+            $('#followed_li').show();
+            $('#follow_take_btn_li').hide();
+        break;
+        case 'T':
+            console.log('UA Take');
+            $('#taked_li').show();
+            $('#followed_li').hide();
+            $('#follow_take_btn_li').hide();
+        break;
+        case 'N':
+            console.log('UA no');
+            $('#taked_li').hide();
+            $('#followed_li').hide();
+            $('#follow_take_btn_li').show();
+        break;
+    }
+});
+
+
+
+//百度地图加载
 function initialize() {  
     var map = new BMap.Map('map');
     var top_right_navigation = new BMap.NavigationControl({anchor: BMAP_ANCHOR_TOP_RIGHT, type: BMAP_NAVIGATION_CONTROL_SMALL}); //右上角，仅包含平移和缩放按钮
@@ -182,7 +338,6 @@ function initialize() {
        // }
     });
 }
-   
 function loadScript() {  
     var script = document.createElement("script");  
     script.src = "http://api.map.baidu.com/api?v=1.5&ak=QnwWrBBxBewxsbWQIoua2DCe&callback=initialize";
@@ -191,8 +346,7 @@ function loadScript() {
     //此为v1.4版本及以前版本的引用方式  
     document.body.appendChild(script);  
 }
-
-window.onload = loadScript;  
+window.onload = loadScript;
 </script>  
 
 <div class="container">
@@ -207,11 +361,11 @@ window.onload = loadScript;
 
                 <ul class="detail_point_ul">
                     <li><h3><?php echo ($activity_detail['activity_name']); ?></h3></li>
-                    <?php if($iact["duration"] == 1): ?><!--小于1天-->
+                    <?php if($activity_detail['duration'] == 1): ?><!--小于1天-->
                         <li class="activity_item_brief_li">时间：<?php echo date("m月d日 h:i", strtotime($activity_detail['start_time']));?></li>
                     <?php else: ?>
                         <!--大于1天-->
-                        <li class="activity_item_brief_li">时间：<?php echo date("m月d日", strtotime($iact.start_time));?>至<?php echo date("m月d日",strtotime($activity_detail['end_time']));?></li><?php endif; ?>
+                        <li class="activity_item_brief_li">时间：<?php echo date("m月d日", strtotime($activity_detail['start_time']));?>至<?php echo date("m月d日",strtotime($activity_detail['end_time']));?></li><?php endif; ?>
                     <li>地点：<?php echo ($activity_detail['cityarea2show']); ?>&nbsp;<?php echo ($activity_detail['alocation']); ?></li>
                     <li>
                         <?php switch($activity_detail["pricetype"]): case "F": ?>费用：免费<?php break;?>
@@ -222,17 +376,29 @@ window.onload = loadScript;
                     <?php if($activity_detail['equipment_take'] != null): ?><li>需自带器械：<?php echo ($activity_detail['equipment_take']); ?></li><?php endif; ?>
                     <?php if($activity_detail['equipment_got'] != null): ?><li>已提供器械：<?php echo ($activity_detail['equipment_got']); ?><li><?php endif; ?>
                     <li>发起人：<a href=""><?php echo ($activity_detail['username']); ?></a></li>
-                    <li>
-                        <?php if($activity_detail['follow_cnt'] < 0): echo ($activity_detail['follow_cnt']); ?>人已关注
-                        <?php else: ?>
-                            暂无人关注<?php endif; ?>
-                        <?php if($activity_detail['take_cnt'] < 0): echo ($activity_detail['take_cnt']); ?>人想参加
-                        <?php else: ?>
-                            暂无人参加<?php endif; ?>
+                    <li class="follow_take_cnt_li">
+                        <span class="follow_cnt_span" id="follow_cnt">
+                            <?php if($activity_detail['follow_cnt'] > 0): echo ($activity_detail['follow_cnt']); ?>人已关注
+                            <?php else: ?>
+                                暂无人关注<?php endif; ?>
+                        </span>
+                        <span class="take_cnt_span" id="take_cnt">
+                            <?php if($activity_detail['take_cnt'] > 0): echo ($activity_detail['take_cnt']); ?>人想参加
+                            <?php else: ?>
+                                暂无人参加<?php endif; ?>
+                        </span>
                     </li>
-                    <li>
+
+
+                    <li id="follow_take_btn_li">
                         <button type="button" class="btn btn-primary" id="follow_activity">关注</button>
                         <button type="button" class="btn btn-primary" id="take_activity">参加</button>
+                    </li>
+                    <li id="followed_li">
+                        已关注 <a id="cancel_follow" class="cancel" href="#">取消</a> &gt; <a id="take_activity_a" href="#">我要参加</a>
+                    </li>
+                    <li id="taked_li">
+                        已参加 <a id="cancel_take" class="cancel" href="#">取消</a>
                     </li>
                 </ul>
             </div>
@@ -244,18 +410,21 @@ window.onload = loadScript;
         <div class="activity_comment">
             <h3>活动讨论</h3>
             <table class="table">
-                <?php if(is_array($comments)): foreach($comments as $key=>$comment): ?><tr>
-                        <td><a href=""><?php echo ($comment['accontent']); ?></a></td>
-                        <td>来自<a href=""><?php echo ($comment['username']); ?></a></td>
-                        <td><?php if($comment['fcnt'] > 0): echo ($comment['fcnt']); ?>人回应<?php endif; ?>
-                        </td>
-                        <td>
-                            <?php if(floor((strtotime($comment['create_time'])-floor(strtotime(date('Y-m-d'))) )/86400) > 0): echo date('Y-m-d',strtotime($comment['create_time']));?>
-                            <?php else: ?>
-                                <?php echo date('H:i',$comment['create_time']); endif; ?>
-                        </td>
-                    </tr><?php endforeach; endif; ?>
+                <?php if(count($comments) > 0): if(is_array($comments)): foreach($comments as $key=>$comment): ?><tr>
+                            <td><a href=""><?php echo ($comment['accontent']); ?></a></td>
+                            <td>来自<a href=""><?php echo ($comment['username']); ?></a></td>
+                            <td><?php if($comment['fcnt'] > 0): echo ($comment['fcnt']); ?>人回应<?php endif; ?>
+                            </td>
+                            <td>
+                                <?php if(floor((strtotime($comment['create_time'])-floor(strtotime(date('Y-m-d'))) )/86400) > 0): echo date('Y-m-d',strtotime($comment['create_time']));?>
+                                <?php else: ?>
+                                    <?php echo date('H:i',$comment['create_time']); endif; ?>
+                            </td>
+                        </tr><?php endforeach; endif; ?>
+                <?php else: ?>
+                    暂无发言<?php endif; ?>
             </table>
+            <a href="{{U('activitycomment/create')}}">新建话题</a>
         </div>
     </div>
 

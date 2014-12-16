@@ -48,10 +48,15 @@ $().ready(function(){
                         alert("出错了:"+ data.error);
                     }
                 }else{
-                    console.log( 'unfollow res:'+ data.msg );
+                    console.log( 'unfollow res:'+ data.msg +',data.follow_cnt:'+data.follow_cnt );
                     $('#follow_take_btn_li').show();
                     $('#followed_li').hide();
                     $('#taked_li').hide();
+                    if(data.follow_cnt==0){
+                        $('#follow_cnt').text('暂无人关注');
+                    }else{
+                        $('#follow_cnt').text( data.follow_cnt+'人已关注');
+                    }
                 }
                 //alert("Data: " + data + "\nStatus: " + status);
             },
@@ -76,10 +81,16 @@ $().ready(function(){
                         alert("出错了:"+ data.error);
                     }
                 }else{
-                    console.log( 'take res:'+ data.msg );
+                    console.log( 'take res:'+ data.msg +',fc:'+ data.follow_cnt +',tc:'+data.take_cnt );
                     $('#follow_take_btn_li').hide();
                     $('#followed_li').hide();
                     $('#taked_li').show();
+                    if(data.follow_cnt == 0){
+                        $('#follow_cnt').text('暂无人关注');
+                    }else if(data.follow_cnt > 0 && data.follow_cnt !='N'){
+                        $('#follow_cnt').text( data.follow_cnt+'人已关注');
+                    }
+                    $('#take_cnt').text( data.take_cnt+'人已关注');
                 }
                 //alert("Data: " + data + "\nStatus: " + status);
             },
@@ -103,11 +114,16 @@ $().ready(function(){
                         alert("出错了:"+ data.error);
                     }
                 }else{
-                    data.take_cnt;
-                    console.log( 'unfollow res:'+ data.msg );
+                    //data.take_cnt;
+                    console.log( 'unfollow res:'+ data.msg +',tc:'+ data.take_cnt);
                     $('#follow_take_btn_li').show();
                     $('#followed_li').hide();
                     $('#taked_li').hide();
+                    if(data.take_cnt==0){
+                        $('#take_cnt').text('暂无人参加');
+                    }else{
+                        $('#take_cnt').text( data.take_cnt+'人已参加');
+                    }
                 }
             },
             error: function (msg) {

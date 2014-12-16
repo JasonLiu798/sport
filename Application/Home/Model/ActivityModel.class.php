@@ -59,10 +59,10 @@ class ActivityModel extends Model {
 
     public function incr_take_cnt($aid){
         $cnt = $this->get_take_cnt($aid);
-        $data['take_cnt'] = $cnt + 1;
-        $res = $this->where('aid='.$aid)->save($data);
+        $this->take_cnt = $cnt + 1;
+        $res = $this->where('aid='.$aid)->save();
         if($res){
-            return true;
+            return array(true, $cnt+1);
         }else{
             return false;
         }
@@ -70,15 +70,18 @@ class ActivityModel extends Model {
 
     public function decr_follow_cnt($aid){
         $cnt = $this->get_follow_cnt($aid);
-        if($cnt >0 ){
-            $this->follow_cnt = $cnt - 1;
-        }else{
-            $this->update_follow_cnt($aid);
-        }
-        
+        // if($cnt <=0 ){
+        //     $res_cnt = $this->update_follow_cnt($aid);
+        //     if($res_cnt <= 0 ){
+        //         return false;
+        //     }else{
+        //         $cnt = $res_cnt;
+        //     }
+        // }
+        $this->follow_cnt = $cnt - 1;
         $res = $this->where('aid='.$aid)->save($data);
         if($res){
-            return true;
+            return array(true,$cnt -1);
         }else{
             return false;
         }
@@ -90,7 +93,7 @@ class ActivityModel extends Model {
         $this->take_cnt = $cnt - 1;
         $res = $this->where('aid='.$aid)->save($data);
         if($res){
-            return array( true , $this->take_cnt);
+            return array( true , $cnt-1);
         }else{
             return false;
         }
@@ -108,9 +111,8 @@ class ActivityModel extends Model {
         }else{
             return false;
         }
-        
     }
-
+    
     // public function update_follow_cnt($aid){
     //     $this->get_follow_cnt($aid);
     //     $this->
