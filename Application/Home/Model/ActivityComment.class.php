@@ -4,9 +4,11 @@ namespace Home\Model;
 use Think\Model;
 
 
-class Activity_commentModel extends Model {
+class ActivityCommentModel extends Model {
     protected $tableName = 'activity_comment';
     protected $pk     = 'acid';
+
+    
 
     
 }

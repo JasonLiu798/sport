@@ -156,15 +156,51 @@ console.log('user:'+{{Session::get('user')}});
 				</ul>
 			</div><!-- collapse -->
 		</div><!-- container -->
-	</div><!-- navbar --> 
+	</div><!-- navbar -->
 <div class="container">
-    <div class="row">
-        <div class="col-offset-1">
-            <h3>出错了！</h3>
-            <?php echo ($msg); ?>
+<div class="row">
+<div class="col-md-10 col-md-offset-1">
+    
+
+    <form action='<?php echo U('activitycomment/create');?>' method='post' class="form-horizontal" id="comment_create_form" role="form">
+
+        <input type="hidden" name="method" value="do"/>
+        <input type="hidden" name="aid" value="<?php echo ($aid); ?>"/>
+
+        <div class="form_head">
+            <div class ="form_title"><h3><?php echo ($title); ?></h3></div>
         </div>
-    </div>
+        <div class="form-group">
+            <label for="comment_title" class="col-sm-1 control-label" >标题：</label>
+            <div class="col-sm-10">
+                <input type="text"   name="comment_title" id="comment_title" class="form-control" value=""  required autofocus>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="comment_content" class="col-sm-1 control-label" ></label>
+            <div class="col-sm-10">
+                <textarea class="form-control" rows="6" name="comment_content" id="comment_content" required></textarea>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-offset-4 col-sm-2">
+                <button type="submit" class="btn btn-primary" type="submit">提交</button>
+            </div>
+            <div class="col-sm-2">
+                <button type="submit" class="btn btn-default">撤销</button>
+            </div>
+        </div>
+        
+
+    </form>
+    <a href="<?php echo U('activity/detail');?>/<?php echo ($aid); ?>">返回"<?php echo ($a_name); ?>"</a>
+
 </div>
+</div>
+</div>
+
 
 
 <div class="container col-md-12">

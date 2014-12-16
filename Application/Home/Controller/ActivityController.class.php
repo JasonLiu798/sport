@@ -396,8 +396,10 @@ class ActivityController extends Controller {
         //echo "res".$activity_model->add_follow_cnt(3);
         //echo $activity_model->get_follow_cnt(4);
 
-        $ua_model = D('UserActivity');
-        echo $ua_model->check_relation(2,4);
+        //$ua_model = D('UserActivity');
+        $a_model = D('Activity');
+        //echo $ua_model->check_relation(2,4);
+        echo $a_model->update_follow_cnt(3);
 
     }
 

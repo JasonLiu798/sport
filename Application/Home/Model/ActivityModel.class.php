@@ -103,11 +103,32 @@ class ActivityModel extends Model {
     */
     public function update_follow_cnt($aid){
         $user_activity_model = D('UserActivity');
-        $follow_cnt = $user_activity_model->where("aid=%d AND type='%s' ",array($aid,C('UA_FOLLOW'))->count();
-        if($follow_cnt){
+        $follow_cnt = $user_activity_model->where( "aid=%d AND type='%s' ", array($aid,C('UA_FOLLOW')) )->count();
+        if($follow_cnt>=0){
             $this->follow_cnt = $follow_cnt;
             $res = $this->where('aid='.$aid)->save();
-            return $res;
+            return array(true,$follow_cnt);
+        }else{
+            return false;
+        }
+    }
+
+    public function update_take_cnt($aid){
+        $user_activity_model = D('UserActivity');
+        $take_cnt = $user_activity_model->where( "aid=%d AND type='%s' ", array($aid,C('UA_TAKE')) )->count();
+        if( $take_cnt >= 0 ){
+            $this->take_cnt = $take_cnt;
+            $res = $this->where('aid='.$aid)->save();
+            return array(true,$take_cnt);
+        }else{
+            return false;
+        }
+    }
+
+    public function get_title($aid){
+        $res = $this->field('activity_name')->where( "aid=%d",array($aid))->select();
+        if($res){
+            return $res[0]['activity_name'];
         }else{
             return false;
         }

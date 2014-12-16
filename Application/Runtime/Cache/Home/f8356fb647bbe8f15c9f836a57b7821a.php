@@ -424,7 +424,7 @@ window.onload = loadScript;
                 <?php else: ?>
                     暂无发言<?php endif; ?>
             </table>
-            <a href="{{U('activitycomment/create')}}">新建话题</a>
+            <a href="<?php echo U('activitycomment/create');?>?aid=<?php echo ($activity_detail["aid"]); ?>">新建话题</a>
         </div>
     </div>
 
