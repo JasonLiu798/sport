@@ -154,6 +154,7 @@ return  array(
     'URL_ROUTER_ON'         =>  true,   // 是否开启URL路由
     'URL_ROUTE_RULES'       =>  array(
         'activity/detail/:aid'=>'Activity/detail',
+        'activitycomment/create/:aid'=>'ActivityComment/create',
     ), // 默认路由规则 针对模块
     'URL_MAP_RULES'         =>  array(
         

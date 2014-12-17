@@ -31,6 +31,11 @@ class TPRedis {
         $this->handler->$func($options['host'], $options['port'], $options['timeout']);
     }
 
+    public function __destruct(){
+        //echo "当对象销毁时会调用！！！";
+        $this->close();
+    }
+
     private function isConnected() {
         return $this->connected;
     }

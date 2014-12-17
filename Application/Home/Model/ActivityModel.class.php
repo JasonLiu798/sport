@@ -18,14 +18,17 @@ class ActivityModel extends Model {
         }
     }
 
+    /*
     public function init_follow_cnt_cache($aid){
         //key: afcnt[aid] value:follow_cnt
         //select count(*) cnt from user_activity where aid = 3;
         $res = $this->table('user_activity')->field('count(*) cnt')->where('aid=%d',array($aid))->find();
         $redis = new \Org\Util\TpRedis;
-        $redis->set('uid');
+        $redis->incr('uid');
+        $redis->close();
         return $res['cnt'];
     }
+    */
 
     public function get_follow_cnt($aid){
         $res = $this->field('follow_cnt')->where('aid=%d',array($aid))->find();

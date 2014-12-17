@@ -166,6 +166,7 @@ console.log('user:'+{{Session::get('user')}});
 
         <input type="hidden" name="method" value="do"/>
         <input type="hidden" name="aid" value="<?php echo ($aid); ?>"/>
+        <input type="hidden" name="pid" value="<?php echo ($pid); ?>"/>
 
         <div class="form_head">
             <div class ="form_title"><h3><?php echo ($title); ?></h3></div>

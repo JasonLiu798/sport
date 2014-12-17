@@ -9,7 +9,7 @@
 	<link rel="stylesheet" href="<?php echo U('Public/bower_components/bootstrap/dist/css/bootstrap.min.css');?>">
     <link rel="stylesheet" href="<?php echo U('Public/css/style.css');?>">
     
-    <script src="http://localhost:3000/socket.io/socket.io.js"></script>
+    <!--<script src="http://localhost:3000/socket.io/socket.io.js"></script>-->
 	<?php if(isset($next_url)): ?><META HTTP-EQUIV="REFRESH" CONTENT="100;URL=<?php echo ($next_url); ?>?>" /><?php endif; ?>
 
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -96,7 +96,7 @@ console.log('user:'+{{Session::get('user')}});
 </head>
 
 <body>
-	<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+	<div class="navbar navbar-default navbar-static-top" role="navigation">
 		<div class="container">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle collapsed"
@@ -130,27 +130,27 @@ console.log('user:'+{{Session::get('user')}});
 				</form></li>
 				</ul>
 				
+				<?php $username = session('username'); ?>
+
 				<ul class="nav navbar-nav navbar-right">
-						
 					<?php if(empty( $username )): ?><li><input type="button" class="btn btn-default navbar-btn"
 						onclick="javascript:window.location.href='<?php echo U('user/regist');?>';"
 						value="注册" /></li>
 					<li>&nbsp;&nbsp;&nbsp;</li><?php endif; ?>
 						
-					<?php if(!empty( $username )): ?><li class="dropdown">
+					<?php if(!empty($username)): ?><li class="dropdown">
 					<?php else: ?>
 						<li><?php endif; ?>
 					
-					<?php if(empty( $username )): ?><input type="button" class="btn btn-default navbar-btn" onclick="javascript:window.location.href='<?php echo U('user/login');?>';" value="登录" />
-					<?php else: ?>
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo ($username); ?><b class="caret"></b></a>
-						<ul class="dropdown-menu">
-							<li><a href="<?php echo U();?>">文章管理</a></li>
-							<li><a href="#">设置</a></li>
-							<li class="divider"></li>
-							<li><a href="<?php echo U('user/logout');?>">退出</a></li>
-						</ul><?php endif; ?>
-						</li>
+						<?php if(empty( $username )): ?><input type="button" class="btn btn-default navbar-btn" onclick="javascript:window.location.href='<?php echo U('user/login');?>';" value="登录" />
+						<?php else: ?>
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo ($username); ?><b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li><a href="<?php echo U();?>">个人中心</a></li>
+								<li class="divider"></li>
+								<li><a href="<?php echo U('user/logout');?>">退出</a></li>
+							</ul><?php endif; ?>
+					</li>
 					
 					<!-- <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li> -->
 				</ul>
