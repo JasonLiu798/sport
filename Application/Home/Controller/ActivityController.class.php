@@ -66,56 +66,33 @@ class ActivityController extends Controller {
         $err = '';
         $uid = session('uid');
 
-        $activity_model = D('activity');
+        $a_model = D('activity');
         //p.province,ct.city,a.area,
-        $activity_detail = $activity_model->field("aid,activity_name,duration,start_time,end_time,alocation,lon,lat,c.ccontent atype,cityarea2show,price,pricetype,acontent,s.sport_name,follow_cnt,take_cnt,equipment_take,equipment_got,aimax_url,u.username")
-        ->join(array(
-            ' LEFT JOIN constants c ON c.cvalue = activity.activity_type',
-            ' LEFT JOIN user u ON u.uid = activity.creator',
-            ' LEFT JOIN sport s ON s.sid = activity.sport_type',
-                /*' LEFT JOIN provinces p ON p.provinceid = activity.aprovince',
-                ' LEFT JOIN cities ct ON ct.cityid = activity.acity',
-                ' LEFT JOIN areas a ON a.areaid = activity.aarea'*/))
-        ->where("activity.status='P' AND c.module=1 AND activity.aid=%d ",array($aid ))
-        ->select();
+        $activity_detail = $a_model->get_activity_detail($aid);
             // print_r($activity_detail);
             // echo $activity_model->getLastSql();
             // return ;
         if( !is_null($activity_detail) && count($activity_detail)>0 ){
             $activity_comment_model = D('activity_comment');
-            /*
-                SELECT activity_comment.acid,u.username,
-                activity_comment.accontent,activity_comment.create_time,ac.acid,ac.deleted
-                FROM activity_comment
-                LEFT JOIN user u ON u.uid = activity_comment.uid 
-                LEFT JOIN activity_comment ac ON ac.pid = activity_comment.acid 
-                WHERE activity_comment.deleted=0 AND activity_comment.aid=3 AND activity_comment.pid=0
-                AND (ac.deleted=0 or ac.deleted is null)
-            */
-            $acomments = $activity_comment_model->field("activity_comment.acid,u.username,activity_comment.accontent,activity_comment.create_time,count(ac.acid) fcnt")
-            ->join(array(
-                ' LEFT JOIN user u ON u.uid = activity_comment.uid',
-                ' LEFT JOIN activity_comment ac ON ac.pid = activity_comment.acid',
-                ))
-            ->where("activity_comment.deleted=0 AND (ac.deleted=0 OR ac.deleted is null)AND activity_comment.aid=%d AND activity_comment.pid=0 ",array($aid))
-            ->group('activity_comment.acid')
-            ->select();
+                        
+            $acomments = $activity_comment_model->get_activity_parent_comments($aid);
 
-            // echo $activity_comment_model->getLastSql();
-            // print_r($acomments);
-            // return;
+            $ua_model = D('UserActivity');
             //116.419338,39.959874
             if(is_null($uid)){
                 $us_status = C('UA_NONE');
             }else{
                 //is follow
-                $user_activity_model = D('UserActivity');
+                
                 //echo $uid.',A:'.$aid."\n";
-                $us_status = $user_activity_model->check_relation($uid,$aid);
+                $us_status = $ua_model->check_relation($uid,$aid);
+                
                 if ( !$us_status ){
                     $err = '数据库查询错误';
                 }
             }
+            $activity_members = $ua_model->get_activity_member($aid);
+            $activity_creator = $a_model->get_activity_initor($aid);
         }else{
             $err = '活动不存在';
         }
@@ -128,6 +105,9 @@ class ActivityController extends Controller {
             $this->assign('comments',$acomments);
             $this->assign('activity_detail',$activity_detail[0]);
             $this->assign('us_status',$us_status);
+            $this->assign('activity_members',$activity_members);
+            $this->assign('activity_creator', $activity_creator);
+            //$this->assign('initor',$initor);
             $this->assign('title', $activity_detail[0]['activity_name']);
             $this->display();
         }
@@ -389,6 +369,57 @@ class ActivityController extends Controller {
         $this->ajaxReturn($data);
     }
 
+    /**
+     * 创建
+     */
+    public function create(){
+        $uid = session('uid');
+        if(is_null($uid)){
+            $err = '未登录';
+        }else{
+            if( I('param.method','page')==='page' ){
+
+                $s_model = D('Sport');
+
+                $activity_type = $s_model->get_sport_type();
+                $l_model = D('Location');
+                $province = $l_model->get_provinces();
+
+                $u_model = D('User');
+
+                $map_init = $u_model->get_pos($uid);
+                //$map_init = new stdClass;
+
+                //$sport_sub_type = $s_model->get_sport_sub_type();
+
+                //$sport_sub_type = $s_model->get_sport_sub_type();
+                //$activity_types = 
+                $this->assign('activity_types',$activity_type);
+                $this->assign('provinces',$province);
+                $this->assign('map_init', $map_init);
+                //$this->assign('province',$sport_type);
+                //$this->assign('sport_sub_type',$sport_sub_type);
+
+                $this->assign('title','创建活动');
+                $this->display();
+                return ;
+            }else{
+                $a_model = D('Activity');
+                $aid = get_pk();
+            }
+        }
+        
+
+        if(strlen($err)>0){
+            
+            $this->assign('msg',$err);
+            $this->display('public/error');
+        }else{
+            
+        }
+
+    }
+
     public function test(){
         //$activity_model = D('Activity');
         // echo $activity_model->init_follow_cnt_cache(3);
@@ -397,9 +428,20 @@ class ActivityController extends Controller {
         //echo $activity_model->get_follow_cnt(4);
 
         //$ua_model = D('UserActivity');
-        $a_model = D('Activity');
+        $s_model = D('Sport');
+        $l_model = D('Location');
+        //print_r( $l_model->get_provinces() );
+        $u_model = D('User');
+
+        print_r( $u_model->get_pos(1) );
+
+        //print_r( $l_model->get_area('110100') );
+        //print_r( $s_model->get_sport_sub_type(2) );
+        //print_r( $ua_model->get_activity_member(3,C('UA_FOLLOW')) );
+        //$a_model = D('Activity');
+
         //echo $ua_model->check_relation(2,4);
-        echo $a_model->update_follow_cnt(3);
+        //echo $a_model->update_follow_cnt(3);
 
     }
 

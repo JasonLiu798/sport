@@ -155,6 +155,7 @@ return  array(
     'URL_ROUTE_RULES'       =>  array(
         'activity/detail/:aid'=>'Activity/detail',
         'activitycomment/create/:aid'=>'ActivityComment/create',
+        'activitycomment/comments/:acid'=>'ActivityComment/comments',
     ), // 默认路由规则 针对模块
     'URL_MAP_RULES'         =>  array(
         

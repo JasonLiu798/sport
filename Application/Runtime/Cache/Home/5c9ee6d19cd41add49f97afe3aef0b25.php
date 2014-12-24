@@ -6,8 +6,8 @@
 	<title><?php echo ($title); ?></title>
 	<script src="<?php echo U('Public/bower_components/jquery/dist/jquery.min.js');?>"></script>
 	<script src="<?php echo U('Public/bower_components/bootstrap/dist/js/bootstrap.min.js');?>"></script>
-	<link rel="stylesheet" href="<?php echo U('Public/bower_components/bootstrap/dist/css/bootstrap.min.css');?>">
-    <link rel="stylesheet" href="<?php echo U('Public/css/style.css');?>">
+	<link rel="stylesheet" href="<?php echo U('Public/bower_components/bootstrap/dist/css/bootstrap.min.css');?>"/>
+    <link rel="stylesheet" href="<?php echo U('Public/css/style.css');?>"/>
     
     <!--<script src="http://localhost:3000/socket.io/socket.io.js"></script>-->
 	<?php if(isset($next_url)): ?><META HTTP-EQUIV="REFRESH" CONTENT="100;URL=<?php echo ($next_url); ?>?>" /><?php endif; ?>

@@ -81,6 +81,20 @@ class UserModel extends Model {
 		//return $uid;
 	}
 
+	// 获取所在坐标，根据所在城市
+	public function get_pos( $uid ){
+		$res = $this->field('cities.lon,cities.lat')
+			->alias('u')
+			->join(' LEFT JOIN cities on cities.cityid=u.cityid')
+			->where(' u.uid=%d',array($uid))
+			->select();
+		if($res){
+			return $res[0];		
+		}else{
+			return false;
+		}
+	}
+
 	
 
 

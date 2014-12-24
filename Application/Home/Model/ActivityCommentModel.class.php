@@ -31,6 +31,54 @@ class ActivityCommentModel extends Model {
             return false;
         }
     }
+
+    public function get_parent_comment($acid){
+        $res = $this->alias('ac')
+            ->field('aid,acid,u.username,u.head_iminurl,u.uid,actitle,accontent,ac.approved,ac.create_time')
+            ->join(array(' LEFT JOIN user u ON u.uid = ac.uid'))
+            ->where('acid=%d AND pid=0 AND deleted=0',array($acid))
+            ->select();
+        if($res){
+            return $res[0];
+        }else{
+            return false;
+        }
+        
+    }
+
+    public function get_child_comments($acid){
+        $res = $this->alias('ac')
+            ->field('aid,acid,u.uid,u.username,u.head_iminurl,ac.uid,accontent,ac.approved,ac.create_time')
+            ->join(array(' LEFT JOIN user u ON u.uid = ac.uid'))
+            ->where('pid=%d AND deleted=0',array($acid))
+            ->order('ac.create_time')
+            ->select();
+        return $res;
+        
+    }
+
+    public function get_activity_parent_comments($aid){
+        /*
+                SELECT activity_comment.acid,u.username,
+                activity_comment.accontent,activity_comment.create_time,ac.acid,ac.deleted
+                FROM activity_comment
+                LEFT JOIN user u ON u.uid = activity_comment.uid 
+                LEFT JOIN activity_comment ac ON ac.pid = activity_comment.acid 
+                WHERE activity_comment.deleted=0 AND activity_comment.aid=3 AND activity_comment.pid=0
+                AND (ac.deleted=0 or ac.deleted is null)
+            */
+        $res = $this->field("activity_comment.acid,u.username,activity_comment.accontent,activity_comment.create_time,count(ac.acid) fcnt")
+            ->join(array(
+                ' LEFT JOIN user u ON u.uid = activity_comment.uid',
+                ' LEFT JOIN activity_comment ac ON ac.pid = activity_comment.acid',
+                ))
+            ->where("activity_comment.deleted=0 AND (ac.deleted=0 OR ac.deleted is null)AND activity_comment.aid=%d AND activity_comment.pid=0 ",array($aid))
+            ->group('activity_comment.acid')
+            ->select();
+        return $res;
+    }
+
+    
     
 
     

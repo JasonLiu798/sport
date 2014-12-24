@@ -1,0 +1,121 @@
+@CHARSET "UTF-8";
+
+
+#today_end{
+    width:100%;
+    overflow: hidden;
+}
+.floatleft{
+    float:left;
+}
+
+.datest{
+    width:25%;
+    margin:10px 10px 10px 0;
+}
+.time1{
+    width:22%;
+    margin:10px;
+}
+
+.time2{
+    width:22%;
+    margin:10px;
+}
+
+#day_end{
+    width:100%;
+    overflow: hidden;
+}
+.days_data_st{
+    width:30%;
+    margin:10px 0;
+}
+.days_data_ed{
+    width:30%;
+    margin:10px;
+}
+.days_time_st{
+    width:30%;
+    margin:10px 0;   
+}
+.days_time_ed{
+    width:30%; 
+    margin:10px;  
+}
+
+.time_seperator{
+    margin:15px 10px 0 15px;
+    /*padding:15px 15px 0 10px;*/
+}
+
+#week_end{
+    width:100%;
+    overflow: hidden;
+    margin:10px 0 0 0;
+}
+
+td{
+    width:50px;
+}
+
+/*价格*/
+.price_name_th{
+    width:50%;
+}
+.price_num_th{
+    width:50%;
+}
+
+
+.form-group{
+    margin:10px;
+}
+
+/* 地区 */
+#location_choose_div{
+    overflow: hidden;
+}
+#city_div{
+    display:none;
+}
+#area_div{
+    display:none;
+}
+.set_position{
+    margin:10px;
+    padding:10px;
+}
+.map_div{
+    margin:10px;
+    padding:10px;
+    width:420px;
+    height:220px;
+    border-radius: 5px; /* 所有角都使用半径为5px的圆角，此属性为CSS3标准属性 */ 
+    -moz-border-radius: 5px; /* Mozilla浏览器的私有属性 */ 
+    -webkit-border-radius: 5px; /* Webkit浏览器的私有属性 */ 
+    
+    border:1px solid #eee; 
+    
+}
+#r-result{
+    padding:10px;
+    margin:10px 0 0 0;
+}
+
+#location{
+    height:350px;
+}
+
+#activity_location_text{
+    margin:10px 0 0 0;
+}
+
+#sport_type_div{
+    display:none;
+}
+
+
+
+
+

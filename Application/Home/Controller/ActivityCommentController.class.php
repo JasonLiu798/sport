@@ -71,8 +71,17 @@ class ActivityCommentController extends Controller {
             // $this->assign('us_status',$us_status);
             // $this->assign('title', $activity_detail[0]['activity_name']);
             // $this->display();
+            if($pid==0){//父节点
+                $this->redirect('activitycomment/comments/'.$pk);
+            }else{//子节点
+                $this->redirect('activitycomment/comments/'.$pid.'#comment'.$pk);
+            }
         }
         return;
+    }
+
+    public function discuss(){
+        
     }
 
     public function comments(){
@@ -83,21 +92,18 @@ class ActivityCommentController extends Controller {
             $err = '主题不存在';
         }else{
             $ac_model = D('ActivityComment');
-            $pcomment = $ac_model->alias('ac')
-                ->field('aid,acid,u.username,ac.uid,actitle,accontent,ac.approved')
-                ->join(array(' LEFT JOIN user u ON u.uid = ac.uid'))
-                ->where('acid=%d AND pid=0 AND deleted=0',array($acid))
-                ->select();
-            $title = $pcomment[0]['actitle'];
-            
+            $pcomment = $ac_model->get_parent_comment($acid);
+            // print_r($pcomment);
+            // return;
+
+
+            if($pcomment){
+                $title = $pcomment['actitle'];
+            }
             //print_r($pcomment);
-            $comments = $ac_model->alias('ac')
-                ->field('aid,acid,u.username,ac.uid,actitle,accontent,ac.approved')
-                ->join(array(' LEFT JOIN user u ON u.uid = ac.uid'))
-                ->where('pid=%d AND deleted=0',array($acid))
-                ->select();
+            $comments = $ac_model->get_child_comments($acid);
             //print_r($comments);
-            
+            //return;
         }
         
         if(strlen($err)>0){

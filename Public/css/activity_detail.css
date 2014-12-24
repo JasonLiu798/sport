@@ -42,3 +42,54 @@
     float:left;
     margin:0 0 0 10px;
 }
+
+
+/*参与人员*/
+.activity_member_head{
+    float:left;
+    margin:8px;
+}
+.member_float_div{
+    width:200px;
+    overflow: hidden;
+}
+.activity_member_head_img{
+    display:block;
+}
+.member_float_head{
+    float:left;
+    width:30%;
+}
+.member_float_head_detail{
+    width:60%;
+    float:left;
+}
+
+
+/*baidu map*
+
+#allmap {height: 500px;width:100%;overflow: hidden;}
+#result {width:100%;font-size:12px;}
+dl,dt,dd,ul,li{
+    margin:0;
+    padding:0;
+    list-style:none;
+}
+dt{
+    font-size:14px;
+    font-family:"微软雅黑";
+    font-weight:bold;
+    border-bottom:1px dotted #000;
+    padding:5px 0 5px 5px;
+    margin:5px 0;
+}
+dd{
+    padding:5px 0 0 5px;
+}
+li{
+    line-height:28px;
+}
+
+*/
+
+

@@ -1,0 +1,1501 @@
+[ 2014-12-19T10:43:49+08:00 ] 127.0.0.1 /activity/detail/3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.005916s ]
+INFO: [ app_init ] --END-- [ RunTime:0.018847s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002398s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002654s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /private/var/www/sport/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `activity` [ RunTime:0.016224s ]
+SQL: SELECT `aid`,`activity_name`,`duration`,`start_time`,`end_time`,`alocation`,`lon`,`lat`,c.ccontent atype,`cityarea2show`,`price`,`pricetype`,`acontent`,s.sport_name,`follow_cnt`,`take_cnt`,`equipment_take`,`equipment_got`,`aimax_url`,u.username FROM `activity`  LEFT JOIN constants c ON c.cvalue = activity.activity_type  LEFT JOIN user u ON u.uid = activity.creator  LEFT JOIN sport s ON s.sid = activity.sport_type  WHERE ( activity.status='P' AND c.module=1 AND activity.aid=3  )  [ RunTime:0.012002s ]
+SQL: SHOW COLUMNS FROM `activity_comment` [ RunTime:0.005482s ]
+SQL: SELECT activity_comment.acid,u.username,activity_comment.accontent,activity_comment.create_time,count(ac.acid) fcnt FROM `activity_comment`  LEFT JOIN user u ON u.uid = activity_comment.uid  LEFT JOIN activity_comment ac ON ac.pid = activity_comment.acid  WHERE ( activity_comment.deleted=0 AND (ac.deleted=0 OR ac.deleted is null)AND activity_comment.aid=3 AND activity_comment.pid=0  ) GROUP BY activity_comment.acid  [ RunTime:0.005148s ]
+NOTIC: [8] Undefined variable: activity_members /private/var/www/sport/Application/Home/Controller/ActivityController.class.php 第 105 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000190s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000369s ]
+NOTIC: [8] A non well formed numeric value encountered /private/var/www/sport/Application/Runtime/Cache/Home/f8356fb647bbe8f15c9f836a57b7821a.php 第 425 行.
+NOTIC: [8] A non well formed numeric value encountered /private/var/www/sport/Application/Runtime/Cache/Home/f8356fb647bbe8f15c9f836a57b7821a.php 第 425 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.063688s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.063845s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001016s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001121s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001262s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001373s ]
+
+[ 2014-12-19T10:44:55+08:00 ] 127.0.0.1 /activity/detail/3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000040s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000433s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000491s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000644s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /private/var/www/sport/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `activity` [ RunTime:0.002884s ]
+SQL: SELECT `aid`,`activity_name`,`duration`,`start_time`,`end_time`,`alocation`,`lon`,`lat`,c.ccontent atype,`cityarea2show`,`price`,`pricetype`,`acontent`,s.sport_name,`follow_cnt`,`take_cnt`,`equipment_take`,`equipment_got`,`aimax_url`,u.username FROM `activity`  LEFT JOIN constants c ON c.cvalue = activity.activity_type  LEFT JOIN user u ON u.uid = activity.creator  LEFT JOIN sport s ON s.sid = activity.sport_type  WHERE ( activity.status='P' AND c.module=1 AND activity.aid=3  )  [ RunTime:0.000510s ]
+SQL: SHOW COLUMNS FROM `activity_comment` [ RunTime:0.002883s ]
+SQL: SELECT activity_comment.acid,u.username,activity_comment.accontent,activity_comment.create_time,count(ac.acid) fcnt FROM `activity_comment`  LEFT JOIN user u ON u.uid = activity_comment.uid  LEFT JOIN activity_comment ac ON ac.pid = activity_comment.acid  WHERE ( activity_comment.deleted=0 AND (ac.deleted=0 OR ac.deleted is null)AND activity_comment.aid=3 AND activity_comment.pid=0  ) GROUP BY activity_comment.acid  [ RunTime:0.000763s ]
+NOTIC: [8] Undefined variable: activity_members /private/var/www/sport/Application/Home/Controller/ActivityController.class.php 第 105 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000193s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000364s ]
+NOTIC: [8] A non well formed numeric value encountered /private/var/www/sport/Application/Runtime/Cache/Home/f8356fb647bbe8f15c9f836a57b7821a.php 第 428 行.
+NOTIC: [8] A non well formed numeric value encountered /private/var/www/sport/Application/Runtime/Cache/Home/f8356fb647bbe8f15c9f836a57b7821a.php 第 428 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.056818s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.056988s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000379s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000511s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001143s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001495s ]
+
+[ 2014-12-19T10:48:37+08:00 ] 127.0.0.1 /activity/detail/3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000076s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000756s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000684s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000816s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /private/var/www/sport/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `activity` [ RunTime:0.011130s ]
+SQL: SELECT `aid`,`activity_name`,`duration`,`start_time`,`end_time`,`alocation`,`lon`,`lat`,c.ccontent atype,`cityarea2show`,`price`,`pricetype`,`acontent`,s.sport_name,`follow_cnt`,`take_cnt`,`equipment_take`,`equipment_got`,`aimax_url`,u.username FROM `activity`  LEFT JOIN constants c ON c.cvalue = activity.activity_type  LEFT JOIN user u ON u.uid = activity.creator  LEFT JOIN sport s ON s.sid = activity.sport_type  WHERE ( activity.status='P' AND c.module=1 AND activity.aid=3  )  [ RunTime:0.000718s ]
+SQL: SHOW COLUMNS FROM `activity_comment` [ RunTime:0.002928s ]
+SQL: SELECT activity_comment.acid,u.username,activity_comment.accontent,activity_comment.create_time,count(ac.acid) fcnt FROM `activity_comment`  LEFT JOIN user u ON u.uid = activity_comment.uid  LEFT JOIN activity_comment ac ON ac.pid = activity_comment.acid  WHERE ( activity_comment.deleted=0 AND (ac.deleted=0 OR ac.deleted is null)AND activity_comment.aid=3 AND activity_comment.pid=0  ) GROUP BY activity_comment.acid  [ RunTime:0.001129s ]
+NOTIC: [8] Undefined variable: activity_members /private/var/www/sport/Application/Home/Controller/ActivityController.class.php 第 105 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000118s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000214s ]
+NOTIC: [8] A non well formed numeric value encountered /private/var/www/sport/Application/Runtime/Cache/Home/f8356fb647bbe8f15c9f836a57b7821a.php 第 428 行.
+NOTIC: [8] A non well formed numeric value encountered /private/var/www/sport/Application/Runtime/Cache/Home/f8356fb647bbe8f15c9f836a57b7821a.php 第 428 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.046663s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.046767s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000190s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000269s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000404s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000520s ]
+
+[ 2014-12-19T10:50:30+08:00 ] 127.0.0.1 /activity/detail/3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000302s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000405s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000512s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /private/var/www/sport/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `activity` [ RunTime:0.010740s ]
+SQL: SELECT `aid`,`activity_name`,`duration`,`start_time`,`end_time`,`alocation`,`lon`,`lat`,c.ccontent atype,`cityarea2show`,`price`,`pricetype`,`acontent`,s.sport_name,`follow_cnt`,`take_cnt`,`equipment_take`,`equipment_got`,`aimax_url`,u.username FROM `activity`  LEFT JOIN constants c ON c.cvalue = activity.activity_type  LEFT JOIN user u ON u.uid = activity.creator  LEFT JOIN sport s ON s.sid = activity.sport_type  WHERE ( activity.status='P' AND c.module=1 AND activity.aid=3  )  [ RunTime:0.000448s ]
+SQL: SHOW COLUMNS FROM `activity_comment` [ RunTime:0.002365s ]
+SQL: SELECT activity_comment.acid,u.username,activity_comment.accontent,activity_comment.create_time,count(ac.acid) fcnt FROM `activity_comment`  LEFT JOIN user u ON u.uid = activity_comment.uid  LEFT JOIN activity_comment ac ON ac.pid = activity_comment.acid  WHERE ( activity_comment.deleted=0 AND (ac.deleted=0 OR ac.deleted is null)AND activity_comment.aid=3 AND activity_comment.pid=0  ) GROUP BY activity_comment.acid  [ RunTime:0.000470s ]
+NOTIC: [8] Undefined variable: ua_model /private/var/www/sport/Application/Home/Controller/ActivityController.class.php 第 93 行.
+
+[ 2014-12-19T10:51:09+08:00 ] 127.0.0.1 /activity/detail/3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000268s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000286s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000361s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /private/var/www/sport/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `activity` [ RunTime:0.002830s ]
+SQL: SELECT `aid`,`activity_name`,`duration`,`start_time`,`end_time`,`alocation`,`lon`,`lat`,c.ccontent atype,`cityarea2show`,`price`,`pricetype`,`acontent`,s.sport_name,`follow_cnt`,`take_cnt`,`equipment_take`,`equipment_got`,`aimax_url`,u.username FROM `activity`  LEFT JOIN constants c ON c.cvalue = activity.activity_type  LEFT JOIN user u ON u.uid = activity.creator  LEFT JOIN sport s ON s.sid = activity.sport_type  WHERE ( activity.status='P' AND c.module=1 AND activity.aid=3  )  [ RunTime:0.000431s ]
+SQL: SHOW COLUMNS FROM `activity_comment` [ RunTime:0.002059s ]
+SQL: SELECT activity_comment.acid,u.username,activity_comment.accontent,activity_comment.create_time,count(ac.acid) fcnt FROM `activity_comment`  LEFT JOIN user u ON u.uid = activity_comment.uid  LEFT JOIN activity_comment ac ON ac.pid = activity_comment.acid  WHERE ( activity_comment.deleted=0 AND (ac.deleted=0 OR ac.deleted is null)AND activity_comment.aid=3 AND activity_comment.pid=0  ) GROUP BY activity_comment.acid  [ RunTime:0.000444s ]
+SQL: SHOW COLUMNS FROM `user_activity` [ RunTime:0.003516s ]
+SQL: SELECT u.username,u.uid,u.head_iminurl,ua.type FROM user_activity ua  LEFT JOIN user u ON u.uid = ua.uid  WHERE ( ua.aid=3 )  [ RunTime:0.000418s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000112s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000198s ]
+NOTIC: [8] A non well formed numeric value encountered /private/var/www/sport/Application/Runtime/Cache/Home/f8356fb647bbe8f15c9f836a57b7821a.php 第 428 行.
+NOTIC: [8] A non well formed numeric value encountered /private/var/www/sport/Application/Runtime/Cache/Home/f8356fb647bbe8f15c9f836a57b7821a.php 第 428 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.046328s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.046419s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000198s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000278s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000453s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000577s ]
+
+[ 2014-12-19T10:51:27+08:00 ] 127.0.0.1 /activity/detail/3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000271s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000401s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000513s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /private/var/www/sport/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `activity` [ RunTime:0.003484s ]
+SQL: SELECT `aid`,`activity_name`,`duration`,`start_time`,`end_time`,`alocation`,`lon`,`lat`,c.ccontent atype,`cityarea2show`,`price`,`pricetype`,`acontent`,s.sport_name,`follow_cnt`,`take_cnt`,`equipment_take`,`equipment_got`,`aimax_url`,u.username FROM `activity`  LEFT JOIN constants c ON c.cvalue = activity.activity_type  LEFT JOIN user u ON u.uid = activity.creator  LEFT JOIN sport s ON s.sid = activity.sport_type  WHERE ( activity.status='P' AND c.module=1 AND activity.aid=3  )  [ RunTime:0.000405s ]
+SQL: SHOW COLUMNS FROM `activity_comment` [ RunTime:0.002677s ]
+SQL: SELECT activity_comment.acid,u.username,activity_comment.accontent,activity_comment.create_time,count(ac.acid) fcnt FROM `activity_comment`  LEFT JOIN user u ON u.uid = activity_comment.uid  LEFT JOIN activity_comment ac ON ac.pid = activity_comment.acid  WHERE ( activity_comment.deleted=0 AND (ac.deleted=0 OR ac.deleted is null)AND activity_comment.aid=3 AND activity_comment.pid=0  ) GROUP BY activity_comment.acid  [ RunTime:0.000446s ]
+SQL: SHOW COLUMNS FROM `user_activity` [ RunTime:0.001993s ]
+SQL: SELECT u.username,u.uid,u.head_iminurl,ua.type FROM user_activity ua  LEFT JOIN user u ON u.uid = ua.uid  WHERE ( ua.aid=3 )  [ RunTime:0.000268s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000125s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000256s ]
+NOTIC: [8] A non well formed numeric value encountered /private/var/www/sport/Application/Runtime/Cache/Home/f8356fb647bbe8f15c9f836a57b7821a.php 第 428 行.
+NOTIC: [8] A non well formed numeric value encountered /private/var/www/sport/Application/Runtime/Cache/Home/f8356fb647bbe8f15c9f836a57b7821a.php 第 428 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.039512s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.039600s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000175s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000254s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000470s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000578s ]
+
+[ 2014-12-19T10:52:28+08:00 ] 127.0.0.1 /activity/detail/3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000302s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000291s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000364s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /private/var/www/sport/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `activity` [ RunTime:0.005553s ]
+SQL: SELECT `aid`,`activity_name`,`duration`,`start_time`,`end_time`,`alocation`,`lon`,`lat`,c.ccontent atype,`cityarea2show`,`price`,`pricetype`,`acontent`,s.sport_name,`follow_cnt`,`take_cnt`,`equipment_take`,`equipment_got`,`aimax_url`,u.username FROM `activity`  LEFT JOIN constants c ON c.cvalue = activity.activity_type  LEFT JOIN user u ON u.uid = activity.creator  LEFT JOIN sport s ON s.sid = activity.sport_type  WHERE ( activity.status='P' AND c.module=1 AND activity.aid=3  )  [ RunTime:0.000376s ]
+SQL: SHOW COLUMNS FROM `activity_comment` [ RunTime:0.002403s ]
+SQL: SELECT activity_comment.acid,u.username,activity_comment.accontent,activity_comment.create_time,count(ac.acid) fcnt FROM `activity_comment`  LEFT JOIN user u ON u.uid = activity_comment.uid  LEFT JOIN activity_comment ac ON ac.pid = activity_comment.acid  WHERE ( activity_comment.deleted=0 AND (ac.deleted=0 OR ac.deleted is null)AND activity_comment.aid=3 AND activity_comment.pid=0  ) GROUP BY activity_comment.acid  [ RunTime:0.000925s ]
+SQL: SHOW COLUMNS FROM `user_activity` [ RunTime:0.002286s ]
+SQL: SELECT u.username,u.uid,u.head_iminurl,ua.type FROM user_activity ua  LEFT JOIN user u ON u.uid = ua.uid  WHERE ( ua.aid=3 )  [ RunTime:0.000287s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000100s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000185s ]
+NOTIC: [8] A non well formed numeric value encountered /private/var/www/sport/Application/Runtime/Cache/Home/f8356fb647bbe8f15c9f836a57b7821a.php 第 428 行.
+NOTIC: [8] A non well formed numeric value encountered /private/var/www/sport/Application/Runtime/Cache/Home/f8356fb647bbe8f15c9f836a57b7821a.php 第 428 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.043115s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.043250s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000181s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000264s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000502s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000618s ]
+
+[ 2014-12-19T10:53:06+08:00 ] 127.0.0.1 /activity/detail/3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000267s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000286s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000361s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /private/var/www/sport/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `activity` [ RunTime:0.003219s ]
+SQL: SELECT `aid`,`activity_name`,`duration`,`start_time`,`end_time`,`alocation`,`lon`,`lat`,c.ccontent atype,`cityarea2show`,`price`,`pricetype`,`acontent`,s.sport_name,`follow_cnt`,`take_cnt`,`equipment_take`,`equipment_got`,`aimax_url`,u.username FROM `activity`  LEFT JOIN constants c ON c.cvalue = activity.activity_type  LEFT JOIN user u ON u.uid = activity.creator  LEFT JOIN sport s ON s.sid = activity.sport_type  WHERE ( activity.status='P' AND c.module=1 AND activity.aid=3  )  [ RunTime:0.000430s ]
+SQL: SHOW COLUMNS FROM `activity_comment` [ RunTime:0.002542s ]
+SQL: SELECT activity_comment.acid,u.username,activity_comment.accontent,activity_comment.create_time,count(ac.acid) fcnt FROM `activity_comment`  LEFT JOIN user u ON u.uid = activity_comment.uid  LEFT JOIN activity_comment ac ON ac.pid = activity_comment.acid  WHERE ( activity_comment.deleted=0 AND (ac.deleted=0 OR ac.deleted is null)AND activity_comment.aid=3 AND activity_comment.pid=0  ) GROUP BY activity_comment.acid  [ RunTime:0.000458s ]
+SQL: SHOW COLUMNS FROM `user_activity` [ RunTime:0.002129s ]
+SQL: SELECT u.username,u.uid,u.head_iminurl,ua.type FROM user_activity ua  LEFT JOIN user u ON u.uid = ua.uid  WHERE ( ua.aid=3 )  [ RunTime:0.000287s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000186s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000320s ]
+NOTIC: [8] A non well formed numeric value encountered /private/var/www/sport/Application/Runtime/Cache/Home/f8356fb647bbe8f15c9f836a57b7821a.php 第 428 行.
+NOTIC: [8] A non well formed numeric value encountered /private/var/www/sport/Application/Runtime/Cache/Home/f8356fb647bbe8f15c9f836a57b7821a.php 第 428 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.049001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.049182s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000173s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000248s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000407s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000508s ]
+
+[ 2014-12-19T10:53:22+08:00 ] 127.0.0.1 /activity/detail/3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000296s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000315s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000394s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /private/var/www/sport/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `activity` [ RunTime:0.005587s ]
+SQL: SELECT `aid`,`activity_name`,`duration`,`start_time`,`end_time`,`alocation`,`lon`,`lat`,c.ccontent atype,`cityarea2show`,`price`,`pricetype`,`acontent`,s.sport_name,`follow_cnt`,`take_cnt`,`equipment_take`,`equipment_got`,`aimax_url`,u.username FROM `activity`  LEFT JOIN constants c ON c.cvalue = activity.activity_type  LEFT JOIN user u ON u.uid = activity.creator  LEFT JOIN sport s ON s.sid = activity.sport_type  WHERE ( activity.status='P' AND c.module=1 AND activity.aid=3  )  [ RunTime:0.000581s ]
+SQL: SHOW COLUMNS FROM `activity_comment` [ RunTime:0.003009s ]
+SQL: SELECT activity_comment.acid,u.username,activity_comment.accontent,activity_comment.create_time,count(ac.acid) fcnt FROM `activity_comment`  LEFT JOIN user u ON u.uid = activity_comment.uid  LEFT JOIN activity_comment ac ON ac.pid = activity_comment.acid  WHERE ( activity_comment.deleted=0 AND (ac.deleted=0 OR ac.deleted is null)AND activity_comment.aid=3 AND activity_comment.pid=0  ) GROUP BY activity_comment.acid  [ RunTime:0.000477s ]
+SQL: SHOW COLUMNS FROM `user_activity` [ RunTime:0.001960s ]
+SQL: SELECT u.username,u.uid,u.head_iminurl,ua.type FROM user_activity ua  LEFT JOIN user u ON u.uid = ua.uid  WHERE ( ua.aid=3 )  [ RunTime:0.000293s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000115s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000311s ]
+NOTIC: [8] A non well formed numeric value encountered /private/var/www/sport/Application/Runtime/Cache/Home/f8356fb647bbe8f15c9f836a57b7821a.php 第 428 行.
+NOTIC: [8] A non well formed numeric value encountered /private/var/www/sport/Application/Runtime/Cache/Home/f8356fb647bbe8f15c9f836a57b7821a.php 第 428 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.039577s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.039662s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000158s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000225s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000380s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000463s ]
+
+[ 2014-12-19T10:54:21+08:00 ] 127.0.0.1 /activity/detail/3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000304s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000617s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000776s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /private/var/www/sport/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `activity` [ RunTime:0.004372s ]
+SQL: SELECT `aid`,`activity_name`,`duration`,`start_time`,`end_time`,`alocation`,`lon`,`lat`,c.ccontent atype,`cityarea2show`,`price`,`pricetype`,`acontent`,s.sport_name,`follow_cnt`,`take_cnt`,`equipment_take`,`equipment_got`,`aimax_url`,u.username FROM `activity`  LEFT JOIN constants c ON c.cvalue = activity.activity_type  LEFT JOIN user u ON u.uid = activity.creator  LEFT JOIN sport s ON s.sid = activity.sport_type  WHERE ( activity.status='P' AND c.module=1 AND activity.aid=3  )  [ RunTime:0.000418s ]
+SQL: SHOW COLUMNS FROM `activity_comment` [ RunTime:0.002407s ]
+SQL: SELECT activity_comment.acid,u.username,activity_comment.accontent,activity_comment.create_time,count(ac.acid) fcnt FROM `activity_comment`  LEFT JOIN user u ON u.uid = activity_comment.uid  LEFT JOIN activity_comment ac ON ac.pid = activity_comment.acid  WHERE ( activity_comment.deleted=0 AND (ac.deleted=0 OR ac.deleted is null)AND activity_comment.aid=3 AND activity_comment.pid=0  ) GROUP BY activity_comment.acid  [ RunTime:0.000464s ]
+SQL: SHOW COLUMNS FROM `user_activity` [ RunTime:0.002160s ]
+SQL: SELECT u.username,u.uid,u.head_iminurl,ua.type FROM user_activity ua  LEFT JOIN user u ON u.uid = ua.uid  WHERE ( ua.aid=3 )  [ RunTime:0.000257s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000144s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000282s ]
+NOTIC: [8] A non well formed numeric value encountered /private/var/www/sport/Application/Runtime/Cache/Home/f8356fb647bbe8f15c9f836a57b7821a.php 第 428 行.
+NOTIC: [8] A non well formed numeric value encountered /private/var/www/sport/Application/Runtime/Cache/Home/f8356fb647bbe8f15c9f836a57b7821a.php 第 428 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.049222s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.049308s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000156s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000225s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000430s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000564s ]
+
+[ 2014-12-19T10:54:26+08:00 ] 127.0.0.1 /activity/detail/3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000031s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000477s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000377s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000472s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /private/var/www/sport/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `activity` [ RunTime:0.003956s ]
+SQL: SELECT `aid`,`activity_name`,`duration`,`start_time`,`end_time`,`alocation`,`lon`,`lat`,c.ccontent atype,`cityarea2show`,`price`,`pricetype`,`acontent`,s.sport_name,`follow_cnt`,`take_cnt`,`equipment_take`,`equipment_got`,`aimax_url`,u.username FROM `activity`  LEFT JOIN constants c ON c.cvalue = activity.activity_type  LEFT JOIN user u ON u.uid = activity.creator  LEFT JOIN sport s ON s.sid = activity.sport_type  WHERE ( activity.status='P' AND c.module=1 AND activity.aid=3  )  [ RunTime:0.000409s ]
+SQL: SHOW COLUMNS FROM `activity_comment` [ RunTime:0.002592s ]
+SQL: SELECT activity_comment.acid,u.username,activity_comment.accontent,activity_comment.create_time,count(ac.acid) fcnt FROM `activity_comment`  LEFT JOIN user u ON u.uid = activity_comment.uid  LEFT JOIN activity_comment ac ON ac.pid = activity_comment.acid  WHERE ( activity_comment.deleted=0 AND (ac.deleted=0 OR ac.deleted is null)AND activity_comment.aid=3 AND activity_comment.pid=0  ) GROUP BY activity_comment.acid  [ RunTime:0.000474s ]
+SQL: SHOW COLUMNS FROM `user_activity` [ RunTime:0.001877s ]
+SQL: SELECT u.username,u.uid,u.head_iminurl,ua.type FROM user_activity ua  LEFT JOIN user u ON u.uid = ua.uid  WHERE ( ua.aid=3 )  [ RunTime:0.000271s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000099s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000180s ]
+NOTIC: [8] A non well formed numeric value encountered /private/var/www/sport/Application/Runtime/Cache/Home/f8356fb647bbe8f15c9f836a57b7821a.php 第 428 行.
+NOTIC: [8] A non well formed numeric value encountered /private/var/www/sport/Application/Runtime/Cache/Home/f8356fb647bbe8f15c9f836a57b7821a.php 第 428 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.039921s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.040008s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000177s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000249s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000429s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000522s ]
+
+[ 2014-12-19T10:55:09+08:00 ] 127.0.0.1 /activity/detail/3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000031s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000474s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000673s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000813s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /private/var/www/sport/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `activity` [ RunTime:0.003343s ]
+SQL: SELECT `aid`,`activity_name`,`duration`,`start_time`,`end_time`,`alocation`,`lon`,`lat`,c.ccontent atype,`cityarea2show`,`price`,`pricetype`,`acontent`,s.sport_name,`follow_cnt`,`take_cnt`,`equipment_take`,`equipment_got`,`aimax_url`,u.username FROM `activity`  LEFT JOIN constants c ON c.cvalue = activity.activity_type  LEFT JOIN user u ON u.uid = activity.creator  LEFT JOIN sport s ON s.sid = activity.sport_type  WHERE ( activity.status='P' AND c.module=1 AND activity.aid=3  )  [ RunTime:0.000660s ]
+SQL: SHOW COLUMNS FROM `activity_comment` [ RunTime:0.002477s ]
+SQL: SELECT activity_comment.acid,u.username,activity_comment.accontent,activity_comment.create_time,count(ac.acid) fcnt FROM `activity_comment`  LEFT JOIN user u ON u.uid = activity_comment.uid  LEFT JOIN activity_comment ac ON ac.pid = activity_comment.acid  WHERE ( activity_comment.deleted=0 AND (ac.deleted=0 OR ac.deleted is null)AND activity_comment.aid=3 AND activity_comment.pid=0  ) GROUP BY activity_comment.acid  [ RunTime:0.000502s ]
+SQL: SHOW COLUMNS FROM `user_activity` [ RunTime:0.004199s ]
+SQL: SELECT u.username,u.uid,u.head_iminurl,ua.type FROM user_activity ua  LEFT JOIN user u ON u.uid = ua.uid  WHERE ( ua.aid=3 )  [ RunTime:0.000273s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000104s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000189s ]
+NOTIC: [8] A non well formed numeric value encountered /private/var/www/sport/Application/Runtime/Cache/Home/f8356fb647bbe8f15c9f836a57b7821a.php 第 428 行.
+NOTIC: [8] A non well formed numeric value encountered /private/var/www/sport/Application/Runtime/Cache/Home/f8356fb647bbe8f15c9f836a57b7821a.php 第 428 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.044369s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.044534s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000185s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000266s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000408s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000538s ]
+
+[ 2014-12-19T11:00:09+08:00 ] 127.0.0.1 /activity/detail/3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000273s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000310s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000400s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /private/var/www/sport/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `activity` [ RunTime:0.003022s ]
+SQL: SELECT `aid`,`activity_name`,`duration`,`start_time`,`end_time`,`alocation`,`lon`,`lat`,c.ccontent atype,`cityarea2show`,`price`,`pricetype`,`acontent`,s.sport_name,`follow_cnt`,`take_cnt`,`equipment_take`,`equipment_got`,`aimax_url`,u.username FROM `activity`  LEFT JOIN constants c ON c.cvalue = activity.activity_type  LEFT JOIN user u ON u.uid = activity.creator  LEFT JOIN sport s ON s.sid = activity.sport_type  WHERE ( activity.status='P' AND c.module=1 AND activity.aid=3  )  [ RunTime:0.000392s ]
+SQL: SHOW COLUMNS FROM `activity_comment` [ RunTime:0.002375s ]
+SQL: SELECT activity_comment.acid,u.username,activity_comment.accontent,activity_comment.create_time,count(ac.acid) fcnt FROM `activity_comment`  LEFT JOIN user u ON u.uid = activity_comment.uid  LEFT JOIN activity_comment ac ON ac.pid = activity_comment.acid  WHERE ( activity_comment.deleted=0 AND (ac.deleted=0 OR ac.deleted is null)AND activity_comment.aid=3 AND activity_comment.pid=0  ) GROUP BY activity_comment.acid  [ RunTime:0.000463s ]
+SQL: SHOW COLUMNS FROM `user_activity` [ RunTime:0.005472s ]
+SQL: SELECT u.username,u.uid,u.head_iminurl,ua.type FROM user_activity ua  LEFT JOIN user u ON u.uid = ua.uid  WHERE ( ua.aid=3 )  [ RunTime:0.000360s ]
+INFO: [ view_parse ] --START--
+NOTIC: [2] simplexml_load_string(): Entity: line 1: parser error : attributes construct error /private/var/www/sport/ThinkPHP/Library/Think/Template/TagLib.class.php 第 80 行.
+NOTIC: [2] simplexml_load_string(): &lt;tpl&gt;&lt;tag name='{{$activity_member['type']}}'  /&gt;&lt;/tpl&gt; /private/var/www/sport/ThinkPHP/Library/Think/Template/TagLib.class.php 第 80 行.
+NOTIC: [2] simplexml_load_string():                                     ^ /private/var/www/sport/ThinkPHP/Library/Think/Template/TagLib.class.php 第 80 行.
+NOTIC: [2] simplexml_load_string(): Entity: line 1: parser error : Couldn't find end of Start Tag tag line 1 /private/var/www/sport/ThinkPHP/Library/Think/Template/TagLib.class.php 第 80 行.
+NOTIC: [2] simplexml_load_string(): &lt;tpl&gt;&lt;tag name='{{$activity_member['type']}}'  /&gt;&lt;/tpl&gt; /private/var/www/sport/ThinkPHP/Library/Think/Template/TagLib.class.php 第 80 行.
+NOTIC: [2] simplexml_load_string():                                     ^ /private/var/www/sport/ThinkPHP/Library/Think/Template/TagLib.class.php 第 80 行.
+ERR: XML标签语法错误 : name='{{$activity_member['type']}}' 
+
+[ 2014-12-19T11:06:10+08:00 ] 127.0.0.1 /activity/detail/3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000025s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000600s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001048s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001159s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /private/var/www/sport/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `activity` [ RunTime:0.004011s ]
+SQL: SELECT `aid`,`activity_name`,`duration`,`start_time`,`end_time`,`alocation`,`lon`,`lat`,c.ccontent atype,`cityarea2show`,`price`,`pricetype`,`acontent`,s.sport_name,`follow_cnt`,`take_cnt`,`equipment_take`,`equipment_got`,`aimax_url`,u.username FROM `activity`  LEFT JOIN constants c ON c.cvalue = activity.activity_type  LEFT JOIN user u ON u.uid = activity.creator  LEFT JOIN sport s ON s.sid = activity.sport_type  WHERE ( activity.status='P' AND c.module=1 AND activity.aid=3  )  [ RunTime:0.000459s ]
+SQL: SHOW COLUMNS FROM `activity_comment` [ RunTime:0.003127s ]
+SQL: SELECT activity_comment.acid,u.username,activity_comment.accontent,activity_comment.create_time,count(ac.acid) fcnt FROM `activity_comment`  LEFT JOIN user u ON u.uid = activity_comment.uid  LEFT JOIN activity_comment ac ON ac.pid = activity_comment.acid  WHERE ( activity_comment.deleted=0 AND (ac.deleted=0 OR ac.deleted is null)AND activity_comment.aid=3 AND activity_comment.pid=0  ) GROUP BY activity_comment.acid  [ RunTime:0.000457s ]
+SQL: SHOW COLUMNS FROM `user_activity` [ RunTime:0.002096s ]
+SQL: SELECT u.username,u.uid,u.head_iminurl,ua.type FROM user_activity ua  LEFT JOIN user u ON u.uid = ua.uid  WHERE ( ua.aid=3 )  [ RunTime:0.000290s ]
+INFO: [ view_parse ] --START--
+NOTIC: [2] simplexml_load_string(): Entity: line 1: parser error : attributes construct error /private/var/www/sport/ThinkPHP/Library/Think/Template/TagLib.class.php 第 80 行.
+NOTIC: [2] simplexml_load_string(): &lt;tpl&gt;&lt;tag name='$activity_member['type']'  /&gt;&lt;/tpl&gt; /private/var/www/sport/ThinkPHP/Library/Think/Template/TagLib.class.php 第 80 行.
+NOTIC: [2] simplexml_load_string():                                   ^ /private/var/www/sport/ThinkPHP/Library/Think/Template/TagLib.class.php 第 80 行.
+NOTIC: [2] simplexml_load_string(): Entity: line 1: parser error : Couldn't find end of Start Tag tag line 1 /private/var/www/sport/ThinkPHP/Library/Think/Template/TagLib.class.php 第 80 行.
+NOTIC: [2] simplexml_load_string(): &lt;tpl&gt;&lt;tag name='$activity_member['type']'  /&gt;&lt;/tpl&gt; /private/var/www/sport/ThinkPHP/Library/Think/Template/TagLib.class.php 第 80 行.
+NOTIC: [2] simplexml_load_string():                                   ^ /private/var/www/sport/ThinkPHP/Library/Think/Template/TagLib.class.php 第 80 行.
+ERR: XML标签语法错误 : name='$activity_member['type']' 
+
+[ 2014-12-19T11:06:28+08:00 ] 127.0.0.1 /activity/detail/3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000325s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000318s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000399s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /private/var/www/sport/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `activity` [ RunTime:0.011951s ]
+SQL: SELECT `aid`,`activity_name`,`duration`,`start_time`,`end_time`,`alocation`,`lon`,`lat`,c.ccontent atype,`cityarea2show`,`price`,`pricetype`,`acontent`,s.sport_name,`follow_cnt`,`take_cnt`,`equipment_take`,`equipment_got`,`aimax_url`,u.username FROM `activity`  LEFT JOIN constants c ON c.cvalue = activity.activity_type  LEFT JOIN user u ON u.uid = activity.creator  LEFT JOIN sport s ON s.sid = activity.sport_type  WHERE ( activity.status='P' AND c.module=1 AND activity.aid=3  )  [ RunTime:0.000476s ]
+SQL: SHOW COLUMNS FROM `activity_comment` [ RunTime:0.002243s ]
+SQL: SELECT activity_comment.acid,u.username,activity_comment.accontent,activity_comment.create_time,count(ac.acid) fcnt FROM `activity_comment`  LEFT JOIN user u ON u.uid = activity_comment.uid  LEFT JOIN activity_comment ac ON ac.pid = activity_comment.acid  WHERE ( activity_comment.deleted=0 AND (ac.deleted=0 OR ac.deleted is null)AND activity_comment.aid=3 AND activity_comment.pid=0  ) GROUP BY activity_comment.acid  [ RunTime:0.000448s ]
+SQL: SHOW COLUMNS FROM `user_activity` [ RunTime:0.002587s ]
+SQL: SELECT u.username,u.uid,u.head_iminurl,ua.type FROM user_activity ua  LEFT JOIN user u ON u.uid = ua.uid  WHERE ( ua.aid=3 )  [ RunTime:0.000324s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000118s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000218s ]
+
+[ 2014-12-19T11:06:54+08:00 ] 127.0.0.1 /activity/detail/3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000262s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000288s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000361s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /private/var/www/sport/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `activity` [ RunTime:0.011372s ]
+SQL: SELECT `aid`,`activity_name`,`duration`,`start_time`,`end_time`,`alocation`,`lon`,`lat`,c.ccontent atype,`cityarea2show`,`price`,`pricetype`,`acontent`,s.sport_name,`follow_cnt`,`take_cnt`,`equipment_take`,`equipment_got`,`aimax_url`,u.username FROM `activity`  LEFT JOIN constants c ON c.cvalue = activity.activity_type  LEFT JOIN user u ON u.uid = activity.creator  LEFT JOIN sport s ON s.sid = activity.sport_type  WHERE ( activity.status='P' AND c.module=1 AND activity.aid=3  )  [ RunTime:0.000449s ]
+SQL: SHOW COLUMNS FROM `activity_comment` [ RunTime:0.002430s ]
+SQL: SELECT activity_comment.acid,u.username,activity_comment.accontent,activity_comment.create_time,count(ac.acid) fcnt FROM `activity_comment`  LEFT JOIN user u ON u.uid = activity_comment.uid  LEFT JOIN activity_comment ac ON ac.pid = activity_comment.acid  WHERE ( activity_comment.deleted=0 AND (ac.deleted=0 OR ac.deleted is null)AND activity_comment.aid=3 AND activity_comment.pid=0  ) GROUP BY activity_comment.acid  [ RunTime:0.000467s ]
+SQL: SHOW COLUMNS FROM `user_activity` [ RunTime:0.003302s ]
+SQL: SELECT u.username,u.uid,u.head_iminurl,ua.type FROM user_activity ua  LEFT JOIN user u ON u.uid = ua.uid  WHERE ( ua.aid=3 )  [ RunTime:0.000402s ]
+INFO: [ view_parse ] --START--
+NOTIC: [2] simplexml_load_string(): Entity: line 1: parser error : attributes construct error /private/var/www/sport/ThinkPHP/Library/Think/Template/TagLib.class.php 第 80 行.
+NOTIC: [2] simplexml_load_string(): &lt;tpl&gt;&lt;tag value='{{:C('UA_TAKE')}}' /&gt;&lt;/tpl&gt; /private/var/www/sport/ThinkPHP/Library/Think/Template/TagLib.class.php 第 80 行.
+NOTIC: [2] simplexml_load_string():                        ^ /private/var/www/sport/ThinkPHP/Library/Think/Template/TagLib.class.php 第 80 行.
+NOTIC: [2] simplexml_load_string(): Entity: line 1: parser error : Couldn't find end of Start Tag tag line 1 /private/var/www/sport/ThinkPHP/Library/Think/Template/TagLib.class.php 第 80 行.
+NOTIC: [2] simplexml_load_string(): &lt;tpl&gt;&lt;tag value='{{:C('UA_TAKE')}}' /&gt;&lt;/tpl&gt; /private/var/www/sport/ThinkPHP/Library/Think/Template/TagLib.class.php 第 80 行.
+NOTIC: [2] simplexml_load_string():                        ^ /private/var/www/sport/ThinkPHP/Library/Think/Template/TagLib.class.php 第 80 行.
+ERR: XML标签语法错误 : value='{{:C('UA_TAKE')}}'
+
+[ 2014-12-19T11:07:18+08:00 ] 127.0.0.1 /activity/detail/3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000260s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000518s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000653s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /private/var/www/sport/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `activity` [ RunTime:0.013018s ]
+SQL: SELECT `aid`,`activity_name`,`duration`,`start_time`,`end_time`,`alocation`,`lon`,`lat`,c.ccontent atype,`cityarea2show`,`price`,`pricetype`,`acontent`,s.sport_name,`follow_cnt`,`take_cnt`,`equipment_take`,`equipment_got`,`aimax_url`,u.username FROM `activity`  LEFT JOIN constants c ON c.cvalue = activity.activity_type  LEFT JOIN user u ON u.uid = activity.creator  LEFT JOIN sport s ON s.sid = activity.sport_type  WHERE ( activity.status='P' AND c.module=1 AND activity.aid=3  )  [ RunTime:0.000464s ]
+SQL: SHOW COLUMNS FROM `activity_comment` [ RunTime:0.003867s ]
+SQL: SELECT activity_comment.acid,u.username,activity_comment.accontent,activity_comment.create_time,count(ac.acid) fcnt FROM `activity_comment`  LEFT JOIN user u ON u.uid = activity_comment.uid  LEFT JOIN activity_comment ac ON ac.pid = activity_comment.acid  WHERE ( activity_comment.deleted=0 AND (ac.deleted=0 OR ac.deleted is null)AND activity_comment.aid=3 AND activity_comment.pid=0  ) GROUP BY activity_comment.acid  [ RunTime:0.000470s ]
+SQL: SHOW COLUMNS FROM `user_activity` [ RunTime:0.002786s ]
+SQL: SELECT u.username,u.uid,u.head_iminurl,ua.type FROM user_activity ua  LEFT JOIN user u ON u.uid = ua.uid  WHERE ( ua.aid=3 )  [ RunTime:0.000271s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000125s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000222s ]
+NOTIC: [8] A non well formed numeric value encountered /private/var/www/sport/Application/Runtime/Cache/Home/f8356fb647bbe8f15c9f836a57b7821a.php 第 428 行.
+NOTIC: [8] A non well formed numeric value encountered /private/var/www/sport/Application/Runtime/Cache/Home/f8356fb647bbe8f15c9f836a57b7821a.php 第 428 行.
+NOTIC: [8] Undefined variable: F /private/var/www/sport/Application/Runtime/Cache/Home/f8356fb647bbe8f15c9f836a57b7821a.php 第 461 行.
+NOTIC: [8] Undefined variable: F /private/var/www/sport/Application/Runtime/Cache/Home/f8356fb647bbe8f15c9f836a57b7821a.php 第 461 行.
+NOTIC: [8] Undefined variable: T /private/var/www/sport/Application/Runtime/Cache/Home/f8356fb647bbe8f15c9f836a57b7821a.php 第 461 行.
+NOTIC: [8] Undefined variable: T /private/var/www/sport/Application/Runtime/Cache/Home/f8356fb647bbe8f15c9f836a57b7821a.php 第 461 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.045959s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.046045s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000530s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000621s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000873s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000973s ]
+
+[ 2014-12-19T11:07:23+08:00 ] 127.0.0.1 /activity/detail/3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000295s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000373s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000454s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /private/var/www/sport/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `activity` [ RunTime:0.002793s ]
+SQL: SELECT `aid`,`activity_name`,`duration`,`start_time`,`end_time`,`alocation`,`lon`,`lat`,c.ccontent atype,`cityarea2show`,`price`,`pricetype`,`acontent`,s.sport_name,`follow_cnt`,`take_cnt`,`equipment_take`,`equipment_got`,`aimax_url`,u.username FROM `activity`  LEFT JOIN constants c ON c.cvalue = activity.activity_type  LEFT JOIN user u ON u.uid = activity.creator  LEFT JOIN sport s ON s.sid = activity.sport_type  WHERE ( activity.status='P' AND c.module=1 AND activity.aid=3  )  [ RunTime:0.000403s ]
+SQL: SHOW COLUMNS FROM `activity_comment` [ RunTime:0.003562s ]
+SQL: SELECT activity_comment.acid,u.username,activity_comment.accontent,activity_comment.create_time,count(ac.acid) fcnt FROM `activity_comment`  LEFT JOIN user u ON u.uid = activity_comment.uid  LEFT JOIN activity_comment ac ON ac.pid = activity_comment.acid  WHERE ( activity_comment.deleted=0 AND (ac.deleted=0 OR ac.deleted is null)AND activity_comment.aid=3 AND activity_comment.pid=0  ) GROUP BY activity_comment.acid  [ RunTime:0.000636s ]
+SQL: SHOW COLUMNS FROM `user_activity` [ RunTime:0.002434s ]
+SQL: SELECT u.username,u.uid,u.head_iminurl,ua.type FROM user_activity ua  LEFT JOIN user u ON u.uid = ua.uid  WHERE ( ua.aid=3 )  [ RunTime:0.000263s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000157s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000249s ]
+NOTIC: [8] A non well formed numeric value encountered /private/var/www/sport/Application/Runtime/Cache/Home/f8356fb647bbe8f15c9f836a57b7821a.php 第 428 行.
+NOTIC: [8] A non well formed numeric value encountered /private/var/www/sport/Application/Runtime/Cache/Home/f8356fb647bbe8f15c9f836a57b7821a.php 第 428 行.
+NOTIC: [8] Undefined variable: F /private/var/www/sport/Application/Runtime/Cache/Home/f8356fb647bbe8f15c9f836a57b7821a.php 第 461 行.
+NOTIC: [8] Undefined variable: F /private/var/www/sport/Application/Runtime/Cache/Home/f8356fb647bbe8f15c9f836a57b7821a.php 第 461 行.
+NOTIC: [8] Undefined variable: T /private/var/www/sport/Application/Runtime/Cache/Home/f8356fb647bbe8f15c9f836a57b7821a.php 第 461 行.
+NOTIC: [8] Undefined variable: T /private/var/www/sport/Application/Runtime/Cache/Home/f8356fb647bbe8f15c9f836a57b7821a.php 第 461 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.042443s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.042526s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000153s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000228s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000404s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000574s ]
+
+[ 2014-12-19T11:41:07+08:00 ] 127.0.0.1 /activity/detail/3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000567s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001977s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001136s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001264s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /private/var/www/sport/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `activity` [ RunTime:0.004813s ]
+SQL: SELECT `aid`,`activity_name`,`duration`,`start_time`,`end_time`,`alocation`,`lon`,`lat`,c.ccontent atype,`cityarea2show`,`price`,`pricetype`,`acontent`,s.sport_name,`follow_cnt`,`take_cnt`,`equipment_take`,`equipment_got`,`aimax_url`,u.username FROM `activity`  LEFT JOIN constants c ON c.cvalue = activity.activity_type  LEFT JOIN user u ON u.uid = activity.creator  LEFT JOIN sport s ON s.sid = activity.sport_type  WHERE ( activity.status='P' AND c.module=1 AND activity.aid=3  )  [ RunTime:0.001930s ]
+SQL: SHOW COLUMNS FROM `activity_comment` [ RunTime:0.002325s ]
+SQL: SELECT activity_comment.acid,u.username,activity_comment.accontent,activity_comment.create_time,count(ac.acid) fcnt FROM `activity_comment`  LEFT JOIN user u ON u.uid = activity_comment.uid  LEFT JOIN activity_comment ac ON ac.pid = activity_comment.acid  WHERE ( activity_comment.deleted=0 AND (ac.deleted=0 OR ac.deleted is null)AND activity_comment.aid=3 AND activity_comment.pid=0  ) GROUP BY activity_comment.acid  [ RunTime:0.002463s ]
+SQL: SHOW COLUMNS FROM `user_activity` [ RunTime:0.002531s ]
+SQL: SELECT u.username,u.uid,u.head_iminurl,c.ccontent actype FROM user_activity ua  LEFT JOIN user u ON u.uid = ua.uid  LEFT JOIN constants c ON c.cvalue = ua.type  WHERE ( ua.aid=3 AND c.module=2  )  [ RunTime:0.000331s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000117s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000217s ]
+NOTIC: [8] A non well formed numeric value encountered /private/var/www/sport/Application/Runtime/Cache/Home/f8356fb647bbe8f15c9f836a57b7821a.php 第 428 行.
+NOTIC: [8] A non well formed numeric value encountered /private/var/www/sport/Application/Runtime/Cache/Home/f8356fb647bbe8f15c9f836a57b7821a.php 第 428 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.058843s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.058932s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000537s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000634s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001129s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001247s ]
+
+[ 2014-12-19T11:44:01+08:00 ] 127.0.0.1 /activity/detail/3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000032s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000658s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000815s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000921s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /private/var/www/sport/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `activity` [ RunTime:0.003907s ]
+SQL: SELECT `aid`,`activity_name`,`duration`,`start_time`,`end_time`,`alocation`,`lon`,`lat`,c.ccontent atype,`cityarea2show`,`price`,`pricetype`,`acontent`,s.sport_name,`follow_cnt`,`take_cnt`,`equipment_take`,`equipment_got`,`aimax_url`,u.username FROM `activity`  LEFT JOIN constants c ON c.cvalue = activity.activity_type  LEFT JOIN user u ON u.uid = activity.creator  LEFT JOIN sport s ON s.sid = activity.sport_type  WHERE ( activity.status='P' AND c.module=1 AND activity.aid=3  )  [ RunTime:0.000392s ]
+SQL: SHOW COLUMNS FROM `activity_comment` [ RunTime:0.002345s ]
+SQL: SELECT activity_comment.acid,u.username,activity_comment.accontent,activity_comment.create_time,count(ac.acid) fcnt FROM `activity_comment`  LEFT JOIN user u ON u.uid = activity_comment.uid  LEFT JOIN activity_comment ac ON ac.pid = activity_comment.acid  WHERE ( activity_comment.deleted=0 AND (ac.deleted=0 OR ac.deleted is null)AND activity_comment.aid=3 AND activity_comment.pid=0  ) GROUP BY activity_comment.acid  [ RunTime:0.000539s ]
+SQL: SHOW COLUMNS FROM `user_activity` [ RunTime:0.002869s ]
+SQL: SELECT u.username,u.uid,u.head_iminurl,c.ccontent actype FROM user_activity ua  LEFT JOIN user u ON u.uid = ua.uid  LEFT JOIN constants c ON c.cvalue = ua.type  WHERE ( ua.aid=3 AND c.module=2  )  [ RunTime:0.000361s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000123s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000262s ]
+NOTIC: [8] A non well formed numeric value encountered /private/var/www/sport/Application/Runtime/Cache/Home/f8356fb647bbe8f15c9f836a57b7821a.php 第 428 行.
+NOTIC: [8] A non well formed numeric value encountered /private/var/www/sport/Application/Runtime/Cache/Home/f8356fb647bbe8f15c9f836a57b7821a.php 第 428 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.054374s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.054617s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000503s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000601s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000956s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001059s ]
+
+[ 2014-12-19T11:45:02+08:00 ] 127.0.0.1 /activity/detail/3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000037s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000533s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000373s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000464s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /private/var/www/sport/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `activity` [ RunTime:0.004182s ]
+SQL: SELECT `aid`,`activity_name`,`duration`,`start_time`,`end_time`,`alocation`,`lon`,`lat`,c.ccontent atype,`cityarea2show`,`price`,`pricetype`,`acontent`,s.sport_name,`follow_cnt`,`take_cnt`,`equipment_take`,`equipment_got`,`aimax_url`,u.username FROM `activity`  LEFT JOIN constants c ON c.cvalue = activity.activity_type  LEFT JOIN user u ON u.uid = activity.creator  LEFT JOIN sport s ON s.sid = activity.sport_type  WHERE ( activity.status='P' AND c.module=1 AND activity.aid=3  )  [ RunTime:0.001505s ]
+SQL: SHOW COLUMNS FROM `activity_comment` [ RunTime:0.002978s ]
+SQL: SELECT activity_comment.acid,u.username,activity_comment.accontent,activity_comment.create_time,count(ac.acid) fcnt FROM `activity_comment`  LEFT JOIN user u ON u.uid = activity_comment.uid  LEFT JOIN activity_comment ac ON ac.pid = activity_comment.acid  WHERE ( activity_comment.deleted=0 AND (ac.deleted=0 OR ac.deleted is null)AND activity_comment.aid=3 AND activity_comment.pid=0  ) GROUP BY activity_comment.acid  [ RunTime:0.000484s ]
+SQL: SHOW COLUMNS FROM `user_activity` [ RunTime:0.001958s ]
+SQL: SELECT u.username,u.uid,u.head_iminurl,c.ccontent actype FROM user_activity ua  LEFT JOIN user u ON u.uid = ua.uid  LEFT JOIN constants c ON c.cvalue = ua.type  WHERE ( ua.aid=3 AND c.module=2  )  [ RunTime:0.000370s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000105s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000196s ]
+NOTIC: [8] A non well formed numeric value encountered /private/var/www/sport/Application/Runtime/Cache/Home/f8356fb647bbe8f15c9f836a57b7821a.php 第 428 行.
+NOTIC: [8] A non well formed numeric value encountered /private/var/www/sport/Application/Runtime/Cache/Home/f8356fb647bbe8f15c9f836a57b7821a.php 第 428 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.051251s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.051342s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000163s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000235s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000709s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000922s ]
+
+[ 2014-12-19T11:47:48+08:00 ] 127.0.0.1 /activity/detail/3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000025s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000648s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000921s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001038s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /private/var/www/sport/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `activity` [ RunTime:0.004115s ]
+SQL: SELECT `aid`,`activity_name`,`duration`,`start_time`,`end_time`,`alocation`,`lon`,`lat`,c.ccontent atype,`cityarea2show`,`price`,`pricetype`,`acontent`,s.sport_name,`follow_cnt`,`take_cnt`,`equipment_take`,`equipment_got`,`aimax_url`,u.username FROM `activity`  LEFT JOIN constants c ON c.cvalue = activity.activity_type  LEFT JOIN user u ON u.uid = activity.creator  LEFT JOIN sport s ON s.sid = activity.sport_type  WHERE ( activity.status='P' AND c.module=1 AND activity.aid=3  )  [ RunTime:0.000471s ]
+SQL: SHOW COLUMNS FROM `activity_comment` [ RunTime:0.002799s ]
+SQL: SELECT activity_comment.acid,u.username,activity_comment.accontent,activity_comment.create_time,count(ac.acid) fcnt FROM `activity_comment`  LEFT JOIN user u ON u.uid = activity_comment.uid  LEFT JOIN activity_comment ac ON ac.pid = activity_comment.acid  WHERE ( activity_comment.deleted=0 AND (ac.deleted=0 OR ac.deleted is null)AND activity_comment.aid=3 AND activity_comment.pid=0  ) GROUP BY activity_comment.acid  [ RunTime:0.000566s ]
+SQL: SHOW COLUMNS FROM `user_activity` [ RunTime:0.003483s ]
+SQL: SELECT u.username,u.uid,u.head_iminurl,c.ccontent actype FROM user_activity ua  LEFT JOIN user u ON u.uid = ua.uid  LEFT JOIN constants c ON c.cvalue = ua.type  WHERE ( ua.aid=3 AND c.module=2  )  [ RunTime:0.000325s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000104s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000191s ]
+NOTIC: [8] A non well formed numeric value encountered /private/var/www/sport/Application/Runtime/Cache/Home/f8356fb647bbe8f15c9f836a57b7821a.php 第 428 行.
+NOTIC: [8] A non well formed numeric value encountered /private/var/www/sport/Application/Runtime/Cache/Home/f8356fb647bbe8f15c9f836a57b7821a.php 第 428 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.058441s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.058521s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000857s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000959s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001188s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001295s ]
+
+[ 2014-12-19T11:48:17+08:00 ] 127.0.0.1 /activity/detail/3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000026s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000611s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000921s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001031s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /private/var/www/sport/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `activity` [ RunTime:0.003530s ]
+SQL: SELECT `aid`,`activity_name`,`duration`,`start_time`,`end_time`,`alocation`,`lon`,`lat`,c.ccontent atype,`cityarea2show`,`price`,`pricetype`,`acontent`,s.sport_name,`follow_cnt`,`take_cnt`,`equipment_take`,`equipment_got`,`aimax_url`,u.username FROM `activity`  LEFT JOIN constants c ON c.cvalue = activity.activity_type  LEFT JOIN user u ON u.uid = activity.creator  LEFT JOIN sport s ON s.sid = activity.sport_type  WHERE ( activity.status='P' AND c.module=1 AND activity.aid=3  )  [ RunTime:0.000448s ]
+SQL: SHOW COLUMNS FROM `activity_comment` [ RunTime:0.002878s ]
+SQL: SELECT activity_comment.acid,u.username,activity_comment.accontent,activity_comment.create_time,count(ac.acid) fcnt FROM `activity_comment`  LEFT JOIN user u ON u.uid = activity_comment.uid  LEFT JOIN activity_comment ac ON ac.pid = activity_comment.acid  WHERE ( activity_comment.deleted=0 AND (ac.deleted=0 OR ac.deleted is null)AND activity_comment.aid=3 AND activity_comment.pid=0  ) GROUP BY activity_comment.acid  [ RunTime:0.000453s ]
+SQL: SHOW COLUMNS FROM `user_activity` [ RunTime:0.002329s ]
+SQL: SELECT u.username,u.uid,u.head_iminurl,c.ccontent actype FROM user_activity ua  LEFT JOIN user u ON u.uid = ua.uid  LEFT JOIN constants c ON c.cvalue = ua.type  WHERE ( ua.aid=3 AND c.module=2  )  [ RunTime:0.000363s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000143s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000338s ]
+NOTIC: [8] A non well formed numeric value encountered /private/var/www/sport/Application/Runtime/Cache/Home/f8356fb647bbe8f15c9f836a57b7821a.php 第 428 行.
+NOTIC: [8] A non well formed numeric value encountered /private/var/www/sport/Application/Runtime/Cache/Home/f8356fb647bbe8f15c9f836a57b7821a.php 第 428 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.050720s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.050806s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000474s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000550s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000785s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000897s ]
+
+[ 2014-12-19T11:48:24+08:00 ] 127.0.0.1 /activity/detail/3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000281s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000292s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000366s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /private/var/www/sport/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `activity` [ RunTime:0.003662s ]
+SQL: SELECT `aid`,`activity_name`,`duration`,`start_time`,`end_time`,`alocation`,`lon`,`lat`,c.ccontent atype,`cityarea2show`,`price`,`pricetype`,`acontent`,s.sport_name,`follow_cnt`,`take_cnt`,`equipment_take`,`equipment_got`,`aimax_url`,u.username FROM `activity`  LEFT JOIN constants c ON c.cvalue = activity.activity_type  LEFT JOIN user u ON u.uid = activity.creator  LEFT JOIN sport s ON s.sid = activity.sport_type  WHERE ( activity.status='P' AND c.module=1 AND activity.aid=3  )  [ RunTime:0.000994s ]
+SQL: SHOW COLUMNS FROM `activity_comment` [ RunTime:0.004329s ]
+SQL: SELECT activity_comment.acid,u.username,activity_comment.accontent,activity_comment.create_time,count(ac.acid) fcnt FROM `activity_comment`  LEFT JOIN user u ON u.uid = activity_comment.uid  LEFT JOIN activity_comment ac ON ac.pid = activity_comment.acid  WHERE ( activity_comment.deleted=0 AND (ac.deleted=0 OR ac.deleted is null)AND activity_comment.aid=3 AND activity_comment.pid=0  ) GROUP BY activity_comment.acid  [ RunTime:0.001246s ]
+SQL: SHOW COLUMNS FROM `user_activity` [ RunTime:0.002231s ]
+SQL: SELECT u.username,u.uid,u.head_iminurl,c.ccontent actype FROM user_activity ua  LEFT JOIN user u ON u.uid = ua.uid  LEFT JOIN constants c ON c.cvalue = ua.type  WHERE ( ua.aid=3 AND c.module=2  )  [ RunTime:0.000339s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000105s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000195s ]
+NOTIC: [8] A non well formed numeric value encountered /private/var/www/sport/Application/Runtime/Cache/Home/f8356fb647bbe8f15c9f836a57b7821a.php 第 428 行.
+NOTIC: [8] A non well formed numeric value encountered /private/var/www/sport/Application/Runtime/Cache/Home/f8356fb647bbe8f15c9f836a57b7821a.php 第 428 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.045337s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.045431s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000203s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000284s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000513s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000640s ]
+
+[ 2014-12-19T11:49:01+08:00 ] 127.0.0.1 /activity/detail/3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000688s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000916s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001027s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /private/var/www/sport/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `activity` [ RunTime:0.004183s ]
+SQL: SELECT `aid`,`activity_name`,`duration`,`start_time`,`end_time`,`alocation`,`lon`,`lat`,c.ccontent atype,`cityarea2show`,`price`,`pricetype`,`acontent`,s.sport_name,`follow_cnt`,`take_cnt`,`equipment_take`,`equipment_got`,`aimax_url`,u.username FROM `activity`  LEFT JOIN constants c ON c.cvalue = activity.activity_type  LEFT JOIN user u ON u.uid = activity.creator  LEFT JOIN sport s ON s.sid = activity.sport_type  WHERE ( activity.status='P' AND c.module=1 AND activity.aid=3  )  [ RunTime:0.000417s ]
+SQL: SHOW COLUMNS FROM `activity_comment` [ RunTime:0.002377s ]
+SQL: SELECT activity_comment.acid,u.username,activity_comment.accontent,activity_comment.create_time,count(ac.acid) fcnt FROM `activity_comment`  LEFT JOIN user u ON u.uid = activity_comment.uid  LEFT JOIN activity_comment ac ON ac.pid = activity_comment.acid  WHERE ( activity_comment.deleted=0 AND (ac.deleted=0 OR ac.deleted is null)AND activity_comment.aid=3 AND activity_comment.pid=0  ) GROUP BY activity_comment.acid  [ RunTime:0.000441s ]
+SQL: SHOW COLUMNS FROM `user_activity` [ RunTime:0.002187s ]
+SQL: SELECT u.username,u.uid,u.head_iminurl,c.ccontent actype FROM user_activity ua  LEFT JOIN user u ON u.uid = ua.uid  LEFT JOIN constants c ON c.cvalue = ua.type  WHERE ( ua.aid=3 AND c.module=2  )  [ RunTime:0.000328s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000100s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000184s ]
+NOTIC: [8] A non well formed numeric value encountered /private/var/www/sport/Application/Runtime/Cache/Home/f8356fb647bbe8f15c9f836a57b7821a.php 第 428 行.
+NOTIC: [8] A non well formed numeric value encountered /private/var/www/sport/Application/Runtime/Cache/Home/f8356fb647bbe8f15c9f836a57b7821a.php 第 428 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.052138s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.052221s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000478s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000556s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000783s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000870s ]
+
+[ 2014-12-19T11:49:24+08:00 ] 127.0.0.1 /activity/detail/3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000591s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000979s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001104s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /private/var/www/sport/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `activity` [ RunTime:0.003345s ]
+SQL: SELECT `aid`,`activity_name`,`duration`,`start_time`,`end_time`,`alocation`,`lon`,`lat`,c.ccontent atype,`cityarea2show`,`price`,`pricetype`,`acontent`,s.sport_name,`follow_cnt`,`take_cnt`,`equipment_take`,`equipment_got`,`aimax_url`,u.username FROM `activity`  LEFT JOIN constants c ON c.cvalue = activity.activity_type  LEFT JOIN user u ON u.uid = activity.creator  LEFT JOIN sport s ON s.sid = activity.sport_type  WHERE ( activity.status='P' AND c.module=1 AND activity.aid=3  )  [ RunTime:0.000481s ]
+SQL: SHOW COLUMNS FROM `activity_comment` [ RunTime:0.002332s ]
+SQL: SELECT activity_comment.acid,u.username,activity_comment.accontent,activity_comment.create_time,count(ac.acid) fcnt FROM `activity_comment`  LEFT JOIN user u ON u.uid = activity_comment.uid  LEFT JOIN activity_comment ac ON ac.pid = activity_comment.acid  WHERE ( activity_comment.deleted=0 AND (ac.deleted=0 OR ac.deleted is null)AND activity_comment.aid=3 AND activity_comment.pid=0  ) GROUP BY activity_comment.acid  [ RunTime:0.000438s ]
+SQL: SHOW COLUMNS FROM `user_activity` [ RunTime:0.002607s ]
+SQL: SELECT u.username,u.uid,u.head_iminurl,c.ccontent actype FROM user_activity ua  LEFT JOIN user u ON u.uid = ua.uid  LEFT JOIN constants c ON c.cvalue = ua.type  WHERE ( ua.aid=3 AND c.module=2  )  [ RunTime:0.000334s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000103s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000187s ]
+NOTIC: [8] A non well formed numeric value encountered /private/var/www/sport/Application/Runtime/Cache/Home/f8356fb647bbe8f15c9f836a57b7821a.php 第 428 行.
+NOTIC: [8] A non well formed numeric value encountered /private/var/www/sport/Application/Runtime/Cache/Home/f8356fb647bbe8f15c9f836a57b7821a.php 第 428 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.050223s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.050317s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000477s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000558s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000851s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001031s ]
+
+[ 2014-12-19T11:49:37+08:00 ] 127.0.0.1 /activity/detail/3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000321s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000318s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000399s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /private/var/www/sport/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `activity` [ RunTime:0.013656s ]
+SQL: SELECT `aid`,`activity_name`,`duration`,`start_time`,`end_time`,`alocation`,`lon`,`lat`,c.ccontent atype,`cityarea2show`,`price`,`pricetype`,`acontent`,s.sport_name,`follow_cnt`,`take_cnt`,`equipment_take`,`equipment_got`,`aimax_url`,u.username FROM `activity`  LEFT JOIN constants c ON c.cvalue = activity.activity_type  LEFT JOIN user u ON u.uid = activity.creator  LEFT JOIN sport s ON s.sid = activity.sport_type  WHERE ( activity.status='P' AND c.module=1 AND activity.aid=3  )  [ RunTime:0.000617s ]
+SQL: SHOW COLUMNS FROM `activity_comment` [ RunTime:0.003789s ]
+SQL: SELECT activity_comment.acid,u.username,activity_comment.accontent,activity_comment.create_time,count(ac.acid) fcnt FROM `activity_comment`  LEFT JOIN user u ON u.uid = activity_comment.uid  LEFT JOIN activity_comment ac ON ac.pid = activity_comment.acid  WHERE ( activity_comment.deleted=0 AND (ac.deleted=0 OR ac.deleted is null)AND activity_comment.aid=3 AND activity_comment.pid=0  ) GROUP BY activity_comment.acid  [ RunTime:0.000502s ]
+SQL: SHOW COLUMNS FROM `user_activity` [ RunTime:0.002369s ]
+SQL: SELECT u.username,u.uid,u.head_iminurl,c.ccontent actype FROM user_activity ua  LEFT JOIN user u ON u.uid = ua.uid  LEFT JOIN constants c ON c.cvalue = ua.type  WHERE ( ua.aid=3 AND c.module=2  )  [ RunTime:0.000328s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000115s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000240s ]
+NOTIC: [8] A non well formed numeric value encountered /private/var/www/sport/Application/Runtime/Cache/Home/f8356fb647bbe8f15c9f836a57b7821a.php 第 428 行.
+NOTIC: [8] A non well formed numeric value encountered /private/var/www/sport/Application/Runtime/Cache/Home/f8356fb647bbe8f15c9f836a57b7821a.php 第 428 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.042693s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.042813s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000179s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000246s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000516s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000602s ]
+
+[ 2014-12-19T11:49:46+08:00 ] 127.0.0.1 /activity/detail/3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000029s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000418s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000315s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000392s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /private/var/www/sport/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `activity` [ RunTime:0.012027s ]
+SQL: SELECT `aid`,`activity_name`,`duration`,`start_time`,`end_time`,`alocation`,`lon`,`lat`,c.ccontent atype,`cityarea2show`,`price`,`pricetype`,`acontent`,s.sport_name,`follow_cnt`,`take_cnt`,`equipment_take`,`equipment_got`,`aimax_url`,u.username FROM `activity`  LEFT JOIN constants c ON c.cvalue = activity.activity_type  LEFT JOIN user u ON u.uid = activity.creator  LEFT JOIN sport s ON s.sid = activity.sport_type  WHERE ( activity.status='P' AND c.module=1 AND activity.aid=3  )  [ RunTime:0.000537s ]
+SQL: SHOW COLUMNS FROM `activity_comment` [ RunTime:0.003101s ]
+SQL: SELECT activity_comment.acid,u.username,activity_comment.accontent,activity_comment.create_time,count(ac.acid) fcnt FROM `activity_comment`  LEFT JOIN user u ON u.uid = activity_comment.uid  LEFT JOIN activity_comment ac ON ac.pid = activity_comment.acid  WHERE ( activity_comment.deleted=0 AND (ac.deleted=0 OR ac.deleted is null)AND activity_comment.aid=3 AND activity_comment.pid=0  ) GROUP BY activity_comment.acid  [ RunTime:0.000466s ]
+SQL: SHOW COLUMNS FROM `user_activity` [ RunTime:0.002620s ]
+SQL: SELECT u.username,u.uid,u.head_iminurl,c.ccontent actype FROM user_activity ua  LEFT JOIN user u ON u.uid = ua.uid  LEFT JOIN constants c ON c.cvalue = ua.type  WHERE ( ua.aid=3 AND c.module=2  )  [ RunTime:0.000326s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000102s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000188s ]
+NOTIC: [8] A non well formed numeric value encountered /private/var/www/sport/Application/Runtime/Cache/Home/f8356fb647bbe8f15c9f836a57b7821a.php 第 428 行.
+NOTIC: [8] A non well formed numeric value encountered /private/var/www/sport/Application/Runtime/Cache/Home/f8356fb647bbe8f15c9f836a57b7821a.php 第 428 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.063928s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.064052s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000317s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000453s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000585s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000764s ]
+
+[ 2014-12-19T11:49:53+08:00 ] 127.0.0.1 /activity/detail/3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000032s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000537s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000575s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000780s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /private/var/www/sport/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `activity` [ RunTime:0.013778s ]
+SQL: SELECT `aid`,`activity_name`,`duration`,`start_time`,`end_time`,`alocation`,`lon`,`lat`,c.ccontent atype,`cityarea2show`,`price`,`pricetype`,`acontent`,s.sport_name,`follow_cnt`,`take_cnt`,`equipment_take`,`equipment_got`,`aimax_url`,u.username FROM `activity`  LEFT JOIN constants c ON c.cvalue = activity.activity_type  LEFT JOIN user u ON u.uid = activity.creator  LEFT JOIN sport s ON s.sid = activity.sport_type  WHERE ( activity.status='P' AND c.module=1 AND activity.aid=3  )  [ RunTime:0.002850s ]
+SQL: SHOW COLUMNS FROM `activity_comment` [ RunTime:0.006412s ]
+SQL: SELECT activity_comment.acid,u.username,activity_comment.accontent,activity_comment.create_time,count(ac.acid) fcnt FROM `activity_comment`  LEFT JOIN user u ON u.uid = activity_comment.uid  LEFT JOIN activity_comment ac ON ac.pid = activity_comment.acid  WHERE ( activity_comment.deleted=0 AND (ac.deleted=0 OR ac.deleted is null)AND activity_comment.aid=3 AND activity_comment.pid=0  ) GROUP BY activity_comment.acid  [ RunTime:0.003045s ]
+SQL: SHOW COLUMNS FROM `user_activity` [ RunTime:0.002828s ]
+SQL: SELECT u.username,u.uid,u.head_iminurl,c.ccontent actype FROM user_activity ua  LEFT JOIN user u ON u.uid = ua.uid  LEFT JOIN constants c ON c.cvalue = ua.type  WHERE ( ua.aid=3 AND c.module=2  )  [ RunTime:0.000418s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000174s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000350s ]
+NOTIC: [8] A non well formed numeric value encountered /private/var/www/sport/Application/Runtime/Cache/Home/f8356fb647bbe8f15c9f836a57b7821a.php 第 428 行.
+NOTIC: [8] A non well formed numeric value encountered /private/var/www/sport/Application/Runtime/Cache/Home/f8356fb647bbe8f15c9f836a57b7821a.php 第 428 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.073519s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.073637s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000173s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000253s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000864s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001026s ]
+
+[ 2014-12-19T11:50:04+08:00 ] 127.0.0.1 /activity/detail/3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000278s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000289s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000363s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /private/var/www/sport/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `activity` [ RunTime:0.011880s ]
+SQL: SELECT `aid`,`activity_name`,`duration`,`start_time`,`end_time`,`alocation`,`lon`,`lat`,c.ccontent atype,`cityarea2show`,`price`,`pricetype`,`acontent`,s.sport_name,`follow_cnt`,`take_cnt`,`equipment_take`,`equipment_got`,`aimax_url`,u.username FROM `activity`  LEFT JOIN constants c ON c.cvalue = activity.activity_type  LEFT JOIN user u ON u.uid = activity.creator  LEFT JOIN sport s ON s.sid = activity.sport_type  WHERE ( activity.status='P' AND c.module=1 AND activity.aid=3  )  [ RunTime:0.000409s ]
+SQL: SHOW COLUMNS FROM `activity_comment` [ RunTime:0.002330s ]
+SQL: SELECT activity_comment.acid,u.username,activity_comment.accontent,activity_comment.create_time,count(ac.acid) fcnt FROM `activity_comment`  LEFT JOIN user u ON u.uid = activity_comment.uid  LEFT JOIN activity_comment ac ON ac.pid = activity_comment.acid  WHERE ( activity_comment.deleted=0 AND (ac.deleted=0 OR ac.deleted is null)AND activity_comment.aid=3 AND activity_comment.pid=0  ) GROUP BY activity_comment.acid  [ RunTime:0.000541s ]
+SQL: SHOW COLUMNS FROM `user_activity` [ RunTime:0.004546s ]
+SQL: SELECT u.username,u.uid,u.head_iminurl,c.ccontent actype FROM user_activity ua  LEFT JOIN user u ON u.uid = ua.uid  LEFT JOIN constants c ON c.cvalue = ua.type  WHERE ( ua.aid=3 AND c.module=2  )  [ RunTime:0.000301s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000102s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000187s ]
+NOTIC: [8] A non well formed numeric value encountered /private/var/www/sport/Application/Runtime/Cache/Home/f8356fb647bbe8f15c9f836a57b7821a.php 第 428 行.
+NOTIC: [8] A non well formed numeric value encountered /private/var/www/sport/Application/Runtime/Cache/Home/f8356fb647bbe8f15c9f836a57b7821a.php 第 428 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.044783s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.044896s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000216s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000328s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000377s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000466s ]
+
+[ 2014-12-19T11:51:11+08:00 ] 127.0.0.1 /activity/detail/3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000271s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000290s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000363s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /private/var/www/sport/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `activity` [ RunTime:0.003045s ]
+SQL: SELECT `aid`,`activity_name`,`duration`,`start_time`,`end_time`,`alocation`,`lon`,`lat`,c.ccontent atype,`cityarea2show`,`price`,`pricetype`,`acontent`,s.sport_name,`follow_cnt`,`take_cnt`,`equipment_take`,`equipment_got`,`aimax_url`,u.username FROM `activity`  LEFT JOIN constants c ON c.cvalue = activity.activity_type  LEFT JOIN user u ON u.uid = activity.creator  LEFT JOIN sport s ON s.sid = activity.sport_type  WHERE ( activity.status='P' AND c.module=1 AND activity.aid=3  )  [ RunTime:0.000392s ]
+SQL: SHOW COLUMNS FROM `activity_comment` [ RunTime:0.002261s ]
+SQL: SELECT activity_comment.acid,u.username,activity_comment.accontent,activity_comment.create_time,count(ac.acid) fcnt FROM `activity_comment`  LEFT JOIN user u ON u.uid = activity_comment.uid  LEFT JOIN activity_comment ac ON ac.pid = activity_comment.acid  WHERE ( activity_comment.deleted=0 AND (ac.deleted=0 OR ac.deleted is null)AND activity_comment.aid=3 AND activity_comment.pid=0  ) GROUP BY activity_comment.acid  [ RunTime:0.000423s ]
+SQL: SHOW COLUMNS FROM `user_activity` [ RunTime:0.002043s ]
+SQL: SELECT u.username,u.uid,u.head_iminurl,c.ccontent actype FROM user_activity ua  LEFT JOIN user u ON u.uid = ua.uid  LEFT JOIN constants c ON c.cvalue = ua.type  WHERE ( ua.aid=3 AND c.module=2  )  [ RunTime:0.000517s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000102s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000186s ]
+NOTIC: [8] A non well formed numeric value encountered /private/var/www/sport/Application/Runtime/Cache/Home/f8356fb647bbe8f15c9f836a57b7821a.php 第 428 行.
+NOTIC: [8] A non well formed numeric value encountered /private/var/www/sport/Application/Runtime/Cache/Home/f8356fb647bbe8f15c9f836a57b7821a.php 第 428 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.048518s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.048668s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000172s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000255s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000552s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000791s ]
+
+[ 2014-12-19T14:39:20+08:00 ] 127.0.0.1 /activity/detail/3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000502s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001942s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001071s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001246s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /private/var/www/sport/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `activity` [ RunTime:0.020149s ]
+SQL: SELECT `aid`,`activity_name`,`duration`,`start_time`,`end_time`,`alocation`,`lon`,`lat`,c.ccontent atype,`cityarea2show`,`price`,`pricetype`,`acontent`,s.sport_name,`follow_cnt`,`take_cnt`,`equipment_take`,`equipment_got`,`aimax_url`,u.username FROM `activity`  LEFT JOIN constants c ON c.cvalue = activity.activity_type  LEFT JOIN user u ON u.uid = activity.creator  LEFT JOIN sport s ON s.sid = activity.sport_type  WHERE ( activity.status='P' AND c.module=1 AND activity.aid=3  )  [ RunTime:0.010278s ]
+SQL: SHOW COLUMNS FROM `activity_comment` [ RunTime:0.003317s ]
+SQL: SELECT activity_comment.acid,u.username,activity_comment.accontent,activity_comment.create_time,count(ac.acid) fcnt FROM `activity_comment`  LEFT JOIN user u ON u.uid = activity_comment.uid  LEFT JOIN activity_comment ac ON ac.pid = activity_comment.acid  WHERE ( activity_comment.deleted=0 AND (ac.deleted=0 OR ac.deleted is null)AND activity_comment.aid=3 AND activity_comment.pid=0  ) GROUP BY activity_comment.acid  [ RunTime:0.004252s ]
+SQL: SHOW COLUMNS FROM `user_activity` [ RunTime:0.002740s ]
+SQL: SELECT u.username,u.uid,u.head_iminurl,c.ccontent actype FROM user_activity ua  LEFT JOIN user u ON u.uid = ua.uid  LEFT JOIN constants c ON c.cvalue = ua.type  WHERE ( ua.aid=3 AND c.module=2  ) LIMIT 10   [ RunTime:0.000401s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000203s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000290s ]
+NOTIC: [8] A non well formed numeric value encountered /private/var/www/sport/Application/Runtime/Cache/Home/f8356fb647bbe8f15c9f836a57b7821a.php 第 428 行.
+NOTIC: [8] A non well formed numeric value encountered /private/var/www/sport/Application/Runtime/Cache/Home/f8356fb647bbe8f15c9f836a57b7821a.php 第 428 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.059787s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.059915s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000588s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000698s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001106s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001214s ]
+
+[ 2014-12-19T14:48:37+08:00 ] 127.0.0.1 /activity/detail/3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000081s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001483s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001132s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001336s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /private/var/www/sport/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `activity` [ RunTime:0.009434s ]
+SQL: SELECT `aid`,`activity_name`,`duration`,`start_time`,`end_time`,`alocation`,`lon`,`lat`,c.ccontent atype,`cityarea2show`,`price`,`pricetype`,`acontent`,s.sport_name,`follow_cnt`,`take_cnt`,`equipment_take`,`equipment_got`,`aimax_url`,u.username FROM `activity`  LEFT JOIN constants c ON c.cvalue = activity.activity_type  LEFT JOIN user u ON u.uid = activity.creator  LEFT JOIN sport s ON s.sid = activity.sport_type  WHERE ( activity.status='P' AND c.module=1 AND activity.aid=3  )  [ RunTime:0.000679s ]
+SQL: SHOW COLUMNS FROM `activity_comment` [ RunTime:0.003786s ]
+SQL: SELECT activity_comment.acid,u.username,activity_comment.accontent,activity_comment.create_time,count(ac.acid) fcnt FROM `activity_comment`  LEFT JOIN user u ON u.uid = activity_comment.uid  LEFT JOIN activity_comment ac ON ac.pid = activity_comment.acid  WHERE ( activity_comment.deleted=0 AND (ac.deleted=0 OR ac.deleted is null)AND activity_comment.aid=3 AND activity_comment.pid=0  ) GROUP BY activity_comment.acid  [ RunTime:0.001271s ]
+SQL: SHOW COLUMNS FROM `user_activity` [ RunTime:0.003075s ]
+SQL: SELECT u.username,u.uid,u.head_iminurl,c.ccontent actype FROM user_activity ua  LEFT JOIN user u ON u.uid = ua.uid  LEFT JOIN constants c ON c.cvalue = ua.type  WHERE ( ua.aid=3 AND c.module=2  ) LIMIT 10   [ RunTime:0.000641s ]
+SQL: SELECT u.username,u.uid,u.head_iminurl FROM activity a  LEFT JOIN user u ON u.uid = a.creator  WHERE ( a.aid=3 AND c.module=2  ) LIMIT 1   [ RunTime:0.000776s ]
+ERR: 1054:Unknown column 'c.module' in 'where clause'
+ [ SQL语句 ] : SELECT u.username,u.uid,u.head_iminurl FROM activity a  LEFT JOIN user u ON u.uid = a.creator  WHERE ( a.aid=3 AND c.module=2  ) LIMIT 1  
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000243s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000496s ]
+NOTIC: [8] A non well formed numeric value encountered /private/var/www/sport/Application/Runtime/Cache/Home/f8356fb647bbe8f15c9f836a57b7821a.php 第 428 行.
+NOTIC: [8] A non well formed numeric value encountered /private/var/www/sport/Application/Runtime/Cache/Home/f8356fb647bbe8f15c9f836a57b7821a.php 第 428 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.126224s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.126430s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.004358s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.004522s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.003217s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003422s ]
+
+[ 2014-12-19T14:48:47+08:00 ] 127.0.0.1 /activity/detail/3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000032s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000479s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000398s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000519s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /private/var/www/sport/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `activity` [ RunTime:0.004749s ]
+SQL: SELECT `aid`,`activity_name`,`duration`,`start_time`,`end_time`,`alocation`,`lon`,`lat`,c.ccontent atype,`cityarea2show`,`price`,`pricetype`,`acontent`,s.sport_name,`follow_cnt`,`take_cnt`,`equipment_take`,`equipment_got`,`aimax_url`,u.username FROM `activity`  LEFT JOIN constants c ON c.cvalue = activity.activity_type  LEFT JOIN user u ON u.uid = activity.creator  LEFT JOIN sport s ON s.sid = activity.sport_type  WHERE ( activity.status='P' AND c.module=1 AND activity.aid=3  )  [ RunTime:0.000622s ]
+SQL: SHOW COLUMNS FROM `activity_comment` [ RunTime:0.038469s ]
+SQL: SELECT activity_comment.acid,u.username,activity_comment.accontent,activity_comment.create_time,count(ac.acid) fcnt FROM `activity_comment`  LEFT JOIN user u ON u.uid = activity_comment.uid  LEFT JOIN activity_comment ac ON ac.pid = activity_comment.acid  WHERE ( activity_comment.deleted=0 AND (ac.deleted=0 OR ac.deleted is null)AND activity_comment.aid=3 AND activity_comment.pid=0  ) GROUP BY activity_comment.acid  [ RunTime:0.003826s ]
+SQL: SHOW COLUMNS FROM `user_activity` [ RunTime:0.002939s ]
+SQL: SELECT u.username,u.uid,u.head_iminurl,c.ccontent actype FROM user_activity ua  LEFT JOIN user u ON u.uid = ua.uid  LEFT JOIN constants c ON c.cvalue = ua.type  WHERE ( ua.aid=3 AND c.module=2  ) LIMIT 10   [ RunTime:0.000370s ]
+SQL: SELECT u.username,u.uid,u.head_iminurl FROM activity a  LEFT JOIN user u ON u.uid = a.creator  WHERE ( a.aid=3 AND c.module=2  ) LIMIT 1   [ RunTime:0.000135s ]
+ERR: 1054:Unknown column 'c.module' in 'where clause'
+ [ SQL语句 ] : SELECT u.username,u.uid,u.head_iminurl FROM activity a  LEFT JOIN user u ON u.uid = a.creator  WHERE ( a.aid=3 AND c.module=2  ) LIMIT 1  
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000114s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000203s ]
+NOTIC: [8] A non well formed numeric value encountered /private/var/www/sport/Application/Runtime/Cache/Home/f8356fb647bbe8f15c9f836a57b7821a.php 第 428 行.
+NOTIC: [8] A non well formed numeric value encountered /private/var/www/sport/Application/Runtime/Cache/Home/f8356fb647bbe8f15c9f836a57b7821a.php 第 428 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.051407s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.051551s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000468s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000546s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001039s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001137s ]
+
+[ 2014-12-19T14:50:21+08:00 ] 127.0.0.1 /activity/detail/3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000524s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000814s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000902s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /private/var/www/sport/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `activity` [ RunTime:0.002908s ]
+SQL: SELECT `aid`,`activity_name`,`duration`,`start_time`,`end_time`,`alocation`,`lon`,`lat`,c.ccontent atype,`cityarea2show`,`price`,`pricetype`,`acontent`,s.sport_name,`follow_cnt`,`take_cnt`,`equipment_take`,`equipment_got`,`aimax_url`,u.username FROM `activity`  LEFT JOIN constants c ON c.cvalue = activity.activity_type  LEFT JOIN user u ON u.uid = activity.creator  LEFT JOIN sport s ON s.sid = activity.sport_type  WHERE ( activity.status='P' AND c.module=1 AND activity.aid=3  )  [ RunTime:0.000385s ]
+SQL: SHOW COLUMNS FROM `activity_comment` [ RunTime:0.002748s ]
+SQL: SELECT activity_comment.acid,u.username,activity_comment.accontent,activity_comment.create_time,count(ac.acid) fcnt FROM `activity_comment`  LEFT JOIN user u ON u.uid = activity_comment.uid  LEFT JOIN activity_comment ac ON ac.pid = activity_comment.acid  WHERE ( activity_comment.deleted=0 AND (ac.deleted=0 OR ac.deleted is null)AND activity_comment.aid=3 AND activity_comment.pid=0  ) GROUP BY activity_comment.acid  [ RunTime:0.000502s ]
+SQL: SHOW COLUMNS FROM `user_activity` [ RunTime:0.002763s ]
+SQL: SELECT u.username,u.uid,u.head_iminurl,c.ccontent actype FROM user_activity ua  LEFT JOIN user u ON u.uid = ua.uid  LEFT JOIN constants c ON c.cvalue = ua.type  WHERE ( ua.aid=3 AND c.module=2  ) LIMIT 10   [ RunTime:0.000334s ]
+SQL: SELECT u.username,u.uid,u.head_iminurl FROM activity a  LEFT JOIN user u ON u.uid = a.creator  WHERE ( a.aid=3 AND c.module=2  ) LIMIT 1   [ RunTime:0.000123s ]
+ERR: 1054:Unknown column 'c.module' in 'where clause'
+ [ SQL语句 ] : SELECT u.username,u.uid,u.head_iminurl FROM activity a  LEFT JOIN user u ON u.uid = a.creator  WHERE ( a.aid=3 AND c.module=2  ) LIMIT 1  
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000126s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000226s ]
+NOTIC: [8] A non well formed numeric value encountered /private/var/www/sport/Application/Runtime/Cache/Home/f8356fb647bbe8f15c9f836a57b7821a.php 第 428 行.
+NOTIC: [8] A non well formed numeric value encountered /private/var/www/sport/Application/Runtime/Cache/Home/f8356fb647bbe8f15c9f836a57b7821a.php 第 428 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.051207s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.051287s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000525s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000606s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000887s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000981s ]
+
+[ 2014-12-19T14:50:22+08:00 ] 127.0.0.1 /activity/detail/3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000326s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000366s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000492s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /private/var/www/sport/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `activity` [ RunTime:0.013774s ]
+SQL: SELECT `aid`,`activity_name`,`duration`,`start_time`,`end_time`,`alocation`,`lon`,`lat`,c.ccontent atype,`cityarea2show`,`price`,`pricetype`,`acontent`,s.sport_name,`follow_cnt`,`take_cnt`,`equipment_take`,`equipment_got`,`aimax_url`,u.username FROM `activity`  LEFT JOIN constants c ON c.cvalue = activity.activity_type  LEFT JOIN user u ON u.uid = activity.creator  LEFT JOIN sport s ON s.sid = activity.sport_type  WHERE ( activity.status='P' AND c.module=1 AND activity.aid=3  )  [ RunTime:0.000401s ]
+SQL: SHOW COLUMNS FROM `activity_comment` [ RunTime:0.002747s ]
+SQL: SELECT activity_comment.acid,u.username,activity_comment.accontent,activity_comment.create_time,count(ac.acid) fcnt FROM `activity_comment`  LEFT JOIN user u ON u.uid = activity_comment.uid  LEFT JOIN activity_comment ac ON ac.pid = activity_comment.acid  WHERE ( activity_comment.deleted=0 AND (ac.deleted=0 OR ac.deleted is null)AND activity_comment.aid=3 AND activity_comment.pid=0  ) GROUP BY activity_comment.acid  [ RunTime:0.000561s ]
+SQL: SHOW COLUMNS FROM `user_activity` [ RunTime:0.002417s ]
+SQL: SELECT u.username,u.uid,u.head_iminurl,c.ccontent actype FROM user_activity ua  LEFT JOIN user u ON u.uid = ua.uid  LEFT JOIN constants c ON c.cvalue = ua.type  WHERE ( ua.aid=3 AND c.module=2  ) LIMIT 10   [ RunTime:0.000353s ]
+SQL: SELECT u.username,u.uid,u.head_iminurl FROM activity a  LEFT JOIN user u ON u.uid = a.creator  WHERE ( a.aid=3 AND c.module=2  ) LIMIT 1   [ RunTime:0.000154s ]
+ERR: 1054:Unknown column 'c.module' in 'where clause'
+ [ SQL语句 ] : SELECT u.username,u.uid,u.head_iminurl FROM activity a  LEFT JOIN user u ON u.uid = a.creator  WHERE ( a.aid=3 AND c.module=2  ) LIMIT 1  
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000210s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000436s ]
+NOTIC: [8] A non well formed numeric value encountered /private/var/www/sport/Application/Runtime/Cache/Home/f8356fb647bbe8f15c9f836a57b7821a.php 第 428 行.
+NOTIC: [8] A non well formed numeric value encountered /private/var/www/sport/Application/Runtime/Cache/Home/f8356fb647bbe8f15c9f836a57b7821a.php 第 428 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.042958s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.043039s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000139s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000206s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000479s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000593s ]
+
+[ 2014-12-19T14:50:27+08:00 ] 127.0.0.1 /activity/detail/3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000300s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000297s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000374s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /private/var/www/sport/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `activity` [ RunTime:0.013127s ]
+SQL: SELECT `aid`,`activity_name`,`duration`,`start_time`,`end_time`,`alocation`,`lon`,`lat`,c.ccontent atype,`cityarea2show`,`price`,`pricetype`,`acontent`,s.sport_name,`follow_cnt`,`take_cnt`,`equipment_take`,`equipment_got`,`aimax_url`,u.username FROM `activity`  LEFT JOIN constants c ON c.cvalue = activity.activity_type  LEFT JOIN user u ON u.uid = activity.creator  LEFT JOIN sport s ON s.sid = activity.sport_type  WHERE ( activity.status='P' AND c.module=1 AND activity.aid=3  )  [ RunTime:0.000454s ]
+SQL: SHOW COLUMNS FROM `activity_comment` [ RunTime:0.002782s ]
+SQL: SELECT activity_comment.acid,u.username,activity_comment.accontent,activity_comment.create_time,count(ac.acid) fcnt FROM `activity_comment`  LEFT JOIN user u ON u.uid = activity_comment.uid  LEFT JOIN activity_comment ac ON ac.pid = activity_comment.acid  WHERE ( activity_comment.deleted=0 AND (ac.deleted=0 OR ac.deleted is null)AND activity_comment.aid=3 AND activity_comment.pid=0  ) GROUP BY activity_comment.acid  [ RunTime:0.000567s ]
+SQL: SHOW COLUMNS FROM `user_activity` [ RunTime:0.002323s ]
+SQL: SELECT u.username,u.uid,u.head_iminurl,c.ccontent actype FROM user_activity ua  LEFT JOIN user u ON u.uid = ua.uid  LEFT JOIN constants c ON c.cvalue = ua.type  WHERE ( ua.aid=3 AND c.module=2  ) LIMIT 10   [ RunTime:0.000335s ]
+SQL: SELECT u.username,u.uid,u.head_iminurl FROM activity a  LEFT JOIN user u ON u.uid = a.creator  WHERE ( a.aid=3 AND c.module=2  ) LIMIT 1   [ RunTime:0.000254s ]
+ERR: 1054:Unknown column 'c.module' in 'where clause'
+ [ SQL语句 ] : SELECT u.username,u.uid,u.head_iminurl FROM activity a  LEFT JOIN user u ON u.uid = a.creator  WHERE ( a.aid=3 AND c.module=2  ) LIMIT 1  
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000232s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000499s ]
+NOTIC: [8] A non well formed numeric value encountered /private/var/www/sport/Application/Runtime/Cache/Home/f8356fb647bbe8f15c9f836a57b7821a.php 第 428 行.
+NOTIC: [8] A non well formed numeric value encountered /private/var/www/sport/Application/Runtime/Cache/Home/f8356fb647bbe8f15c9f836a57b7821a.php 第 428 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.050151s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.050252s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000167s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000234s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000402s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000494s ]
+
+[ 2014-12-19T14:51:08+08:00 ] 127.0.0.1 /activity/detail/3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000026s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000603s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001086s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001183s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /private/var/www/sport/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `activity` [ RunTime:0.003487s ]
+SQL: SELECT `aid`,`activity_name`,`duration`,`start_time`,`end_time`,`alocation`,`lon`,`lat`,c.ccontent atype,`cityarea2show`,`price`,`pricetype`,`acontent`,s.sport_name,`follow_cnt`,`take_cnt`,`equipment_take`,`equipment_got`,`aimax_url`,u.username FROM `activity`  LEFT JOIN constants c ON c.cvalue = activity.activity_type  LEFT JOIN user u ON u.uid = activity.creator  LEFT JOIN sport s ON s.sid = activity.sport_type  WHERE ( activity.status='P' AND c.module=1 AND activity.aid=3  )  [ RunTime:0.000523s ]
+SQL: SHOW COLUMNS FROM `activity_comment` [ RunTime:0.002383s ]
+SQL: SELECT activity_comment.acid,u.username,activity_comment.accontent,activity_comment.create_time,count(ac.acid) fcnt FROM `activity_comment`  LEFT JOIN user u ON u.uid = activity_comment.uid  LEFT JOIN activity_comment ac ON ac.pid = activity_comment.acid  WHERE ( activity_comment.deleted=0 AND (ac.deleted=0 OR ac.deleted is null)AND activity_comment.aid=3 AND activity_comment.pid=0  ) GROUP BY activity_comment.acid  [ RunTime:0.000438s ]
+SQL: SHOW COLUMNS FROM `user_activity` [ RunTime:0.002676s ]
+SQL: SELECT u.username,u.uid,u.head_iminurl,c.ccontent actype FROM user_activity ua  LEFT JOIN user u ON u.uid = ua.uid  LEFT JOIN constants c ON c.cvalue = ua.type  WHERE ( ua.aid=3 AND c.module=2  ) LIMIT 10   [ RunTime:0.000339s ]
+SQL: SELECT u.username,u.uid,u.head_iminurl FROM activity a  LEFT JOIN user u ON u.uid = a.creator  WHERE ( a.aid=3 AND c.module=2  ) LIMIT 1   [ RunTime:0.000133s ]
+ERR: 1054:Unknown column 'c.module' in 'where clause'
+ [ SQL语句 ] : SELECT u.username,u.uid,u.head_iminurl FROM activity a  LEFT JOIN user u ON u.uid = a.creator  WHERE ( a.aid=3 AND c.module=2  ) LIMIT 1  
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000103s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000187s ]
+NOTIC: [8] A non well formed numeric value encountered /private/var/www/sport/Application/Runtime/Cache/Home/f8356fb647bbe8f15c9f836a57b7821a.php 第 428 行.
+NOTIC: [8] A non well formed numeric value encountered /private/var/www/sport/Application/Runtime/Cache/Home/f8356fb647bbe8f15c9f836a57b7821a.php 第 428 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.049238s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.049317s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000521s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000635s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000808s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000918s ]
+
+[ 2014-12-19T14:51:39+08:00 ] 127.0.0.1 /activity/detail/3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000265s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000286s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000360s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /private/var/www/sport/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `activity` [ RunTime:0.003191s ]
+SQL: SELECT `aid`,`activity_name`,`duration`,`start_time`,`end_time`,`alocation`,`lon`,`lat`,c.ccontent atype,`cityarea2show`,`price`,`pricetype`,`acontent`,s.sport_name,`follow_cnt`,`take_cnt`,`equipment_take`,`equipment_got`,`aimax_url`,u.username FROM `activity`  LEFT JOIN constants c ON c.cvalue = activity.activity_type  LEFT JOIN user u ON u.uid = activity.creator  LEFT JOIN sport s ON s.sid = activity.sport_type  WHERE ( activity.status='P' AND c.module=1 AND activity.aid=3  )  [ RunTime:0.000455s ]
+SQL: SHOW COLUMNS FROM `activity_comment` [ RunTime:0.003474s ]
+SQL: SELECT activity_comment.acid,u.username,activity_comment.accontent,activity_comment.create_time,count(ac.acid) fcnt FROM `activity_comment`  LEFT JOIN user u ON u.uid = activity_comment.uid  LEFT JOIN activity_comment ac ON ac.pid = activity_comment.acid  WHERE ( activity_comment.deleted=0 AND (ac.deleted=0 OR ac.deleted is null)AND activity_comment.aid=3 AND activity_comment.pid=0  ) GROUP BY activity_comment.acid  [ RunTime:0.001109s ]
+SQL: SHOW COLUMNS FROM `user_activity` [ RunTime:0.002383s ]
+SQL: SELECT u.username,u.uid,u.head_iminurl,c.ccontent actype FROM user_activity ua  LEFT JOIN user u ON u.uid = ua.uid  LEFT JOIN constants c ON c.cvalue = ua.type  WHERE ( ua.aid=3 AND c.module=2  ) LIMIT 10   [ RunTime:0.000337s ]
+SQL: SELECT u.username,u.uid,u.head_iminurl FROM activity a  LEFT JOIN user u ON u.uid = a.creator  WHERE ( a.aid=3  ) LIMIT 1   [ RunTime:0.000214s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000102s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000188s ]
+NOTIC: [8] A non well formed numeric value encountered /private/var/www/sport/Application/Runtime/Cache/Home/f8356fb647bbe8f15c9f836a57b7821a.php 第 428 行.
+NOTIC: [8] A non well formed numeric value encountered /private/var/www/sport/Application/Runtime/Cache/Home/f8356fb647bbe8f15c9f836a57b7821a.php 第 428 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.039846s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.039935s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000181s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000263s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000631s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000785s ]
+
+[ 2014-12-19T14:52:33+08:00 ] 127.0.0.1 /activity/detail/3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000277s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000304s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000377s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /private/var/www/sport/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `activity` [ RunTime:0.002975s ]
+SQL: SELECT `aid`,`activity_name`,`duration`,`start_time`,`end_time`,`alocation`,`lon`,`lat`,c.ccontent atype,`cityarea2show`,`price`,`pricetype`,`acontent`,s.sport_name,`follow_cnt`,`take_cnt`,`equipment_take`,`equipment_got`,`aimax_url`,u.username FROM `activity`  LEFT JOIN constants c ON c.cvalue = activity.activity_type  LEFT JOIN user u ON u.uid = activity.creator  LEFT JOIN sport s ON s.sid = activity.sport_type  WHERE ( activity.status='P' AND c.module=1 AND activity.aid=3  )  [ RunTime:0.000433s ]
+SQL: SHOW COLUMNS FROM `activity_comment` [ RunTime:0.002234s ]
+SQL: SELECT activity_comment.acid,u.username,activity_comment.accontent,activity_comment.create_time,count(ac.acid) fcnt FROM `activity_comment`  LEFT JOIN user u ON u.uid = activity_comment.uid  LEFT JOIN activity_comment ac ON ac.pid = activity_comment.acid  WHERE ( activity_comment.deleted=0 AND (ac.deleted=0 OR ac.deleted is null)AND activity_comment.aid=3 AND activity_comment.pid=0  ) GROUP BY activity_comment.acid  [ RunTime:0.000418s ]
+SQL: SHOW COLUMNS FROM `user_activity` [ RunTime:0.002049s ]
+SQL: SELECT u.username,u.uid,u.head_iminurl,c.ccontent actype FROM user_activity ua  LEFT JOIN user u ON u.uid = ua.uid  LEFT JOIN constants c ON c.cvalue = ua.type  WHERE ( ua.aid=3 AND c.module=2  ) LIMIT 10   [ RunTime:0.000437s ]
+SQL: SELECT u.username,u.uid,u.head_iminurl FROM activity a  LEFT JOIN user u ON u.uid = a.creator  WHERE ( a.aid=3  ) LIMIT 1   [ RunTime:0.000278s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000182s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000330s ]
+NOTIC: [8] A non well formed numeric value encountered /private/var/www/sport/Application/Runtime/Cache/Home/f8356fb647bbe8f15c9f836a57b7821a.php 第 428 行.
+NOTIC: [8] A non well formed numeric value encountered /private/var/www/sport/Application/Runtime/Cache/Home/f8356fb647bbe8f15c9f836a57b7821a.php 第 428 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.054264s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.054356s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000162s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000238s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000436s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000526s ]
+
+[ 2014-12-19T14:52:52+08:00 ] 127.0.0.1 /activity/detail/3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000367s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000406s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000523s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /private/var/www/sport/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `activity` [ RunTime:0.012270s ]
+SQL: SELECT `aid`,`activity_name`,`duration`,`start_time`,`end_time`,`alocation`,`lon`,`lat`,c.ccontent atype,`cityarea2show`,`price`,`pricetype`,`acontent`,s.sport_name,`follow_cnt`,`take_cnt`,`equipment_take`,`equipment_got`,`aimax_url`,u.username FROM `activity`  LEFT JOIN constants c ON c.cvalue = activity.activity_type  LEFT JOIN user u ON u.uid = activity.creator  LEFT JOIN sport s ON s.sid = activity.sport_type  WHERE ( activity.status='P' AND c.module=1 AND activity.aid=3  )  [ RunTime:0.000445s ]
+SQL: SHOW COLUMNS FROM `activity_comment` [ RunTime:0.003316s ]
+SQL: SELECT activity_comment.acid,u.username,activity_comment.accontent,activity_comment.create_time,count(ac.acid) fcnt FROM `activity_comment`  LEFT JOIN user u ON u.uid = activity_comment.uid  LEFT JOIN activity_comment ac ON ac.pid = activity_comment.acid  WHERE ( activity_comment.deleted=0 AND (ac.deleted=0 OR ac.deleted is null)AND activity_comment.aid=3 AND activity_comment.pid=0  ) GROUP BY activity_comment.acid  [ RunTime:0.000466s ]
+SQL: SHOW COLUMNS FROM `user_activity` [ RunTime:0.002384s ]
+SQL: SELECT u.username,u.uid,u.head_iminurl,c.ccontent actype FROM user_activity ua  LEFT JOIN user u ON u.uid = ua.uid  LEFT JOIN constants c ON c.cvalue = ua.type  WHERE ( ua.aid=3 AND c.module=2  ) LIMIT 10   [ RunTime:0.000282s ]
+SQL: SELECT u.username,u.uid,u.head_iminurl FROM activity a  LEFT JOIN user u ON u.uid = a.creator  WHERE ( a.aid=3  ) LIMIT 1   [ RunTime:0.000231s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000186s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000333s ]
+NOTIC: [8] A non well formed numeric value encountered /private/var/www/sport/Application/Runtime/Cache/Home/f8356fb647bbe8f15c9f836a57b7821a.php 第 428 行.
+NOTIC: [8] A non well formed numeric value encountered /private/var/www/sport/Application/Runtime/Cache/Home/f8356fb647bbe8f15c9f836a57b7821a.php 第 428 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.051262s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.051353s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000142s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000205s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000373s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000462s ]
+
+[ 2014-12-19T14:53:07+08:00 ] 127.0.0.1 /user/detail/3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000032s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000351s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000310s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000387s ]
+ERR: 非法操作:detail
+
+[ 2014-12-19T14:53:09+08:00 ] 127.0.0.1 /activity/detail/3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000274s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000300s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000387s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /private/var/www/sport/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `activity` [ RunTime:0.012501s ]
+SQL: SELECT `aid`,`activity_name`,`duration`,`start_time`,`end_time`,`alocation`,`lon`,`lat`,c.ccontent atype,`cityarea2show`,`price`,`pricetype`,`acontent`,s.sport_name,`follow_cnt`,`take_cnt`,`equipment_take`,`equipment_got`,`aimax_url`,u.username FROM `activity`  LEFT JOIN constants c ON c.cvalue = activity.activity_type  LEFT JOIN user u ON u.uid = activity.creator  LEFT JOIN sport s ON s.sid = activity.sport_type  WHERE ( activity.status='P' AND c.module=1 AND activity.aid=3  )  [ RunTime:0.000660s ]
+SQL: SHOW COLUMNS FROM `activity_comment` [ RunTime:0.003474s ]
+SQL: SELECT activity_comment.acid,u.username,activity_comment.accontent,activity_comment.create_time,count(ac.acid) fcnt FROM `activity_comment`  LEFT JOIN user u ON u.uid = activity_comment.uid  LEFT JOIN activity_comment ac ON ac.pid = activity_comment.acid  WHERE ( activity_comment.deleted=0 AND (ac.deleted=0 OR ac.deleted is null)AND activity_comment.aid=3 AND activity_comment.pid=0  ) GROUP BY activity_comment.acid  [ RunTime:0.000739s ]
+SQL: SHOW COLUMNS FROM `user_activity` [ RunTime:0.002171s ]
+SQL: SELECT u.username,u.uid,u.head_iminurl,c.ccontent actype FROM user_activity ua  LEFT JOIN user u ON u.uid = ua.uid  LEFT JOIN constants c ON c.cvalue = ua.type  WHERE ( ua.aid=3 AND c.module=2  ) LIMIT 10   [ RunTime:0.000297s ]
+SQL: SELECT u.username,u.uid,u.head_iminurl FROM activity a  LEFT JOIN user u ON u.uid = a.creator  WHERE ( a.aid=3  ) LIMIT 1   [ RunTime:0.000182s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000110s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000204s ]
+NOTIC: [8] A non well formed numeric value encountered /private/var/www/sport/Application/Runtime/Cache/Home/f8356fb647bbe8f15c9f836a57b7821a.php 第 428 行.
+NOTIC: [8] A non well formed numeric value encountered /private/var/www/sport/Application/Runtime/Cache/Home/f8356fb647bbe8f15c9f836a57b7821a.php 第 428 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.044544s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.044634s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000167s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000247s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000488s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000592s ]
+
+[ 2014-12-19T14:53:25+08:00 ] 127.0.0.1 /activity/detail/3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000026s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000387s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000475s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000591s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /private/var/www/sport/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `activity` [ RunTime:0.003871s ]
+SQL: SELECT `aid`,`activity_name`,`duration`,`start_time`,`end_time`,`alocation`,`lon`,`lat`,c.ccontent atype,`cityarea2show`,`price`,`pricetype`,`acontent`,s.sport_name,`follow_cnt`,`take_cnt`,`equipment_take`,`equipment_got`,`aimax_url`,u.username FROM `activity`  LEFT JOIN constants c ON c.cvalue = activity.activity_type  LEFT JOIN user u ON u.uid = activity.creator  LEFT JOIN sport s ON s.sid = activity.sport_type  WHERE ( activity.status='P' AND c.module=1 AND activity.aid=3  )  [ RunTime:0.000514s ]
+SQL: SHOW COLUMNS FROM `activity_comment` [ RunTime:0.002664s ]
+SQL: SELECT activity_comment.acid,u.username,activity_comment.accontent,activity_comment.create_time,count(ac.acid) fcnt FROM `activity_comment`  LEFT JOIN user u ON u.uid = activity_comment.uid  LEFT JOIN activity_comment ac ON ac.pid = activity_comment.acid  WHERE ( activity_comment.deleted=0 AND (ac.deleted=0 OR ac.deleted is null)AND activity_comment.aid=3 AND activity_comment.pid=0  ) GROUP BY activity_comment.acid  [ RunTime:0.000552s ]
+SQL: SHOW COLUMNS FROM `user_activity` [ RunTime:0.002511s ]
+SQL: SELECT u.username,u.uid,u.head_iminurl,c.ccontent actype FROM user_activity ua  LEFT JOIN user u ON u.uid = ua.uid  LEFT JOIN constants c ON c.cvalue = ua.type  WHERE ( ua.aid=3 AND c.module=2  ) LIMIT 10   [ RunTime:0.000328s ]
+SQL: SELECT u.username,u.uid,u.head_iminurl FROM activity a  LEFT JOIN user u ON u.uid = a.creator  WHERE ( a.aid=3  ) LIMIT 1   [ RunTime:0.000273s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000174s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000327s ]
+NOTIC: [8] A non well formed numeric value encountered /private/var/www/sport/Application/Runtime/Cache/Home/f8356fb647bbe8f15c9f836a57b7821a.php 第 428 行.
+NOTIC: [8] A non well formed numeric value encountered /private/var/www/sport/Application/Runtime/Cache/Home/f8356fb647bbe8f15c9f836a57b7821a.php 第 428 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.048528s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.048609s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000139s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000205s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000353s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000444s ]
+
+[ 2014-12-19T14:54:02+08:00 ] 127.0.0.1 /activity/detail/3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000025s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000655s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000892s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001021s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /private/var/www/sport/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `activity` [ RunTime:0.003657s ]
+SQL: SELECT `aid`,`activity_name`,`duration`,`start_time`,`end_time`,`alocation`,`lon`,`lat`,c.ccontent atype,`cityarea2show`,`price`,`pricetype`,`acontent`,s.sport_name,`follow_cnt`,`take_cnt`,`equipment_take`,`equipment_got`,`aimax_url`,u.username FROM `activity`  LEFT JOIN constants c ON c.cvalue = activity.activity_type  LEFT JOIN user u ON u.uid = activity.creator  LEFT JOIN sport s ON s.sid = activity.sport_type  WHERE ( activity.status='P' AND c.module=1 AND activity.aid=3  )  [ RunTime:0.000541s ]
+SQL: SHOW COLUMNS FROM `activity_comment` [ RunTime:0.002238s ]
+SQL: SELECT activity_comment.acid,u.username,activity_comment.accontent,activity_comment.create_time,count(ac.acid) fcnt FROM `activity_comment`  LEFT JOIN user u ON u.uid = activity_comment.uid  LEFT JOIN activity_comment ac ON ac.pid = activity_comment.acid  WHERE ( activity_comment.deleted=0 AND (ac.deleted=0 OR ac.deleted is null)AND activity_comment.aid=3 AND activity_comment.pid=0  ) GROUP BY activity_comment.acid  [ RunTime:0.000435s ]
+SQL: SHOW COLUMNS FROM `user_activity` [ RunTime:0.002997s ]
+SQL: SELECT u.username,u.uid,u.head_iminurl,c.ccontent actype FROM user_activity ua  LEFT JOIN user u ON u.uid = ua.uid  LEFT JOIN constants c ON c.cvalue = ua.type  WHERE ( ua.aid=3 AND c.module=2  ) LIMIT 10   [ RunTime:0.000313s ]
+SQL: SELECT u.username,u.uid,u.head_iminurl FROM activity a  LEFT JOIN user u ON u.uid = a.creator  WHERE ( a.aid=3  ) LIMIT 1   [ RunTime:0.000318s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000106s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000195s ]
+NOTIC: [8] A non well formed numeric value encountered /private/var/www/sport/Application/Runtime/Cache/Home/f8356fb647bbe8f15c9f836a57b7821a.php 第 428 行.
+NOTIC: [8] A non well formed numeric value encountered /private/var/www/sport/Application/Runtime/Cache/Home/f8356fb647bbe8f15c9f836a57b7821a.php 第 428 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.056502s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.056595s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000784s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000883s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001194s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001483s ]
+
+[ 2014-12-19T14:54:23+08:00 ] 127.0.0.1 /activity/detail/3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000742s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000882s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001034s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /private/var/www/sport/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `activity` [ RunTime:0.003713s ]
+SQL: SELECT `aid`,`activity_name`,`duration`,`start_time`,`end_time`,`alocation`,`lon`,`lat`,c.ccontent atype,`cityarea2show`,`price`,`pricetype`,`acontent`,s.sport_name,`follow_cnt`,`take_cnt`,`equipment_take`,`equipment_got`,`aimax_url`,u.username FROM `activity`  LEFT JOIN constants c ON c.cvalue = activity.activity_type  LEFT JOIN user u ON u.uid = activity.creator  LEFT JOIN sport s ON s.sid = activity.sport_type  WHERE ( activity.status='P' AND c.module=1 AND activity.aid=3  )  [ RunTime:0.000449s ]
+SQL: SHOW COLUMNS FROM `activity_comment` [ RunTime:0.003707s ]
+SQL: SELECT activity_comment.acid,u.username,activity_comment.accontent,activity_comment.create_time,count(ac.acid) fcnt FROM `activity_comment`  LEFT JOIN user u ON u.uid = activity_comment.uid  LEFT JOIN activity_comment ac ON ac.pid = activity_comment.acid  WHERE ( activity_comment.deleted=0 AND (ac.deleted=0 OR ac.deleted is null)AND activity_comment.aid=3 AND activity_comment.pid=0  ) GROUP BY activity_comment.acid  [ RunTime:0.000433s ]
+SQL: SHOW COLUMNS FROM `user_activity` [ RunTime:0.002214s ]
+SQL: SELECT u.username,u.uid,u.head_iminurl,c.ccontent actype FROM user_activity ua  LEFT JOIN user u ON u.uid = ua.uid  LEFT JOIN constants c ON c.cvalue = ua.type  WHERE ( ua.aid=3 AND c.module=2  ) LIMIT 10   [ RunTime:0.000302s ]
+SQL: SELECT u.username,u.uid,u.head_iminurl FROM activity a  LEFT JOIN user u ON u.uid = a.creator  WHERE ( a.aid=3  ) LIMIT 1   [ RunTime:0.000181s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000127s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000229s ]
+NOTIC: [8] A non well formed numeric value encountered /private/var/www/sport/Application/Runtime/Cache/Home/f8356fb647bbe8f15c9f836a57b7821a.php 第 428 行.
+NOTIC: [8] A non well formed numeric value encountered /private/var/www/sport/Application/Runtime/Cache/Home/f8356fb647bbe8f15c9f836a57b7821a.php 第 428 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.056298s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.056383s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000452s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000537s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000746s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000840s ]
+
+[ 2014-12-19T14:56:54+08:00 ] 127.0.0.1 /activity/detail/3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000027s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000732s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000991s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001136s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /private/var/www/sport/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `activity` [ RunTime:0.003629s ]
+SQL: SELECT `aid`,`activity_name`,`duration`,`start_time`,`end_time`,`alocation`,`lon`,`lat`,c.ccontent atype,`cityarea2show`,`price`,`pricetype`,`acontent`,s.sport_name,`follow_cnt`,`take_cnt`,`equipment_take`,`equipment_got`,`aimax_url`,u.username FROM `activity`  LEFT JOIN constants c ON c.cvalue = activity.activity_type  LEFT JOIN user u ON u.uid = activity.creator  LEFT JOIN sport s ON s.sid = activity.sport_type  WHERE ( activity.status='P' AND c.module=1 AND activity.aid=3  )  [ RunTime:0.000393s ]
+SQL: SHOW COLUMNS FROM `activity_comment` [ RunTime:0.002228s ]
+SQL: SELECT activity_comment.acid,u.username,activity_comment.accontent,activity_comment.create_time,count(ac.acid) fcnt FROM `activity_comment`  LEFT JOIN user u ON u.uid = activity_comment.uid  LEFT JOIN activity_comment ac ON ac.pid = activity_comment.acid  WHERE ( activity_comment.deleted=0 AND (ac.deleted=0 OR ac.deleted is null)AND activity_comment.aid=3 AND activity_comment.pid=0  ) GROUP BY activity_comment.acid  [ RunTime:0.000461s ]
+SQL: SHOW COLUMNS FROM `user_activity` [ RunTime:0.002278s ]
+SQL: SELECT u.username,u.uid,u.head_iminurl,c.ccontent actype FROM user_activity ua  LEFT JOIN user u ON u.uid = ua.uid  LEFT JOIN constants c ON c.cvalue = ua.type  WHERE ( ua.aid=3 AND c.module=2  ) LIMIT 10   [ RunTime:0.000297s ]
+SQL: SELECT u.username,u.uid,u.head_iminurl FROM activity a  LEFT JOIN user u ON u.uid = a.creator  WHERE ( a.aid=3  ) LIMIT 1   [ RunTime:0.000175s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000126s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000236s ]
+NOTIC: [8] A non well formed numeric value encountered /private/var/www/sport/Application/Runtime/Cache/Home/f8356fb647bbe8f15c9f836a57b7821a.php 第 428 行.
+NOTIC: [8] A non well formed numeric value encountered /private/var/www/sport/Application/Runtime/Cache/Home/f8356fb647bbe8f15c9f836a57b7821a.php 第 428 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.072458s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.072540s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000548s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000632s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000955s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001111s ]
+
+[ 2014-12-19T14:57:49+08:00 ] 127.0.0.1 /activity/follow?aid=3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000320s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000566s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000644s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /private/var/www/sport/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `activity` [ RunTime:0.002822s ]
+
+[ 2014-12-19T14:57:55+08:00 ] 127.0.0.1 /activity/follow?aid=3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000298s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000514s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000614s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /private/var/www/sport/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `activity` [ RunTime:0.006109s ]
+
+[ 2014-12-19T14:59:18+08:00 ] 127.0.0.1 /activity/detail/3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000487s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000678s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000762s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /private/var/www/sport/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `activity` [ RunTime:0.003087s ]
+SQL: SELECT `aid`,`activity_name`,`duration`,`start_time`,`end_time`,`alocation`,`lon`,`lat`,c.ccontent atype,`cityarea2show`,`price`,`pricetype`,`acontent`,s.sport_name,`follow_cnt`,`take_cnt`,`equipment_take`,`equipment_got`,`aimax_url`,u.username FROM `activity`  LEFT JOIN constants c ON c.cvalue = activity.activity_type  LEFT JOIN user u ON u.uid = activity.creator  LEFT JOIN sport s ON s.sid = activity.sport_type  WHERE ( activity.status='P' AND c.module=1 AND activity.aid=3  )  [ RunTime:0.000447s ]
+SQL: SHOW COLUMNS FROM `activity_comment` [ RunTime:0.002224s ]
+SQL: SELECT activity_comment.acid,u.username,activity_comment.accontent,activity_comment.create_time,count(ac.acid) fcnt FROM `activity_comment`  LEFT JOIN user u ON u.uid = activity_comment.uid  LEFT JOIN activity_comment ac ON ac.pid = activity_comment.acid  WHERE ( activity_comment.deleted=0 AND (ac.deleted=0 OR ac.deleted is null)AND activity_comment.aid=3 AND activity_comment.pid=0  ) GROUP BY activity_comment.acid  [ RunTime:0.000471s ]
+SQL: SHOW COLUMNS FROM `user_activity` [ RunTime:0.004173s ]
+SQL: SELECT u.username,u.uid,u.head_iminurl,c.ccontent actype FROM user_activity ua  LEFT JOIN user u ON u.uid = ua.uid  LEFT JOIN constants c ON c.cvalue = ua.type  WHERE ( ua.aid=3 AND c.module=2  ) LIMIT 10   [ RunTime:0.000817s ]
+SQL: SELECT u.username,u.uid,u.head_iminurl FROM activity a  LEFT JOIN user u ON u.uid = a.creator  WHERE ( a.aid=3  ) LIMIT 1   [ RunTime:0.000366s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000158s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000303s ]
+NOTIC: [8] A non well formed numeric value encountered /private/var/www/sport/Application/Runtime/Cache/Home/f8356fb647bbe8f15c9f836a57b7821a.php 第 428 行.
+NOTIC: [8] A non well formed numeric value encountered /private/var/www/sport/Application/Runtime/Cache/Home/f8356fb647bbe8f15c9f836a57b7821a.php 第 428 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.074557s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.074664s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000715s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000797s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000833s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000985s ]
+
+[ 2014-12-19T16:05:29+08:00 ] 127.0.0.1 /activity/create
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000531s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001982s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001184s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001340s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000077s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000165s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.027837s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.028057s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001256s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001464s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001247s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001457s ]
+
+[ 2014-12-19T16:05:52+08:00 ] 127.0.0.1 /activity/create
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000034s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000448s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000411s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000569s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000109s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000420s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.023645s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.023752s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000220s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000353s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000379s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000453s ]
+
+[ 2014-12-19T16:06:09+08:00 ] 127.0.0.1 /activity/create
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000037s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000739s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001171s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001343s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000060s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000163s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.024622s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.024746s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000366s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000454s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001003s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001103s ]
+
+[ 2014-12-19T16:06:46+08:00 ] 127.0.0.1 /activity/create
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000277s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000350s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000435s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000054s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000141s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.018312s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.018408s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000152s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000225s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000334s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000410s ]
+
+[ 2014-12-19T16:09:18+08:00 ] 127.0.0.1 /activity/create
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000466s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001755s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000995s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001132s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000081s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000172s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.026561s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.026717s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000431s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000524s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001074s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001231s ]
+
+[ 2014-12-19T16:09:25+08:00 ] 127.0.0.1 /activity/create
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000031s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000474s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000461s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000569s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000097s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000256s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.027070s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.027177s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000206s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000276s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000368s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000439s ]
+

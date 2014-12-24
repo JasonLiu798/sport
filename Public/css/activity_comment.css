@@ -1,0 +1,67 @@
+@CHARSET "UTF-8";
+/*
+.pcomment_user_head{
+    float:left;
+}
+*/
+.pcomment_meta{
+    float:left;
+}
+.pcomment_left{
+    float:left;
+}
+.pcomment_content{
+    text-indent: 2em;
+}
+/*
+.comment_username{
+    margin:0 0 0 10px;
+}*/
+
+.child_comment{
+    padding:10px;
+    margin:10px;
+    width:100%;
+    overflow:hidden;
+}
+.child_comment_head{
+    float:left;
+}
+.child_comment_meta{
+    background-color: #eee;
+    overflow:hidden;
+    padding:3px 0 0 5px;
+    width:100%;
+}
+.child_comment_detail{
+    float:left;
+    margin:2px 10px 10px 5px;
+}
+.child_comment_content{
+    margin:5px 0 0 0;
+}
+
+.back2detail{
+    margin:10px;
+}
+
+
+ul{
+    /*padding: 0px 10px 10px 10px;*/
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+li{
+    overflow:hidden;
+    float: left;
+
+}
+
+.comment_user_li{
+    margin:0 0 0 10px;
+}
+
+
+

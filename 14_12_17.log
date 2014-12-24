@@ -3,3 +3,8 @@ INFO: [ app_init ] --START--
 INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000103s ]
 INFO: [ app_init ] --END-- [ RunTime:0.001044s ]
 
+[ 2014-12-17T15:30:11+08:00 ] 127.0.0.1 /image/user/user_normal.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000055s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000847s ]
+

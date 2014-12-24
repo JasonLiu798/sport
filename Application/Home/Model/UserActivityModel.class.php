@@ -44,5 +44,33 @@ class UserActivityModel extends Model {
         }
     }
 
+
+
+    public function get_activity_member($aid,$type=null){
+        if(!is_null($type)){
+            $res = $this->field('u.username,u.uid,u.head_iminurl,c.ccontent actype')
+            ->alias('ua')
+            ->where("ua.aid=%d AND ua.type='%s' AND c.module=2 ",array($aid,$type))
+            ->join(array(
+                ' LEFT JOIN user u ON u.uid = ua.uid',
+                ' LEFT JOIN constants c ON c.cvalue = ua.type',))
+                //' LEFT JOIN activity a ON a.aid = ua.aid',)
+            ->limit(10)
+            ->select();
+        }else{
+            $res = $this->field('u.username,u.uid,u.head_iminurl,c.ccontent actype')
+            ->alias('ua')
+            ->where("ua.aid=%d AND c.module=2 ",array($aid))
+            ->join(array(
+                ' LEFT JOIN user u ON u.uid = ua.uid',
+                ' LEFT JOIN constants c ON c.cvalue = ua.type',))
+                //' LEFT JOIN activity a ON a.aid = ua.aid',)
+            ->limit(10)
+            ->select();
+        }
+        
+        return $res;
+    }
+
     
 }

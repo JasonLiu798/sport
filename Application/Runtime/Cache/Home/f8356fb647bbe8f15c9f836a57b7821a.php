@@ -6,8 +6,8 @@
 	<title><?php echo ($title); ?></title>
 	<script src="<?php echo U('Public/bower_components/jquery/dist/jquery.min.js');?>"></script>
 	<script src="<?php echo U('Public/bower_components/bootstrap/dist/js/bootstrap.min.js');?>"></script>
-	<link rel="stylesheet" href="<?php echo U('Public/bower_components/bootstrap/dist/css/bootstrap.min.css');?>">
-    <link rel="stylesheet" href="<?php echo U('Public/css/style.css');?>">
+	<link rel="stylesheet" href="<?php echo U('Public/bower_components/bootstrap/dist/css/bootstrap.min.css');?>"/>
+    <link rel="stylesheet" href="<?php echo U('Public/css/style.css');?>"/>
     
     <!--<script src="http://localhost:3000/socket.io/socket.io.js"></script>-->
 	<?php if(isset($next_url)): ?><META HTTP-EQUIV="REFRESH" CONTENT="100;URL=<?php echo ($next_url); ?>?>" /><?php endif; ?>
@@ -157,12 +157,23 @@ console.log('user:'+{{Session::get('user')}});
 			</div><!-- collapse -->
 		</div><!-- container -->
 	</div><!-- navbar -->
+
+<script type="text/javascript" src="<?php echo U('Public/baidumap/detail.js');?>"></script>
+<!--<script defer="defer" src="<?php echo U('Public/baidumap/SearchInfoWindow_min.js');?>"></script>-->
+<link rel="stylesheet" href="<?php echo U('Public/baidumap/SearchInfoWindow_min.css');?>">
+
 <link rel="stylesheet" href="<?php echo U('Public/css/activity_detail.css');?>">
 
+<!--<script src="<?php echo U('Public/bower_components/bootstrap/js/tooltip.js');?>"></script>
+<script src="<?php echo U('Public/bower_components/bootstrap/js/popover.js');?>"></script>-->
+
 <!--<script src="http://api.map.baidu.com/api?v=1.5&ak=QnwWrBBxBewxsbWQIoua2DCe"></script>-->
-<script type="text/javascript">
+<script type="text/javascript">    
 $().ready(function(){
-    
+    <?php if(is_array($activity_members)): foreach($activity_members as $key=>$activity_member): ?>$('#head_div<?php echo ($activity_member["uid"]); ?>').popover();<?php endforeach; endif; ?>
+    //$("#testbutton").popover();
+    $('#creator_head_div').popover();
+
     $("#follow_activity").click(function(){
         //alert('sdfsdf');
         //console.log('follow activity');
@@ -312,41 +323,152 @@ $().ready(function(){
             $('#follow_take_btn_li').show();
         break;
     }
+
+
+    
+
+
 });
 
-
-
 //百度地图加载
-function initialize() {  
-    var map = new BMap.Map('map');
-    var top_right_navigation = new BMap.NavigationControl({anchor: BMAP_ANCHOR_TOP_RIGHT, type: BMAP_NAVIGATION_CONTROL_SMALL}); //右上角，仅包含平移和缩放按钮
-    var lon = <?php echo ($activity_detail['lon']); ?>;
-    var lat = <?php echo ($activity_detail['lat']); ?>;
-    var point = new BMap.Point(lon, lat);
-    map.centerAndZoom(point, 15);
-    var marker = new BMap.Marker(point);  // 创建标注
-    map.addOverlay(marker); 
-    map.addControl(top_right_navigation);
-    //marker.setAnimation(BMAP_ANIMATION_BOUNCE);
-    var sContent = "<h4 style='margin:0 0 5px 0;padding:0.2em 0'><?php echo ($activity_detail['alocation']); ?></h4>";
-    var infoWindow = new BMap.InfoWindow(sContent);  // 创建信息窗口对象
-    marker.addEventListener("click", function(){          
-       this.openInfoWindow(infoWindow);
-       //图片加载完毕重绘infowindow
-       // document.getElementById('imgDemo').onload = function (){
-       //     infoWindow.redraw();   //防止在网速较慢，图片未加载时，生成的信息框高度比图片的总高度小，导致图片部分被隐藏
-       // }
-    });
-}
+    function initialize() {
+        // var script = document.createElement("script"); 
+        // script.src = "http://www.sport.com/Public/baidumap/SearchInfoWindow_min.js";
+        // document.body.appendChild(script);
+
+        var map = new BMap.Map('map');
+        var top_right_navigation = new BMap.NavigationControl({anchor: BMAP_ANCHOR_TOP_RIGHT, type: BMAP_NAVIGATION_CONTROL_SMALL}); //右上角，仅包含平移和缩放按钮
+        var lon = <?php echo ($activity_detail['lon']); ?>;
+        var lat = <?php echo ($activity_detail['lat']); ?>;
+        var point = new BMap.Point(lon, lat);
+        map.centerAndZoom(point, 15);
+        var marker = new BMap.Marker(point);  // 创建标注
+        //marker.disableDragging();//不可拖拽    
+        function G(id) {
+            return document.getElementById(id);
+        }
+        // var content = '<div style="margin:0;line-height:20px;padding:2px;">' +
+        //                 '地址：北京市海淀区上地十街10号<br/>电话：(010)59928888<br/>简介：百度大厦位于北京市海淀区西二旗地铁站附近，为百度公司综合研发及办公总部。' +
+        //               '</div>';    
+        var content = '<div style="margin:0;line-height:20px;padding:2px;">' +
+                        '地址：<?php echo ($activity_detail["alocation"]); ?><br/>' +
+                        
+                      '</div>';
+
+
+        //todo tel
+        var opts = {
+            width : 200,     // 信息窗口宽度
+            height: 100,     // 信息窗口高度
+            title : "<?php echo ($activity_detail['alocation']); ?>" , // 信息窗口标题
+            enableAutoPan:true,
+            enableCloseOnClick:true,
+            enableMessage:true,//设置允许信息窗发送短息
+            message:"活动地点:<?php echo ($activity_detail['alocation']); ?>"
+        }
+
+        var infoWindow = new BMap.InfoWindow( content, opts);
+        // {
+        //     title  : "<?php echo ($activity_detail['alocation']); ?>",      //标题
+        //     width  : 290,             //宽度
+        //     height : 105,              //高度
+        //     panel  : "panel",         //检索结果面板
+        //     enableAutoPan : true,     //自动平移
+        //     searchTypes   :[
+        //         BMAPLIB_TAB_SEARCH,   //周边检索
+        //         BMAPLIB_TAB_TO_HERE,  //到这里去
+        //         BMAPLIB_TAB_FROM_HERE //从这里出发
+        //     ]
+        // });
+
+        marker.addEventListener("click", function(e){
+            this.openInfoWindow(infoWindow);
+            //searchInfoWindow.open(marker);
+        });
+
+
+        map.addOverlay(marker); 
+        map.addControl(top_right_navigation);
+        /*
+        var ac = new BMap.Autocomplete(    //建立一个自动完成的对象
+        {
+            "input" : "suggestId"
+            ,"location" : map
+        });
+
+        ac.addEventListener("onhighlight", function(e) {  //鼠标放在下拉列表上的事件
+            var str = "";
+            var _value = e.fromitem.value;
+            var value = "";
+            if (e.fromitem.index > -1) {
+                value = _value.province +  _value.city +  _value.district +  _value.street +  _value.business;
+            }    
+            str = "FromItem<br />index = " + e.fromitem.index + "<br />value = " + value;
+            
+            value = "";
+            if (e.toitem.index > -1) {
+                _value = e.toitem.value;
+                value = _value.province +  _value.city +  _value.district +  _value.street +  _value.business;
+            }    
+            str += "<br />ToItem<br />index = " + e.toitem.index + "<br />value = " + value;
+            G("searchResultPanel").innerHTML = str;
+        });
+
+        var myValue;
+        ac.addEventListener("onconfirm", function(e) {    //鼠标点击下拉列表后的事件
+        var _value = e.item.value;
+            myValue = _value.province +  _value.city +  _value.district +  _value.street +  _value.business;
+            G("searchResultPanel").innerHTML ="onconfirm<br />index = " + e.item.index + "<br />myValue = " + myValue;
+            
+            setPlace();
+        });
+
+        function setPlace(){
+            //map.clearOverlays();    //清除地图上所有覆盖物
+            function myFun(){
+                var pp = local.getResults().getPoi(0).point;    //获取第一个智能搜索的结果
+                map.centerAndZoom(pp, 18);
+                map.addOverlay(new BMap.Marker(pp));    //添加标注
+            }
+            var local = new BMap.LocalSearch(map, { //智能搜索
+                onSearchComplete: myFun
+            });
+            local.search(myValue);
+        }
+        */
+
+
+        //marker.setAnimation(BMAP_ANIMATION_BOUNCE);
+        //var sContent = "<h4 style='margin:0 0 5px 0;padding:0.2em 0'><?php echo ($activity_detail['alocation']); ?></h4>";
+        //var infoWindow = new BMap.InfoWindow(sContent);  // 创建信息窗口对象
+        // marker.addEventListener("click", function(){          
+        //    this.openInfoWindow(infoWindow);
+        //    //图片加载完毕重绘infowindow
+        //    // document.getElementById('imgDemo').onload = function (){
+        //    //     infoWindow.redraw();   //防止在网速较慢，图片未加载时，生成的信息框高度比图片的总高度小，导致图片部分被隐藏
+        //    // }
+        // });
+    }
+
+
 function loadScript() {  
     var script = document.createElement("script");  
-    script.src = "http://api.map.baidu.com/api?v=1.5&ak=QnwWrBBxBewxsbWQIoua2DCe&callback=initialize";
+    //script.src = "http://api.map.baidu.com/api?v=1.5&ak=QnwWrBBxBewxsbWQIoua2DCe";
+    
+
+    script.src = "http://api.map.baidu.com/api?v=2.0&ak=QnwWrBBxBewxsbWQIoua2DCe&callback=initialize";
+    document.body.appendChild(script);
+
+
     //此为v1.5版本的引用方式  
-    // http://api.map.baidu.com/api?v=1.5&ak=您的密钥&callback=initialize"; 
+    // http://api.map.baidu.com/api?v=1.5&ak=您的密钥&callback=initialize";
     //此为v1.4版本及以前版本的引用方式  
-    document.body.appendChild(script);  
+    
+    
 }
+
 window.onload = loadScript;
+
 </script>  
 
 <div class="container">
@@ -383,7 +505,7 @@ window.onload = loadScript;
                                 暂无人关注<?php endif; ?>
                         </span>
                         <span class="take_cnt_span" id="take_cnt">
-                            <?php if($activity_detail['take_cnt'] > 0): echo ($activity_detail['take_cnt']); ?>人想参加
+                            <?php if($activity_detail['take_cnt'] > 0): echo ($activity_detail['take_cnt']); ?>人已参加
                             <?php else: ?>
                                 暂无人参加<?php endif; ?>
                         </span>
@@ -403,10 +525,12 @@ window.onload = loadScript;
                 </ul>
             </div>
         </div>
+
         <div class="detail_bottom">
             <h3>活动详情</h3>
             <?php echo ($activity_detail['acontent']); ?>
         </div>
+
         <div class="activity_comment">
             <h3>活动讨论</h3>
             <table class="table">
@@ -424,16 +548,65 @@ window.onload = loadScript;
                 <?php else: ?>
                     暂无发言<?php endif; ?>
             </table>
-            <a href="<?php echo U('activitycomment/create');?>?aid=<?php echo ($activity_detail["aid"]); ?>">新建话题</a>
+            <a href="<?php echo U('activitycomment/create');?>/<?php echo ($activity_detail["aid"]); ?>">新建话题</a>
         </div>
+        <!--活动内容分享-->
+        <div class="activity_share">
+
+        </div>
+
     </div>
+
+
 
     <div class="col-md-4">
         <div class="map_container">
             地图
-            <div id="map" style="width:300px;height:300px"></div>
+            <div id="map" style="width:400px;height:300px"></div>
+            <!---->
         </div>
-        <div> 标签</div>
+        <div class="activity_initor">
+            <h3>活动发起人</h3>
+            <div class="activity_member_head" id="creator_head_div" data-container="body" data-animation="true" rel="popover" data-placement="top" data-html="true" data-trigger="hover" 
+                data-content="
+            <div class='member_float_div'>
+                <div class='member_float_head'><img src='<?php echo U('public/image'); echo ($activity_creator['head_iminurl']); ?>'/></div>
+                <div class='member_float_head_detail'>
+                    <div>
+                        <a href='<?php echo U('user/detail');?>/<?php echo ($activity_creator['uid']); ?>'>
+                            <?php echo ($activity_creator['username']); ?>
+                         </a>
+                    </div>
+                    <div>发起人</div>
+                </div>
+            </div>">
+                <a href="<?php echo U('user/detail');?>/<?php echo ($activity_creator['uid']); ?>"><img class="activity_member_head_img" src="<?php echo U('public/image'); echo ($activity_creator['head_iminurl']); ?>" /></a>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="activity_member">
+            <h3>活动成员(<?php echo ($activity_detail['take_cnt']); ?>人参加，<?php echo ($activity_detail['follow_cnt']); ?>人关注)</h3>
+            <?php if(is_array($activity_members)): foreach($activity_members as $key=>$activity_member): ?><div class="activity_member_head" id="head_div<?php echo ($activity_member['uid']); ?>" data-container="body" data-animation="true" rel="popover" data-placement="top" data-html="true" data-trigger="hover" 
+                data-content="
+                    <div class='member_float_div'>
+                        <div class='member_float_head'><img src='<?php echo U('public/image'); echo ($activity_member['head_iminurl']); ?>'/></div>
+                        <div class='member_float_head_detail'>
+                            <div>
+                                <a href='<?php echo U('user/detail');?>/<?php echo ($activity_member['uid']); ?>'>
+                                    <?php echo ($activity_member['username']); ?>
+                                 </a>
+                            </div>
+                            <div><?php echo ($activity_member['actype']); ?></div>
+                        </div>
+                    </div>">
+                    <a href="<?php echo U('user/detail');?>/<?php echo ($activity_member['uid']); ?>"><img class="activity_member_head_img" src="<?php echo U('public/image'); echo ($activity_member['head_iminurl']); ?>" /></a>
+                </div><?php endforeach; endif; ?>
+
+            <!--<button id="testbutton" type="button" class="btn btn-lg btn-danger" data-container="body" data-animation="true" rel="popover" data-placement="top" data-trigger="hover" data-content="And here's amazing content.">aaa</button>-->
+        </div>
+        <div class="clearfix"></div>
+
+
     </div>
 
 
